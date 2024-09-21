@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css-file/homie.css">
   <title>Welcome to our website</title>
 </head>
@@ -31,8 +32,21 @@
     </div>
   </section>
 
-<footer class="footer">
-  <p>All rights reserved &copy;</p>
+  <footer>
+
+    <a href="login.php" class="login-button">Log In</a>
+
+    <div class="footerContainer">
+        <div class="socialIcons">
+            <a href=""><i class="fa-brands fa-github"></i>
+          <span class="social-title">GitHub</span></a>
+        </div>
+    </div>
+
+    <div class="footerBottom">
+        <p>Rookies School Management &copy2024</p>
+    </div>
+
 </footer>
 </body>
 </html>

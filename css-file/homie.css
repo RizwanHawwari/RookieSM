@@ -11,7 +11,6 @@ body {
     background-color: #ffffff;
 }
 
-/* Header styling */
 .header {
     position: fixed;
     top: 0;
@@ -75,12 +74,11 @@ body {
     color: green;
 }
 
-/* Hero section */
 .hero-section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 100px 10%; /* Adjust padding to account for the fixed header */
+    padding: 100px 10%;
     background-color: #00bd82;
     margin-top: 80px; /* ngasih jarak ke bawah */
 }
@@ -110,7 +108,7 @@ body {
     border-radius: 10px;
 }
 
-/* Responsive design for smaller screens */
+/* responsif ea ea */
 @media (max-width: 768px) {
     .hero-section {
         flex-direction: column;
@@ -135,13 +133,63 @@ body {
     }
 }
 
-.footer {
-    background-color: #ffffff;
-    color: #012635;
+footer {
+    display: flex;
+    background-color: #111;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.socialIcons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.socialIcons a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* color: black; */
+}
+
+.socialIcons a i {
+    font-size: 2em;
+    color: rgb(255, 255, 255);
+}
+
+.social-title {
+    font-size: 14px;
+    color: white;
+    margin-top: 5px;
+}
+
+.footerBottom {
+    background-color: #5c5c5c;
+    padding: 10px;
     text-align: center;
-    padding: 15px 0;
-    position: relative;
-    bottom: 0;
     width: 100%;
+}
+
+.footerBottom p {
+    color: white;
+}
+
+.login-button {
+    background-color: #444;
+    color: white;
+    padding: 10px 20px;
+    border: none; /* No border */
+    border-radius: 5px;
+    text-decoration: none;
     font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+    /* display: inline-block; */
+}
+
+.login-button:hover {
+    background-color: #666;
 }
