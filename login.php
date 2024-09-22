@@ -70,7 +70,7 @@ if (isset($_POST['login'])) {
                 setcookie("cookie_username", $username, time() + (60 * 60 * 24 * 30), "/");
                 setcookie("cookie_password", md5($password), time() + (60 * 60 * 24 * 30), "/");
             }
-            header("location:anggota.php"); // Arahkan ke halaman anggota setelah login berhasil
+            header("location:home.php"); // Arahkan ke halaman home setelah login berhasil
         }
     }
 }
