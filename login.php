@@ -32,7 +32,7 @@ if (isset($_COOKIE['cookie_username']) && isset($_COOKIE['cookie_password'])) {
 
 // Jika sudah login, arahkan ke halaman anggota
 if (isset($_SESSION['session_username'])) {
-    header("location:anggota.php");
+    header("location:home.php");
     exit();
 }
 
@@ -123,7 +123,7 @@ if (isset($_POST['login'])) {
 
         <!-- Tombol login -->
         <input type="submit" name="login" class="btn" value="Login" />
-        
+
         <div class="signup-link">
           <a href="register.php">Sign Up</a>
         </div>
