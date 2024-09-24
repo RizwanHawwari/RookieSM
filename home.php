@@ -61,7 +61,7 @@
     </div>
 
     <div class="footerBottom">
-      <p>Rookies School Management &copy2024</p>
+      <p>Rookies Evolution &copy2024</p>
     </div>
 
   </footer>
