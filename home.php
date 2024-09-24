@@ -44,9 +44,11 @@
       <h2>About Us</h2>
       <p>Selamat datang di Free Course PPLG SMK Citra Negara! Kami adalah platform pembelajaran online gratis yang
         dirancang untuk siswa jurusan Pengembangan Perangkat Lunak dan Gim (PPLG), dengan fokus pada pengembangan web.
-        Kursus yang kami tawarkan meliputi HTML & CSS, MySQL, PHP, dan JavaScript. Kami bertujuan untuk memberikan akses
-        materi belajar yang praktis dan relevan dengan kebutuhan industri teknologi.</p>
+        Kursus yang kami tawarkan meliputi HTML & CSS, MySQL, PHP, dan JavaScript.</p>
     </div>
+    <figure>
+      <img src="hero-img/hero.jpg" alt="about us">
+    </figure>
   </section>
 
   <footer>
