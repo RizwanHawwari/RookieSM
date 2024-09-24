@@ -11,8 +11,13 @@ body {
   background-color: #ffffff;
 }
 
+::selection {
+  background-color: #4caf4c;
+  color: #fff;
+}
+
 .header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -80,7 +85,7 @@ body {
   justify-content: space-between;
   padding: 100px 10%;
   background-color: #00bd82;
-  /* margin-top: 80px; */
+  margin-top: 80px;
 }
 
 .hero-text {
@@ -108,12 +113,44 @@ body {
   border-radius: 10px;
 }
 
+.nav-btn {
+  margin-top: 40px;
+}
+
+.register-hero {
+  background-color: transparent;
+  color: #fff;
+  padding: 9px 20px;
+  border: 2px solid #444;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-top: 50px;
+  transition: 0.3s;
+  margin: 0 10px;
+}
+
+.login-hero {
+  background-color: #444;
+  color: white;
+  padding: 10px 20px;
+  border: none; /* No border */
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-top: 50px;
+  transition: background-color 0.3s ease;
+}
+
 .about {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 100px 10%;
+  padding: 120px 10%;
   background-color: #00bd82;
+  color: #333;
+}
+
+.about h2 {
+  font-size: 3em;
+  margin-bottom: 10px;
 }
 
 /* responsif ea ea */
@@ -138,6 +175,11 @@ body {
 
   .hero-text p {
     font-size: 1em;
+  }
+
+  .nav-btn {
+    margin-left: 20px;
+    margin-bottom: 40px;
   }
 }
 
@@ -185,19 +227,10 @@ footer {
   color: white;
 }
 
-.login-button {
-  background-color: #444;
-  color: white;
-  padding: 10px 20px;
-  border: none; /* No border */
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-  margin-bottom: 15px;
-  /* display: inline-block; */
+.login-hero:hover {
+  background-color: #666;
 }
 
-.login-button:hover {
-  background-color: #666;
+.register-hero:hover {
+  box-shadow: 2px 3px 3px 1px rgba(0, 0, 0, 0.2);
 }
