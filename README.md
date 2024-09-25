@@ -1,49 +1,53 @@
-# RookieSM - Rookies School Management
+# Free Course PPLG SMK Citra Negara
+
+Welcome to the **Free Course PPLG SMK Citra Negara** repository! This website is designed to provide free learning access for students in the Software Engineering and Game Development (PPLG) program at SMK Citra Negara. We focus on web development and offer courses in essential technologies needed in the industry.
 
 ## Description
 
-**RookieSM** is a school management application designed to streamline the management of school data, including student, teacher, and subject information. This application features a user-friendly interface and efficient functionality to assist school administrators in managing data effectively.
+This platform provides free courses in:
+- **HTML & CSS**: Building the structure and design of web pages.
+- **MySQL**: Managing databases for web applications.
+- **PHP**: Developing dynamic web applications.
+- **JavaScript**: Adding interactivity to web pages.
 
-## Key Features
+## Vision and Mission
 
-- **Student Management**: Add, edit, and delete student data.
-- **Teacher Management**: Add, edit, and delete teacher data, including associating them with the subjects they teach.
-- **Subject Management**: Add, edit, and delete subjects available at the school.
-- **Data Validation**: Ensure data accuracy with email and phone number validation features.
+**Vision**: To prepare PPLG students to become competent web developers who are ready to compete in the technology industry.
 
-## Technology
+**Mission**:
+- To provide easily accessible and understandable learning materials.
+- To guide students from basic concepts to real-world practices.
+- To encourage self-directed learning and skill development through project-based case studies.
 
-This application is built using:
-- PHP (Native)
-- MySQL (Database)
+## Features
+
+- **Free Courses**: All provided materials are accessible at no cost.
+- **Flexible Learning**: Access anytime and anywhere.
+- **Up-to-Date Content**: Relevant material in line with industry developments.
 
 ## Installation
 
-1. Clone this repository:
-    ```bash
-    git clone https://github.com/RizwanHawwari/RookieSM.git
-    ```
-2. Navigate to the project directory:
-    ```bash
-    cd RookieSM
-    ```
-3. Configure the database settings in the `config.php` file with your database credentials.
-4. Import the SQL file from `database.sql` into your MySQL database.
-5. Access the application through your local web server (e.g., XAMPP, WAMP).
+1. Clone this repository to your computer:
+   ```bash
+   git clone https://github.com/RizwanHawwari/RookieSM.git
+   ```
+   
+2. Open the `index.html` file in your browser to access the website.
 
-## Usage
+## Contribution
 
-1. **Login as Admin**: Log into the system to access the administrative features.
-2. **Manage Data**: Use the interface to add, edit, or delete student, teacher, and subject data.
+We greatly appreciate contributions from everyone. If you would like to contribute, please follow these steps:
 
-## Contributing
-
-If you would like to contribute to this project, please fork the repository and submit a pull request with your changes. Be sure to follow the contribution guidelines listed in the `CONTRIBUTING.md` file (if available).
+1. Fork this repository.
+2. Create a new branch (`git checkout -b feature-xyz`).
+3. Make your changes and commit them (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature-xyz`).
+5. Create a pull request.
 
 ## Contact
 
-If you have any questions or feedback regarding this application, feel free to contact me at:
-- Email: rzwnhawari@gmail.com
-- GitHub: [RizwanHawwari](https://github.com/RizwanHawwari)
+If you have any questions or suggestions, please reach out to us at [rzwnhawari@gmail.com](mailto:rzwnhawari@gmail.com).
 
-Thank you for using **RookieSM**! I hope this application proves useful in managing your school data.
+---
+
+Thank you for visiting our repository! We hope this website is beneficial for learning.

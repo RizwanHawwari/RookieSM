@@ -33,7 +33,7 @@
             <div class="team-member">
                 <img src="img-team/rizwan.jpg" alt="Anggota Tim 1">
                 <h2>Rizwan Hawwari</h2>
-                <p>Backend Developer & Leader</p>
+                <p>Leader & Backend Developer</p>
             </div>
             <div class="team-member">
                 <img src="img-team/arkan.jpg" alt="Anggota Tim 2">
