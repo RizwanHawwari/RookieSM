@@ -55,36 +55,36 @@
   <h2>Product</h2>
     <div id="product">
       <div class="product-box">
-        <img src="img-logo/images.png" alt="html&css" class="product-img">
+        <img src="img-logo/htmlcss-removebg-preview.png" alt="html&css" class="product-img">
         <h2 class="product-title">HTML & CSS</h2>
-        <p class="product-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, totam.</p>
+        <p class="product-desc">Kami membuat course ini untuk mempelajari HTML dan CSS mulai dari dasar dan mudah dipahami.</p>
         <p class="product-price">FREE</p>
         <div class="path">
           <a href="#">Learn</a>
         </div>
       </div>
       <div class="product-box">
-        <img src="img-logo/javascript.png" alt="JavaScript" class="product-img">
+        <img src="img-logo/js.png" alt="JavaScript" class="product-img">
         <h2 class="product-title">JavaScript</h2>
-        <p class="product-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, autem.</p>
+        <p class="product-desc">Kami membuat course ini untuk mempelajari JavaScript mulai dari dasar dan mudah dipahami.</p>
         <p class="product-price">FREE</p>
         <div class="path">
           <a href="#">Learn</a>
         </div>
       </div>
       <div class="product-box">
-        <img src="img-logo/php.jpg" alt="php" class="product-img">
+        <img src="img-logo/pehape-removebg-preview.png" alt="php" class="product-img">
         <h2 class="product-title">PHP</h2>
-        <p class="product-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, voluptas!</p>
+        <p class="product-desc">Kami membuat course ini untuk mempelajari PHP mulai dari dasar dan mudah dipahami.</p>
         <p class="product-price">FREE</p>
         <div class="path">
           <a href="#">Learn</a>
         </div>
       </div>
       <div class="product-box">
-        <img src="img-logo/mysql.png" alt="MySQL" class="product-img">
+        <img src="img-logo/sql-removebg-preview.png" alt="MySQL" class="product-img">
         <h2 class="product-title">MySQL</h2>
-        <p class="product-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem, distinctio?</p>
+        <p class="product-desc">Kami membuat course ini untuk mempelajari MySQL mulai dari dasar dan mudah dipahami.</p>
         <p class="product-price">FREE</p>
         <div class="path">
           <a href="#">Learn</a>
