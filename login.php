@@ -5,7 +5,7 @@ session_start();
 $host_db    = "localhost";
 $user_db    = "root";
 $pass_db    = "";
-$nama_db    = "logs";
+$nama_db    = "login";
 $koneksi    = mysqli_connect($host_db, $user_db, $pass_db, $nama_db);
 
 // Menyiapkan variabel
@@ -18,7 +18,7 @@ if (isset($_COOKIE['cookie_username']) && isset($_COOKIE['cookie_password'])) {
     $cookie_username = $_COOKIE['cookie_username'];
     $cookie_password = $_COOKIE['cookie_password'];
 
-    // Cek username di databaseA
+    // Cek username di database
     $sql1 = "SELECT * FROM login WHERE username = '$cookie_username'";
     $q1   = mysqli_query($koneksi, $sql1);
     $r1   = mysqli_fetch_array($q1);
@@ -70,7 +70,7 @@ if (isset($_POST['login'])) {
                 setcookie("cookie_username", $username, time() + (60 * 60 * 24 * 30), "/");
                 setcookie("cookie_password", md5($password), time() + (60 * 60 * 24 * 30), "/");
             }
-            header("location:home.php"); // Arahkan ke halaman anggota setelah login berhasil
+            header("location:home.php"); // Arahkan ke halaman home setelah login berhasil
         }
     }
 }
@@ -123,7 +123,7 @@ if (isset($_POST['login'])) {
 
         <!-- Tombol login -->
         <input type="submit" name="login" class="btn" value="Login" />
-        
+
         <div class="signup-link">
           <a href="register.php">Sign Up</a>
         </div>
