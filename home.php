@@ -27,11 +27,11 @@
 
   <section class="hero-section">
     <div class="hero-text">
-      <h1>Welcome to Free Course SMK CITRA NEGARA</h1>
+      <h1>Choose Your Path and Start Learning Today</h1>
       <p>Empowering students through innovation and technology.</p>
       <div class="nav-btn">
         <a href="login.php" class="login-hero">Log In</a>
-        <a href="register.php" class="register-hero">Get Started</a>
+        <a href="register.php" class="register-hero">Get Started &gt;&gt;</a>
       </div>
     </div>
     <div class="hero-image">
@@ -52,12 +52,13 @@
   </section>
 
   <section class="product-course">
-  <h2>Product</h2>
+    <h2>Product</h2>
     <div id="product">
       <div class="product-box">
         <img src="img-logo/htmlcss-removebg-preview.png" alt="html&css" class="product-img">
         <h2 class="product-title">HTML & CSS</h2>
-        <p class="product-desc">Kami membuat course ini untuk mempelajari HTML dan CSS mulai dari dasar dan mudah dipahami.</p>
+        <p class="product-desc">Kami membuat course ini untuk mempelajari HTML dan CSS mulai dari dasar dan mudah
+          dipahami.</p>
         <p class="product-price">FREE</p>
         <div class="path">
           <a href="#">Learn</a>
@@ -66,7 +67,8 @@
       <div class="product-box">
         <img src="img-logo/js.png" alt="JavaScript" class="product-img">
         <h2 class="product-title">JavaScript</h2>
-        <p class="product-desc">Kami membuat course ini untuk mempelajari JavaScript mulai dari dasar dan mudah dipahami.</p>
+        <p class="product-desc">Kami membuat course ini untuk mempelajari JavaScript mulai dari dasar dan mudah
+          dipahami.</p>
         <p class="product-price">FREE</p>
         <div class="path">
           <a href="#">Learn</a>
