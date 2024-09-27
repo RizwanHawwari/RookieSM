@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="css-file/haha.css">
+  <link rel="stylesheet" href="css-file/homie.css">
   <title>Free Course | CN</title>
 </head>
 
@@ -27,15 +27,15 @@
   </header>
 
   <section class="hero-section">
-    <div class="hero-text section">
+    <div class="hero-text">
       <h1>Choose Your Path and Start Learning Today</h1>
       <p>Empowering students through innovation and technology.</p>
-      <div class="nav-btn section">
+      <div class="nav-btn">
         <a href="login.php" class="login-hero">Log In</a>
         <a href="register.php" class="register-hero">Get Started &gt;&gt;</a>
       </div>
     </div>
-    <div class="hero-image section">
+    <div class="hero-image">
       <img src="hero-img/cookie.svg" alt="Rookies Evolution">
     </div>
   </section>
@@ -129,6 +129,33 @@
       </div>
     </div>
   </section>
+  
+  <section class="team-section" id="team">
+  <h1 class="team-title">Our Team</h1>
+  <div class="team">
+      <div class="team-member">
+          <img src="img-team/rizwan.jpg" alt="Anggota Tim 1">
+          <h2>Rizwan</h2>
+          <p>Leader & Backend Developer</p>
+      </div>
+      <div class="team-member">
+          <img src="img-team/arkan.jpg" alt="Anggota Tim 2">
+          <h2>Arkaan</h2>
+          <p>Backend Developer</p>
+      </div>
+      <div class="team-member">
+          <img src="img-team/azzam.jpg" alt="Anggota Tim 3">
+          <h2>Azzam</h2>
+          <p>Frontend Developer</p>
+      </div>
+      <div class="team-member">
+          <img src="img-team/abrisam.jpg" alt="Anggota Tim 4">
+          <h2>Abrisam</h2>
+          <p>Frontend Developer</p>
+      </div>
+  </div>
+</section>
+  
   <footer>
 
     <div class="footerContainer">
