@@ -77,7 +77,7 @@
           <div class="testimonial">
             <p>"Platform ini benar-benar memudahkan saya belajar pemrograman. Saya bahkan bisa mengaksesnya kapan
               saja!"</p>
-            <h3>- Putri, Siswa Kelas 11</h3>
+            <h3>- Putri, Siswi Kelas 11</h3>
           </div>
         </div>
       </section>
