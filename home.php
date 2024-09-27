@@ -22,6 +22,7 @@
       <a href="home.php">Home</a>
       <a href="#about">About</a>
       <a href="#product">Product</a>
+      <a href="#team">Our Team</a>
     </nav>
   </header>
 
