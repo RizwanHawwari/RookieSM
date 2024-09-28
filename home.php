@@ -32,7 +32,7 @@
       <p>Empowering students through innovation and technology.</p>
       <div class="nav-btn">
         <a href="login.php" class="login-hero">Log In</a>
-        <a href="register.php" class="register-hero">Get Started &gt;&gt;</a>
+        <a href="#product" class="register-hero">Get Started &gt;&gt;</a>
       </div>
     </div>
     <div class="hero-image">
@@ -43,9 +43,8 @@
   <section class="about">
     <div class="section aboutus">
       <h2 id="about">About Us</h2>
-      <p>Selamat datang di Free Course PPLG SMK Citra Negara! Kami adalah platform pembelajaran online gratis yang
-        dirancang untuk siswa jurusan Pengembangan Perangkat Lunak dan Gim (PPLG), dengan fokus pada pengembangan web.
-        Kursus yang kami tawarkan meliputi HTML & CSS, MySQL, PHP, dan JavaScript.</p>
+      <p>Selamat datang di Free Course SMK Citra Negara! Kami adalah platform pembelajaran online gratis yang
+        dirancang untuk siswa SMK Citra Negara.</p>
       <h2>Why Choose Us?</h2>
       <div class="features-container">
         <div class="feature-box">
