@@ -41,7 +41,7 @@
   </section>
 
   <section class="about">
-    <div class="section">
+    <div class="section aboutus">
       <h2 id="about">About Us</h2>
       <p>Selamat datang di Free Course PPLG SMK Citra Negara! Kami adalah platform pembelajaran online gratis yang
         dirancang untuk siswa jurusan Pengembangan Perangkat Lunak dan Gim (PPLG), dengan fokus pada pengembangan web.
@@ -129,33 +129,33 @@
       </div>
     </div>
   </section>
-  
+
   <section class="team-section" id="team">
-  <h1 class="team-title">Our Team</h1>
-  <div class="team">
+    <h1 class="team-title">Our Team</h1>
+    <div class="team">
       <div class="team-member">
-          <img src="img-team/rizwan.jpg" alt="Anggota Tim 1">
-          <h2>Rizwan</h2>
-          <p>Leader & Backend Developer</p>
+        <img src="img-team/rizwan.jpg" alt="Anggota Tim 1">
+        <h2>Rizwan</h2>
+        <p>Leader & Backend Developer</p>
       </div>
       <div class="team-member">
-          <img src="img-team/arkan.jpg" alt="Anggota Tim 2">
-          <h2>Arkaan</h2>
-          <p>Backend Developer</p>
+        <img src="img-team/arkan.jpg" alt="Anggota Tim 2">
+        <h2>Arkaan</h2>
+        <p>Backend Developer</p>
       </div>
       <div class="team-member">
-          <img src="img-team/azzam.jpg" alt="Anggota Tim 3">
-          <h2>Azzam</h2>
-          <p>Frontend Developer</p>
+        <img src="img-team/azzam.jpg" alt="Anggota Tim 3">
+        <h2>Azzam</h2>
+        <p>Frontend Developer</p>
       </div>
       <div class="team-member">
-          <img src="img-team/abrisam.jpg" alt="Anggota Tim 4">
-          <h2>Abrisam</h2>
-          <p>Frontend Developer</p>
+        <img src="img-team/abrisam.jpg" alt="Anggota Tim 4">
+        <h2>Abrisam</h2>
+        <p>Frontend Developer</p>
       </div>
-  </div>
-</section>
-  
+    </div>
+  </section>
+
   <footer>
 
     <div class="footerContainer">
