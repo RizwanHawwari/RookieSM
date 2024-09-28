@@ -66,22 +66,6 @@
             kesempatan karier.</p>
         </div>
       </div>
-      <section class="about-testimonials">
-        <h2>What Our Students Say</h2>
-        <div class="testimonials-container">
-          <div class="testimonial">
-            <p>"Belajar di Free Course SMK Citra Negara sangat membantu saya memahami dasar-dasar pengembangan web.
-              Materinya lengkap dan mudah dipahami!"</p>
-            <h3>- Ahmad, Siswa Kelas 12</h3>
-          </div>
-          <div class="testimonial">
-            <p>"Platform ini benar-benar memudahkan saya belajar pemrograman. Saya bahkan bisa mengaksesnya kapan
-              saja!"</p>
-            <h3>- Putri, Siswi Kelas 11</h3>
-          </div>
-        </div>
-      </section>
-
     </div>
     </div>
   </section>
@@ -130,9 +114,25 @@
     </div>
   </section>
 
+  <section class="about-testimonials">
+    <h2 class="section">What Our Students Say</h2>
+    <div class="testimonials-container section">
+      <div class="testimonial">
+        <p>"Belajar di Free Course SMK Citra Negara sangat membantu saya memahami dasar-dasar pengembangan web.
+          Materinya lengkap dan mudah dipahami!"</p>
+        <h3>- Ahmad, Siswa Kelas 12</h3>
+      </div>
+      <div class="testimonial">
+        <p>"Platform ini benar-benar memudahkan saya belajar pemrograman. Saya bahkan bisa mengaksesnya kapan
+          saja!"</p>
+        <h3>- Putri, Siswi Kelas 11</h3>
+      </div>
+    </div>
+  </section>
+
   <section class="team-section" id="team">
-    <h1 class="team-title">Our Team</h1>
-    <div class="team">
+    <h1 class="team-title section">Our Team</h1>
+    <div class="team section">
       <div class="team-member">
         <img src="img-team/rizwan.jpg" alt="Anggota Tim 1">
         <h2>Rizwan</h2>

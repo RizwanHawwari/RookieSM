@@ -278,7 +278,7 @@ footer {
 /*course content */
 
 .product-course {
-  margin-top: -80px;
+  /* margin-top: -80px; */
   /* display: flex */
   padding: 120px 10%;
   background-color: #00bd82;
@@ -399,7 +399,9 @@ footer {
   font-size: 1.1em;
 }
 .about-testimonials {
-  margin-top: 60px;
+  padding: 0px 10%;
+  background-color: #00bd82;
+  color: #333;
   text-align: center;
 }
 .about-testimonials h2 {
@@ -408,13 +410,12 @@ footer {
 }
 .testimonials-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
 }
 .testimonial {
   background-color: #ffffff;
   color: #333;
-  width: 90%;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -443,6 +444,11 @@ footer {
     width: 25%;
     height: 100%;
     margin: 0px 10px;
+  }
+
+  .testimonial {
+    width: 25%;
+    margin: 0 10px;
   }
 }
 
@@ -517,6 +523,7 @@ footer {
   }
 
   #product {
+    margin-top: -150px;
     flex-direction: column;
   }
 }
