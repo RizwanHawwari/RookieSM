@@ -52,6 +52,10 @@ body {
   font-weight: 600;
 }
 
+.navbar.navbar-light {
+  background-color: #ffffff !important;
+}
+
 .navbar a {
   font-size: 18px;
   color: #012635;
@@ -144,6 +148,12 @@ body {
   font-size: 16px;
   margin-top: 50px;
   transition: background-color 0.3s ease;
+}
+
+.login-hero:hover,
+.register-hero:hover {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .about {
@@ -261,6 +271,7 @@ footer {
   padding: 10px;
   text-align: center;
   width: 100%;
+  height: 40px;
 }
 
 .footerBottom p {
@@ -370,9 +381,11 @@ footer {
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   transition: transform 0.3s;
+  box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.5);
 }
 .feature-box:nth-child(1) {
   order: 2;
@@ -418,9 +431,11 @@ footer {
   color: #333;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   position: relative;
+  box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.5);
 }
 .testimonial:before {
   content: "“";
@@ -458,6 +473,7 @@ footer {
     flex-direction: column;
     text-align: center;
     padding: 20px 10%;
+    margin-top: 140px;
   }
 
   .features-container,
@@ -499,14 +515,6 @@ footer {
     font-size: 1em;
   }
 
-  .logo {
-    font-size: 10px;
-  }
-
-  .navbar a {
-    font-size: 10px;
-  }
-
   .nav-btn {
     margin-left: 20px;
     margin-bottom: 40px;
@@ -525,5 +533,13 @@ footer {
   #product {
     margin-top: -150px;
     flex-direction: column;
+  }
+
+  .team {
+    margin-top: -180px;
+  }
+
+  .team-member {
+    margin-bottom: 35px;
   }
 }
