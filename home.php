@@ -152,23 +152,27 @@
     <h1 class="team-title section">Our Team</h1>
     <div class="team section">
       <div class="team-member">
-        <img src="img-team/rizwan.jpg" alt="Anggota Tim 1">
-        <h2>Rizwan</h2>
+        <img src="team-img/rizwan.jpg" alt="Anggota Tim 1">
+        <h2>Rizwan Hawwari</h2>
+        <br>
         <p>Leader & Backend Developer</p>
       </div>
       <div class="team-member">
-        <img src="img-team/arkan.jpg" alt="Anggota Tim 2">
-        <h2>Arkaan</h2>
+        <img src="team-img/arkan.jpg" alt="Anggota Tim 2">
+        <h2>M. Arkaan Syafii <br> Asma</h2>
+        <br>
         <p>Backend Developer</p>
       </div>
       <div class="team-member">
-        <img src="img-team/azzam.jpg" alt="Anggota Tim 3">
-        <h2>Azzam</h2>
+        <img src="team-img/azzam.jpg" alt="Anggota Tim 3">
+        <h2>Azzam Syarif Arrasyid</h2>
+        <br>
         <p>Frontend Developer</p>
       </div>
       <div class="team-member">
-        <img src="img-team/abrisam.jpg" alt="Anggota Tim 4">
-        <h2>Abrisam</h2>
+        <img src="team-img/abrisam.jpg" alt="Anggota Tim 4">
+        <h2>Abrisam Putra Aditama</h2>
+        <br>
         <p>Frontend Developer</p>
       </div>
     </div>
