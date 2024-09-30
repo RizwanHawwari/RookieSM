@@ -89,10 +89,9 @@
     <h2 class="section">Product</h2>
     <div id="product" class="section">
       <div class="product-box">
+        <h2 class="product-titles">PPLG</h2>
         <img src="img-logo/htmlcss-removebg-preview.png" alt="html&css" class="product-img">
         <h2 class="product-title">HTML & CSS</h2>
-        <p class="product-desc">Kami membuat course ini untuk mempelajari HTML dan CSS mulai dari dasar dan mudah
-          dipahami.</p>
         <p class="product-price">FREE</p>
         <div class="path">
           <a href="#">Learn</a>
@@ -101,7 +100,38 @@
       <div class="product-box">
         <img src="img-logo/js.png" alt="JavaScript" class="product-img">
         <h2 class="product-title">JavaScript</h2>
-        <p class="product-desc">Kami membuat course ini untuk mempelajari JavaScript mulai dari dasar dan mudah
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
+        </div>
+      </div>
+      <div class="product-box">
+        <img src="img-logo/pehape-removebg-preview.png" alt="php" class="product-img">
+        <h2 class="product-title">PHP</h2>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
+        </div>
+      </div>
+      <div class="product-box">
+        <img src="img-logo/sql-removebg-preview.png" alt="MySQL" class="product-img">
+        <h2 class="product-title">MySQL</h2>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
+        </div>
+        <div class="product-box">
+        <h2 class="product-titles">TJKT</h2>
+        <img src="img-logo/htmlcss-removebg-preview.png" alt="html&css" class="product-img">
+        <h2 class="product-title">HTML & CSS</h2>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
+        </div>
+      </div>
+      <div class="product-box">
+        <img src="img-logo/js.png" alt="JavaScript" class="product-img">
+        <h2 class="product-title">JavaScript</h2>
           dipahami.</p>
         <p class="product-price">FREE</p>
         <div class="path">
@@ -111,7 +141,6 @@
       <div class="product-box">
         <img src="img-logo/pehape-removebg-preview.png" alt="php" class="product-img">
         <h2 class="product-title">PHP</h2>
-        <p class="product-desc">Kami membuat course ini untuk mempelajari PHP mulai dari dasar dan mudah dipahami.</p>
         <p class="product-price">FREE</p>
         <div class="path">
           <a href="#">Learn</a>
@@ -120,12 +149,44 @@
       <div class="product-box">
         <img src="img-logo/sql-removebg-preview.png" alt="MySQL" class="product-img">
         <h2 class="product-title">MySQL</h2>
-        <p class="product-desc">Kami membuat course ini untuk mempelajari MySQL mulai dari dasar dan mudah dipahami.</p>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
+        </div>
+        <div class="product-box">
+        <h2 class="product-titles">OTKP</h2>
+        <img src="img-logo/akutansi-removebg-preview.png" alt="akutansi" class="product-img">
+        <h2 class="product-title">Akutansi</h2>
         <p class="product-price">FREE</p>
         <div class="path">
           <a href="#">Learn</a>
         </div>
       </div>
+      <div class="product-box">
+        <img src="img-logo/administrasi-removebg-preview.png" alt="administrasi" class="product-img">
+        <h2 class="product-title">Administrasi</h2>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
+        </div>
+      </div>
+      <div class="product-box">
+        <img src="img-logo/bisnis-removebg-preview.png" alt="bisnis" class="product-img">
+        <h2 class="product-title">Bisnis</h2>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
+        </div>
+      </div>
+      <div class="product-box">
+        <img src="img-logo/kearsipan-removebg-preview.png" alt="kearsipan" class="product-img">
+        <h2 class="product-title">Kearsipan</h2>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
+        </div>
+      </div>
+      
     </div>
   </section>
   <footer>
