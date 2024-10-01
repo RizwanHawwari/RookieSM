@@ -90,7 +90,7 @@
 
   <section class="product-course">
     <h2 class="section">Product</h2>
- <h3 class="product-head">PPLG</h3>
+ <h3 class="product-head section">PPLG</h3>
     <!-- PPLG Section -->
     <div id="product" class="section">
        
@@ -129,7 +129,7 @@
     </div>
 
     <!-- TJKT Section -->
-     <h3 class="product-head">TJKT</h3>
+     <h3 class="product-head section">TJKT</h3>
     <div id="product" class="section">
         
         <div class="product-box">
@@ -167,7 +167,7 @@
     </div>
 
     <!-- OTKP Section -->  
-     <h3 class="product-head">OTKP</h3>
+     <h3 class="product-head section">OTKP</h3>
     <div id="product" class="section">
       
         <div class="product-box">
