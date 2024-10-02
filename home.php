@@ -62,15 +62,13 @@
   <section class="about">
     <div class="section aboutus">
       <h2 id="about">About Us</h2>
-<<<<<<< HEAD
-      <p>Selamat datang di Free Course SMK Citra Negara! Kami adalah platform pembelajaran online gratis yang
-        dirancang untuk siswa SMK Citra Negara.</p>
-=======
-      <p>Selamat datang di Free Course SMK Citra Negara! Kami adalah platform pembelajaran online gratis yang dirancang
+      <p class="about-information">Selamat datang di Free Course SMK Citra Negara! Kami adalah platform pembelajaran
+        online
+        gratis yang dirancang
         untuk mendukung siswa SMK Citra Negara dari berbagai jurusan. Dengan berbagai materi yang tersedia, kamu dapat
         belajar kapan saja dan di mana saja sesuai dengan kebutuhanmu. Kami berkomitmen untuk memberikan pengalaman
         belajar yang menyenangkan dan bermanfaat. Mari tingkatkan keterampilan dan pengetahuanmu bersama kami!</p>
->>>>>>> server-side
+      <br>
       <h2>Why Choose Us?</h2>
       <div class="features-container">
         <div class="feature-box">
@@ -96,15 +94,6 @@
   </section>
 
   <section class="product-course">
-<<<<<<< HEAD
-    <h2 class="section">Product</h2>
-    <div id="product" class="section">
-      <div class="product-box">
-        <img src="img-logo/htmlcss-removebg-preview.png" alt="html&css" class="product-img">
-        <h2 class="product-title">HTML & CSS</h2>
-        <p class="product-desc">Kami membuat course ini untuk mempelajari HTML dan CSS mulai dari dasar dan mudah
-          dipahami.</p>
-=======
     <h2 class="section">Courses</h2>
     <h3 class="product-head section">PPLG</h3>
     <!-- PPLG Section -->
@@ -113,7 +102,6 @@
       <div class="product-box">
         <img src="img-logo/htmlcss-removebg-preview.png" alt="HTML & CSS" class="product-img">
         <h3 class="product-title">HTML & CSS</h3>
->>>>>>> server-side
         <p class="product-price">FREE</p>
         <div class="path">
           <a href="#">Learn</a>
@@ -121,27 +109,15 @@
       </div>
       <div class="product-box">
         <img src="img-logo/js.png" alt="JavaScript" class="product-img">
-<<<<<<< HEAD
-        <h2 class="product-title">JavaScript</h2>
-        <p class="product-desc">Kami membuat course ini untuk mempelajari JavaScript mulai dari dasar dan mudah
-          dipahami.</p>
-=======
         <h3 class="product-title">JavaScript</h3>
->>>>>>> server-side
         <p class="product-price">FREE</p>
         <div class="path">
           <a href="#">Learn</a>
         </div>
       </div>
       <div class="product-box">
-<<<<<<< HEAD
-        <img src="img-logo/pehape-removebg-preview.png" alt="php" class="product-img">
-        <h2 class="product-title">PHP</h2>
-        <p class="product-desc">Kami membuat course ini untuk mempelajari PHP mulai dari dasar dan mudah dipahami.</p>
-=======
         <img src="img-logo/pehape-removebg-preview.png" alt="PHP" class="product-img">
         <h3 class="product-title">PHP</h3>
->>>>>>> server-side
         <p class="product-price">FREE</p>
         <div class="path">
           <a href="#">Learn</a>
@@ -149,10 +125,6 @@
       </div>
       <div class="product-box">
         <img src="img-logo/sql-removebg-preview.png" alt="MySQL" class="product-img">
-<<<<<<< HEAD
-        <h2 class="product-title">MySQL</h2>
-        <p class="product-desc">Kami membuat course ini untuk mempelajari MySQL mulai dari dasar dan mudah dipahami.</p>
-=======
         <h3 class="product-title">MySQL</h3>
         <p class="product-price">FREE</p>
         <div class="path">
@@ -230,7 +202,6 @@
       <div class="product-box">
         <img src="img-logo/kearsipan-removebg-preview.png" alt="Kearsipan" class="product-img">
         <h3 class="product-title">Kearsipan</h3>
->>>>>>> server-side
         <p class="product-price">FREE</p>
         <div class="path">
           <a href="#">Learn</a>

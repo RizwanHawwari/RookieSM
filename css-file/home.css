@@ -163,24 +163,39 @@ body {
   color: #333;
 }
 
-.about h2 {
-  font-size: 3em;
-  margin-bottom: 0px;
-}
-
 .about p {
   color: #555;
   text-transform: capitalize;
   margin-bottom: 30px;
 }
 
+.aboutus {
+  text-align: center;
+}
+
 .aboutus h2 {
   margin-bottom: 60px;
+  font-weight: 700;
+  font-size: 2.3em;
+  position: relative;
+  display: inline-block;
+}
+
+.aboutus h2::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #444;
+  bottom: -5px;
+  left: 0%;
+  opacity: 0.7;
 }
 
 .aboutus p {
   text-align: justify;
   line-height: 30px;
+  margin-top: 30px;
 }
 
 .about figure img {
@@ -188,26 +203,30 @@ body {
   height: 100%;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> server-side
 .team-section {
-  padding: 50px 10%;
+  padding: 60px 10%;
   background-color: #00bd82;
+  text-align: center;
 }
 
 .team-title {
   font-size: 2.5em;
-  text-align: center;
-  color: #333;
-  margin-bottom: 40px;
-<<<<<<< HEAD
-  text-transform: uppercase;
-=======
->>>>>>> server-side
+  margin-bottom: 30px;
   font-weight: 700;
-  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+}
+
+.team-title::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #444;
+  bottom: -5px;
+  left: 0;
+  z-index: -1;
+  opacity: 0.7;
 }
 
 .team {
@@ -216,17 +235,14 @@ body {
   flex-wrap: wrap;
 }
 
-<<<<<<< HEAD
-.team-member {  
-=======
 .team-member {
->>>>>>> server-side
   background: white;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
   margin: 10px;
   text-align: center;
+  min-width: 200px;
   width: calc(25% - 20px);
   box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.5);
@@ -235,19 +251,11 @@ body {
 }
 
 .team-member h2 {
-<<<<<<< HEAD
-    margin: 10px 0;
-}
-
-.team-member p {
-    margin: 0;
-=======
   margin: 10px 0;
 }
 
 .team-member p {
   margin: 0;
->>>>>>> server-side
 }
 
 .team-member img {
@@ -259,17 +267,10 @@ body {
 }
 
 @media (max-width: 768px) {
-<<<<<<< HEAD
-    .team-member img {
-      width: 100px; /* Ukuran lebih kecil untuk layar kecil */
-      height: 100px; /* Harus sama dengan width */
-    }
-=======
   .team-member img {
     width: 100px; /* Ukuran lebih kecil untuk layar kecil */
     height: 100px; /* Harus sama dengan width */
   }
->>>>>>> server-side
 }
 
 .team-member:hover {
@@ -331,40 +332,30 @@ footer {
 }
 
 /*course content */
-<<<<<<< HEAD
-
-.product-course {
-  /* margin-top: -80px; */
-  /* display: flex */
-  padding: 120px 10%;
-=======
 .product-course {
   padding: 50px 10%;
->>>>>>> server-side
   background-color: #00bd82;
   color: #333;
   text-align: center;
 }
-<<<<<<< HEAD
+
 .product-course h2 {
-  font-size: 3em;
-  margin: 20px 0;
+  font-size: 2.3em;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
 }
-#product {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+
+.product-course h2::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #444;
+  bottom: -5px;
+  left: 0%;
+  opacity: 0.7;
 }
-.product-box {
-  max-width: 450px;
-  padding: 20px;
-  background-color: #fff;
-  margin: 20px 20px;
-  /* background-color: red; */
-  text-align: center;
-}
-=======
 
 .product-title {
   font-size: 1em;
@@ -388,32 +379,29 @@ footer {
 
 .product-box {
   flex: 1 1 calc(25% - 40px); /* Setiap card akan mengambil 25% dari lebar kontainer, minus margin */
-  max-width: 250px;
+  max-width: 300px;
   padding: 10px;
   background-color: #fff;
   margin: 10px;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
+  box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.5);
   border-radius: 8px; /* Membuat sudut card sedikit melengkung */
   transition: transform 0.3s;
   padding-top: 80px;
-  margin-top: 120px;
+  margin-top: 80px;
 }
 
 .product-box:hover {
   transform: translateY(-10px); /* Efek hover, card akan terangkat */
 }
 
->>>>>>> server-side
 .product-price {
   font-size: 2.3em;
   font-weight: 700;
   margin: 10px 0;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> server-side
 .path {
   display: flex;
   justify-content: center;
@@ -476,7 +464,7 @@ footer {
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
   transition: transform 0.3s;
   box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.5);
@@ -513,12 +501,22 @@ footer {
   text-align: center;
 }
 .about-testimonials h2 {
-  font-size: 2.5em;
-  margin-bottom: 30px;
-<<<<<<< HEAD
-=======
+  font-size: 2.3em;
+  margin-bottom: 60px;
   font-weight: 700;
->>>>>>> server-side
+  position: relative;
+  display: inline-block;
+}
+.about-testimonials h2::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #444;
+  bottom: -8px;
+  left: 0;
+  z-index: -1;
+  opacity: 0.7;
 }
 .testimonials-container {
   display: flex;
@@ -554,6 +552,10 @@ footer {
 }
 /* Responsive > 768px */
 @media (min-width: 768px) {
+  .about-testimonials {
+    padding: 60px 10%;
+  }
+
   .feature-box {
     width: 25%;
     height: 100%;
@@ -585,15 +587,15 @@ footer {
   .feature-box,
   .testimonial {
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
   }
 
-  .about-content h2 {
-    font-size: 2em;
+  .about-information {
+    margin-top: 30px;
   }
 
-  .about-content p {
-    font-size: 1em;
+  .aboutus h2 {
+    margin-top: 70px;
   }
 
   .hero-text {
@@ -630,14 +632,6 @@ footer {
   }
 
   #product {
-<<<<<<< HEAD
-    margin-top: -150px;
-    flex-direction: column;
-  }
-
-  .team {
-    margin-top: -180px;
-=======
     margin-top: -30px;
     flex-direction: column;
     justify-content: center;
@@ -652,14 +646,10 @@ footer {
   .team {
     flex-direction: column;
     margin-top: -10px;
->>>>>>> server-side
   }
 
   .team-member {
     margin-bottom: 35px;
-<<<<<<< HEAD
-=======
     width: 100%;
->>>>>>> server-side
   }
 }
