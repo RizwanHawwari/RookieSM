@@ -62,8 +62,10 @@
   <section class="about">
     <div class="section aboutus">
       <h2 id="about">About Us</h2>
-      <p>Selamat datang di Free Course SMK Citra Negara! Kami adalah platform pembelajaran online gratis yang
-        dirancang untuk siswa SMK Citra Negara.</p>
+      <p>Selamat datang di Free Course SMK Citra Negara! Kami adalah platform pembelajaran online gratis yang dirancang
+        untuk mendukung siswa SMK Citra Negara dari berbagai jurusan. Dengan berbagai materi yang tersedia, kamu dapat
+        belajar kapan saja dan di mana saja sesuai dengan kebutuhanmu. Kami berkomitmen untuk memberikan pengalaman
+        belajar yang menyenangkan dan bermanfaat. Mari tingkatkan keterampilan dan pengetahuanmu bersama kami!</p>
       <h2>Why Choose Us?</h2>
       <div class="features-container">
         <div class="feature-box">
@@ -89,121 +91,121 @@
   </section>
 
   <section class="product-course">
-    <h2 class="section">Product</h2>
- <h3 class="product-head section">PPLG</h3>
+    <h2 class="section">Courses</h2>
+    <h3 class="product-head section">PPLG</h3>
     <!-- PPLG Section -->
     <div id="product" class="section">
-       
-        <div class="product-box">
-            <img src="img-logo/htmlcss-removebg-preview.png" alt="HTML & CSS" class="product-img">
-            <h3 class="product-title">HTML & CSS</h3>
-            <p class="product-price">FREE</p>
-            <div class="path">
-                <a href="#">Learn</a>
-            </div>
+
+      <div class="product-box">
+        <img src="img-logo/htmlcss-removebg-preview.png" alt="HTML & CSS" class="product-img">
+        <h3 class="product-title">HTML & CSS</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
         </div>
-        <div class="product-box">
-            <img src="img-logo/js.png" alt="JavaScript" class="product-img">
-            <h3 class="product-title">JavaScript</h3>
-            <p class="product-price">FREE</p>
-            <div class="path">
-                <a href="#">Learn</a>
-            </div>
+      </div>
+      <div class="product-box">
+        <img src="img-logo/js.png" alt="JavaScript" class="product-img">
+        <h3 class="product-title">JavaScript</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
         </div>
-        <div class="product-box">
-            <img src="img-logo/pehape-removebg-preview.png" alt="PHP" class="product-img">
-            <h3 class="product-title">PHP</h3>
-            <p class="product-price">FREE</p>
-            <div class="path">
-                <a href="#">Learn</a>
-            </div>
+      </div>
+      <div class="product-box">
+        <img src="img-logo/pehape-removebg-preview.png" alt="PHP" class="product-img">
+        <h3 class="product-title">PHP</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
         </div>
-        <div class="product-box">
-            <img src="img-logo/sql-removebg-preview.png" alt="MySQL" class="product-img">
-            <h3 class="product-title">MySQL</h3>
-            <p class="product-price">FREE</p>
-            <div class="path">
-                <a href="#">Learn</a>
-            </div>
+      </div>
+      <div class="product-box">
+        <img src="img-logo/sql-removebg-preview.png" alt="MySQL" class="product-img">
+        <h3 class="product-title">MySQL</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
         </div>
+      </div>
     </div>
 
     <!-- TJKT Section -->
-     <h3 class="product-head section">TJKT</h3>
+    <h3 class="product-head section">TJKT</h3>
     <div id="product" class="section">
-        
-        <div class="product-box">
-            <img src="img-logo/arduino-removebg-preview.png" alt="Arduino" class="product-img">
-            <h3 class="product-title">Arduino</h3>
-            <p class="product-price">FREE</p>
-            <div class="path">
-                <a href="#">Learn</a>
-            </div>
+
+      <div class="product-box">
+        <img src="img-logo/arduino-removebg-preview.png" alt="Arduino" class="product-img">
+        <h3 class="product-title">Arduino</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
         </div>
-        <div class="product-box">
-            <img src="img-logo/jaringankom-removebg-preview.png" alt="Jaringan Komputer" class="product-img">
-            <h3 class="product-title">Jaringan Komputer</h3>
-            <p class="product-price">FREE</p>
-            <div class="path">
-                <a href="#">Learn</a>
-            </div>
+      </div>
+      <div class="product-box">
+        <img src="img-logo/jaringankom-removebg-preview.png" alt="Jaringan Komputer" class="product-img">
+        <h3 class="product-title">Jaringan Komputer</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
         </div>
-        <div class="product-box">
-            <img src="img-logo/server-removebg-preview.png" alt="Server Administrator" class="product-img">
-            <h3 class="product-title">Server Administrator</h3>
-            <p class="product-price">FREE</p>
-            <div class="path">
-                <a href="#">Learn</a>
-            </div>
+      </div>
+      <div class="product-box">
+        <img src="img-logo/server-removebg-preview.png" alt="Server Administrator" class="product-img">
+        <h3 class="product-title">Server Administrator</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
         </div>
-        <div class="product-box">
-            <img src="img-logo/komputer-removebg-preview.png" alt="Komputer" class="product-img">
-            <h3 class="product-title">Made & repair Komputer</h3>
-            <p class="product-price">FREE</p>
-            <div class="path">
-                <a href="#">Learn</a>
-            </div>
+      </div>
+      <div class="product-box">
+        <img src="img-logo/komputer-removebg-preview.png" alt="Komputer" class="product-img">
+        <h3 class="product-title">Made & repair Komputer</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
         </div>
+      </div>
     </div>
 
-    <!-- OTKP Section -->  
-     <h3 class="product-head section">OTKP</h3>
+    <!-- OTKP Section -->
+    <h3 class="product-head section">OTKP</h3>
     <div id="product" class="section">
-      
-        <div class="product-box">
-            <img src="img-logo/akutansi-removebg-preview.png" alt="Akuntansi" class="product-img">
-            <h3 class="product-title">Akuntansi</h3>
-            <p class="product-price">FREE</p>
-            <div class="path">
-                <a href="#">Learn</a>
-            </div>
+
+      <div class="product-box">
+        <img src="img-logo/akutansi-removebg-preview.png" alt="Akuntansi" class="product-img">
+        <h3 class="product-title">Akuntansi</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
         </div>
-        <div class="product-box">
-            <img src="img-logo/administrasi-removebg-preview.png" alt="Administrasi" class="product-img">
-            <h3 class="product-title">Administrasi</h3>
-            <p class="product-price">FREE</p>
-            <div class="path">
-                <a href="#">Learn</a>
-            </div>
+      </div>
+      <div class="product-box">
+        <img src="img-logo/administrasi-removebg-preview.png" alt="Administrasi" class="product-img">
+        <h3 class="product-title">Administrasi</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
         </div>
-        <div class="product-box">
-            <img src="img-logo/ekonomi-removebg-preview.png" alt="Bisnis" class="product-img">
-            <h3 class="product-title">Ekonomi dan Bisnis</h3>
-            <p class="product-price">FREE</p>
-            <div class="path">
-                <a href="#">Learn</a>
-            </div>
+      </div>
+      <div class="product-box">
+        <img src="img-logo/ekonomi-removebg-preview.png" alt="Bisnis" class="product-img">
+        <h3 class="product-title">Ekonomi dan Bisnis</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
         </div>
-        <div class="product-box">
-            <img src="img-logo/kearsipan-removebg-preview.png" alt="Kearsipan" class="product-img">
-            <h3 class="product-title">Kearsipan</h3>
-            <p class="product-price">FREE</p>
-            <div class="path">
-                <a href="#">Learn</a>
-            </div>
+      </div>
+      <div class="product-box">
+        <img src="img-logo/kearsipan-removebg-preview.png" alt="Kearsipan" class="product-img">
+        <h3 class="product-title">Kearsipan</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
         </div>
+      </div>
     </div>
-</section>
+  </section>
 
   <section class="about-testimonials">
     <h2 class="section">What Our Students Say</h2>

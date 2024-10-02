@@ -198,7 +198,6 @@ body {
   text-align: center;
   color: #333;
   margin-bottom: 40px;
-  text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 2px;
 }
@@ -323,7 +322,7 @@ footer {
   margin: 10px;
   position: relative;
   padding: 20px;
-  top: 95px;
+  top: 35px;
 }
 
 #product {
@@ -457,6 +456,7 @@ footer {
 .about-testimonials h2 {
   font-size: 2.5em;
   margin-bottom: 30px;
+  font-weight: 700;
 }
 .testimonials-container {
   display: flex;
@@ -568,7 +568,7 @@ footer {
   }
 
   #product {
-    margin-top: -150px;
+    margin-top: -30px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -581,7 +581,7 @@ footer {
 
   .team {
     flex-direction: column;
-    margin-top: -100px;
+    margin-top: -10px;
   }
 
   .team-member {
