@@ -600,12 +600,12 @@ footer {
 
   .hero-text {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
     margin-top: 30px;
   }
 
   .hero-image {
-    width: 100%;
+    width: 80%;
   }
 
   .hero-text h1 {
@@ -641,6 +641,10 @@ footer {
   .product-box {
     margin-top: 50px;
     width: 100%;
+  }
+
+  .product-img {
+    width: 150px;
   }
 
   .team {
