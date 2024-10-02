@@ -188,10 +188,6 @@ body {
   height: 100%;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> server-side
 .team-section {
   padding: 50px 10%;
   background-color: #00bd82;
@@ -202,10 +198,7 @@ body {
   text-align: center;
   color: #333;
   margin-bottom: 40px;
-<<<<<<< HEAD
   text-transform: uppercase;
-=======
->>>>>>> server-side
   font-weight: 700;
   letter-spacing: 2px;
 }
@@ -216,11 +209,7 @@ body {
   flex-wrap: wrap;
 }
 
-<<<<<<< HEAD
-.team-member {  
-=======
 .team-member {
->>>>>>> server-side
   background: white;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -235,19 +224,11 @@ body {
 }
 
 .team-member h2 {
-<<<<<<< HEAD
-    margin: 10px 0;
-}
-
-.team-member p {
-    margin: 0;
-=======
   margin: 10px 0;
 }
 
 .team-member p {
   margin: 0;
->>>>>>> server-side
 }
 
 .team-member img {
@@ -259,17 +240,10 @@ body {
 }
 
 @media (max-width: 768px) {
-<<<<<<< HEAD
-    .team-member img {
-      width: 100px; /* Ukuran lebih kecil untuk layar kecil */
-      height: 100px; /* Harus sama dengan width */
-    }
-=======
   .team-member img {
     width: 100px; /* Ukuran lebih kecil untuk layar kecil */
     height: 100px; /* Harus sama dengan width */
   }
->>>>>>> server-side
 }
 
 .team-member:hover {
@@ -331,40 +305,12 @@ footer {
 }
 
 /*course content */
-<<<<<<< HEAD
-
-.product-course {
-  /* margin-top: -80px; */
-  /* display: flex */
-  padding: 120px 10%;
-=======
 .product-course {
   padding: 50px 10%;
->>>>>>> server-side
   background-color: #00bd82;
   color: #333;
   text-align: center;
 }
-<<<<<<< HEAD
-.product-course h2 {
-  font-size: 3em;
-  margin: 20px 0;
-}
-#product {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-.product-box {
-  max-width: 450px;
-  padding: 20px;
-  background-color: #fff;
-  margin: 20px 20px;
-  /* background-color: red; */
-  text-align: center;
-}
-=======
 
 .product-title {
   font-size: 1em;
@@ -377,7 +323,7 @@ footer {
   margin: 10px;
   position: relative;
   padding: 20px;
-  top: 35px;
+  top: 95px;
 }
 
 #product {
@@ -397,23 +343,19 @@ footer {
   border-radius: 8px; /* Membuat sudut card sedikit melengkung */
   transition: transform 0.3s;
   padding-top: 80px;
-  margin-top: 120px;
+  margin-top: 150px;
 }
 
 .product-box:hover {
   transform: translateY(-10px); /* Efek hover, card akan terangkat */
 }
 
->>>>>>> server-side
 .product-price {
   font-size: 2.3em;
   font-weight: 700;
   margin: 10px 0;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> server-side
 .path {
   display: flex;
   justify-content: center;
@@ -515,10 +457,6 @@ footer {
 .about-testimonials h2 {
   font-size: 2.5em;
   margin-bottom: 30px;
-<<<<<<< HEAD
-=======
-  font-weight: 700;
->>>>>>> server-side
 }
 .testimonials-container {
   display: flex;
@@ -630,36 +568,15 @@ footer {
   }
 
   #product {
-<<<<<<< HEAD
     margin-top: -150px;
     flex-direction: column;
   }
 
   .team {
     margin-top: -180px;
-=======
-    margin-top: -30px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .product-box {
-    margin-top: 50px;
-    width: 100%;
-  }
-
-  .team {
-    flex-direction: column;
-    margin-top: -10px;
->>>>>>> server-side
   }
 
   .team-member {
     margin-bottom: 35px;
-<<<<<<< HEAD
-=======
-    width: 100%;
->>>>>>> server-side
   }
 }
