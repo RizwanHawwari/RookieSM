@@ -69,20 +69,20 @@
         belajar kapan saja dan di mana saja sesuai dengan kebutuhanmu. Kami berkomitmen untuk memberikan pengalaman
         belajar yang menyenangkan dan bermanfaat. Mari tingkatkan keterampilan dan pengetahuanmu bersama kami!</p>
       <br>
-      <h2>Why Choose Us?</h2>
+      <h2 class="section">Why Choose Us?</h2>
       <div class="features-container">
-        <div class="feature-box">
+        <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
           <h3>Project-based Learning</h3>
           <p>Setiap course disusun untuk melibatkan siswa dalam proyek nyata, yang membantu mereka mempraktikkan apa
             yang mereka pelajari.</p>
         </div>
-        <div class="feature-box">
+        <div class="feature-box section">
           <i class="fa fa-infinity" aria-hidden="true"></i>
           <h3>Unlimited Access</h3>
           <p>Akses materi kapan saja dan di mana saja tanpa batasan waktu. Belajar dengan kecepatanmu sendiri.</p>
         </div>
-        <div class="feature-box">
+        <div class="feature-box section">
           <i class="fa fa-certificate" aria-hidden="true"></i>
           <h3>Certified Courses</h3>
           <p>Setelah menyelesaikan kursus, dapatkan sertifikat yang akan membantumu meningkatkan portofolio dan
@@ -97,9 +97,9 @@
     <h2 class="section">Courses</h2>
     <h3 class="product-head section">PPLG</h3>
     <!-- PPLG Section -->
-    <div id="product" class="section">
+    <div id="product">
 
-      <div class="product-box">
+      <div class="product-box section">
         <img src="img-logo/htmlcss-removebg-preview.png" alt="HTML & CSS" class="product-img">
         <h3 class="product-title">HTML & CSS</h3>
         <p class="product-price">FREE</p>
@@ -107,7 +107,7 @@
           <a href="#">Learn</a>
         </div>
       </div>
-      <div class="product-box">
+      <div class="product-box section">
         <img src="img-logo/js.png" alt="JavaScript" class="product-img">
         <h3 class="product-title">JavaScript</h3>
         <p class="product-price">FREE</p>
@@ -115,7 +115,7 @@
           <a href="#">Learn</a>
         </div>
       </div>
-      <div class="product-box">
+      <div class="product-box section">
         <img src="img-logo/pehape-removebg-preview.png" alt="PHP" class="product-img">
         <h3 class="product-title">PHP</h3>
         <p class="product-price">FREE</p>
@@ -123,7 +123,7 @@
           <a href="#">Learn</a>
         </div>
       </div>
-      <div class="product-box">
+      <div class="product-box section">
         <img src="img-logo/sql-removebg-preview.png" alt="MySQL" class="product-img">
         <h3 class="product-title">MySQL</h3>
         <p class="product-price">FREE</p>
@@ -135,9 +135,9 @@
 
     <!-- TJKT Section -->
     <h3 class="product-head section">TJKT</h3>
-    <div id="product" class="section">
+    <div id="product">
 
-      <div class="product-box">
+      <div class="product-box section">
         <img src="img-logo/arduino-removebg-preview.png" alt="Arduino" class="product-img">
         <h3 class="product-title">Arduino</h3>
         <p class="product-price">FREE</p>
@@ -145,7 +145,7 @@
           <a href="#">Learn</a>
         </div>
       </div>
-      <div class="product-box">
+      <div class="product-box section">
         <img src="img-logo/jaringankom-removebg-preview.png" alt="Jaringan Komputer" class="product-img">
         <h3 class="product-title">Jaringan Komputer</h3>
         <p class="product-price">FREE</p>
@@ -153,7 +153,7 @@
           <a href="#">Learn</a>
         </div>
       </div>
-      <div class="product-box">
+      <div class="product-box section">
         <img src="img-logo/server-removebg-preview.png" alt="Server Administrator" class="product-img">
         <h3 class="product-title">Server Administrator</h3>
         <p class="product-price">FREE</p>
@@ -161,7 +161,7 @@
           <a href="#">Learn</a>
         </div>
       </div>
-      <div class="product-box">
+      <div class="product-box section">
         <img src="img-logo/komputer-removebg-preview.png" alt="Komputer" class="product-img">
         <h3 class="product-title">Made & repair Komputer</h3>
         <p class="product-price">FREE</p>
@@ -173,9 +173,9 @@
 
     <!-- OTKP Section -->
     <h3 class="product-head section">OTKP</h3>
-    <div id="product" class="section">
+    <div id="product">
 
-      <div class="product-box">
+      <div class="product-box section">
         <img src="img-logo/akutansi-removebg-preview.png" alt="Akuntansi" class="product-img">
         <h3 class="product-title">Akuntansi</h3>
         <p class="product-price">FREE</p>
@@ -183,7 +183,7 @@
           <a href="#">Learn</a>
         </div>
       </div>
-      <div class="product-box">
+      <div class="product-box section">
         <img src="img-logo/administrasi-removebg-preview.png" alt="Administrasi" class="product-img">
         <h3 class="product-title">Administrasi</h3>
         <p class="product-price">FREE</p>
@@ -191,7 +191,7 @@
           <a href="#">Learn</a>
         </div>
       </div>
-      <div class="product-box">
+      <div class="product-box section">
         <img src="img-logo/ekonomi-removebg-preview.png" alt="Bisnis" class="product-img">
         <h3 class="product-title">Ekonomi dan Bisnis</h3>
         <p class="product-price">FREE</p>
@@ -199,7 +199,7 @@
           <a href="#">Learn</a>
         </div>
       </div>
-      <div class="product-box">
+      <div class="product-box section">
         <img src="img-logo/kearsipan-removebg-preview.png" alt="Kearsipan" class="product-img">
         <h3 class="product-title">Kearsipan</h3>
         <p class="product-price">FREE</p>
