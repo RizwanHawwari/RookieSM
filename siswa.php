@@ -118,13 +118,13 @@ if (!isset($_SESSION['session_nis'])) {
             <span>Setting</span>
           </a>
         </li>
+        <li class="sidebar-item">
+          <a href="logout.php" class="sidebar-link">
+            <i class="lni lni-exit"></i>
+            <span>Logout</span>
+          </a>
+        </li>
       </ul>
-      <div class="sidebar-footer">
-        <a href="logout.php" class="sidebar-link">
-          <i class="lni lni-exit"></i>
-          <span>Logout</span>
-        </a>
-      </div>
     </aside>
     <div class="main p-3">
       <div class="text-center">
