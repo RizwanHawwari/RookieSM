@@ -104,7 +104,7 @@
         <h3 class="product-title">HTML & CSS</h3>
         <p class="product-price">FREE</p>
         <div class="path">
-          <a href="#">Learn</a>
+          <a href="learningHtml.php">Learn</a>
         </div>
       </div>
       <div class="product-box section">
@@ -231,26 +231,22 @@
     <div class="team section">
       <div class="team-member">
         <img src="team-img/rizwan.jpg" alt="Anggota Tim 1">
-        <h2>Rizwan Hawwari</h2>
-        <br>
+        <h2>Rizwan</h2>
         <p>Leader & Backend Developer</p>
       </div>
       <div class="team-member">
         <img src="team-img/arkan.jpg" alt="Anggota Tim 2">
-        <h2>M. Arkaan Syafii <br> Asma</h2>
-        <br>
+        <h2>Arkaan</h2>
         <p>Backend Developer</p>
       </div>
       <div class="team-member">
         <img src="team-img/azzam.jpg" alt="Anggota Tim 3">
-        <h2>Azzam Syarif Arrasyid</h2>
-        <br>
+        <h2>Azzam</h2>
         <p>Frontend Developer</p>
       </div>
       <div class="team-member">
         <img src="team-img/abrisam.jpg" alt="Anggota Tim 4">
-        <h2>Abrisam Putra Aditama</h2>
-        <br>
+        <h2>Abrisam</h2>
         <p>Frontend Developer</p>
       </div>
     </div>
