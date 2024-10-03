@@ -208,79 +208,85 @@ body {
   height: 100%;
 }
 
-.team-section {
-  padding: 60px 10%;
+.video-section{
+  padding: 150px 10% 100px; 
   background-color: #00bd82;
-  text-align: center;
 }
 
-.team-title {
+.video-underline {
+  border: none; /* Menghilangkan border default */
+  height: 2px; /* Tinggi garis */
+  background-color: #333; /* Warna garis */
+  margin: 20px auto; /* Margin atas dan bawah untuk jarak */
+  width: 50%; /* Lebar garis */
+}
+
+.video-container {
+  max-width: 800px; /* Maksimal lebar kontainer video */
+  margin: 0 auto; /* Pusatkan kontainer di halaman */
+  display: flex;
+  justify-content: center;
+}
+
+.embed-responsive {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 56.25%; /* Rasio 16:9 */
+  height: 0;
+  max-width: 100%;
+}
+
+.embed-responsive-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.course-overview,
+.course-benefits {
+  padding: 60px 10%;
+  background-color: #00bd82; /* Warna latar belakang yang lebih terang untuk membedakan dari bagian lainnya */
+  color: #333;
+}
+
+.title-underline {
+  border: none; /* Menghilangkan border default */
+  height: 2px; /* Tinggi garis */
+  background-color: #333; /* Warna garis */
+  margin: 20px auto; /* Margin atas dan bawah untuk jarak */
+  width: 50%; /* Lebar garis */
+}
+
+.course-overview h3,
+.course-benefits h3 {
   font-size: 2.5em;
-  margin-bottom: 30px;
-  font-weight: 700;
+  margin-bottom: 20px;
   position: relative;
   display: inline-block;
 }
 
-.team-title::after {
+.course-overview h3::after,
+.course-benefits h3::after {
   content: "";
   position: absolute;
   width: 100%;
   height: 2px;
-  background-color: #444;
-  bottom: -5px;
+  background-color: #00bd82; /* Warna garis bawah yang konsisten */
+  bottom: -8px;
   left: 0;
   z-index: -1;
   opacity: 0.7;
 }
 
-.team {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.team-member {
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  margin: 10px;
-  text-align: center;
-  min-width: 200px;
-  width: calc(25% - 20px);
-  box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.5);
-  box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.team-member h2 {
-  margin: 10px 0;
-}
-
-.team-member p {
-  margin: 0;
-}
-
-.team-member img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid black;
-}
-
-@media (max-width: 768px) {
-  .team-member img {
-    width: 100px; /* Ukuran lebih kecil untuk layar kecil */
-    height: 100px; /* Harus sama dengan width */
-  }
-}
-
-.team-member:hover {
-  transform: translateY(-10px); /* Mengangkat sedikit ke atas */
-  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2); /* Efek bayangan lebih besar */
+.course-overview p,
+.course-benefits ul {
+  font-size: 1.1em;
+  color: #555;
+  margin-top: 20px;
+  line-height: 1.6; /* Jarak antar baris yang lebih baik untuk keterbacaan */
+  text-align: justify;
 }
 
 footer {

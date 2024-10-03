@@ -30,9 +30,9 @@ if (isset($_COOKIE['cookie_nis']) && isset($_COOKIE['cookie_password'])) {
     }
 }
 
-// Jika sudah login, arahkan ke halaman home
+// Jika sudah login, arahkan ke halaman siswa
 if (isset($_SESSION['session_nis'])) {
-    header("location:home.php");
+    header("location: siswa.php");
     exit();
 }
 
@@ -72,7 +72,7 @@ if (isset($_POST['login'])) {
                 setcookie("cookie_nis", $nis, time() + (60 * 60 * 24 * 30), "/");
                 setcookie("cookie_password", md5($password), time() + (60 * 60 * 24 * 30), "/");
             }
-            header("location:home.php"); // Arahkan ke halaman home setelah login berhasil
+            header("location: siswa.php"); // Arahkan ke halaman home setelah login berhasil
         }
     }
 }
@@ -99,7 +99,7 @@ if (isset($_POST['login'])) {
       <?php if ($err) { ?>
       <!-- Tampilkan pesan kesalahan jika ada -->
       <div id="error-message">
-        <ul><?php echo $err ?></ul>
+        <ul style="list-style-type: none; margin-top: 30px; font-style: italic; color: crimson;"><?php echo $err ?></ul>
       </div>
       <?php } ?>
       <h2>Login</h2>
