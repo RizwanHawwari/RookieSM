@@ -10,7 +10,7 @@ $koneksi    = mysqli_connect($host_db, $user_db, $pass_db, $nama_db);
 
 // Menyiapkan variabel
 $err        = ""; // Menyimpan pesan kesalahan
-$nis        = ""; // Menyimpan NIS dari form login
+$username   = ""; // Menyimpan username dari form login
 $ingataku   = ""; // Menyimpan status checkbox "Ingat Aku"
 
 // Mengecek jika cookie login ada dan valid
@@ -38,42 +38,48 @@ if (isset($_SESSION['session_nis'])) {
 
 // Jika form login disubmit
 if (isset($_POST['login'])) {
-    $nis       = isset($_POST['nis']) ? $_POST['nis'] : ""; // Ambil NIS dari form
+    $username  = isset($_POST['username']) ? $_POST['username'] : ""; // Ambil Username dari form
     $password  = isset($_POST['password']) ? $_POST['password'] : ""; // Ambil password dari form
 
     // Pastikan checkbox 'ingataku' ada sebelum mengaksesnya
     $ingataku  = isset($_POST['ingataku']) ? $_POST['ingataku'] : ""; 
 
     // Validasi input
-    if ($nis == '' || $password == '') {
-        $err .= "<li>Please input your NIS and password before continuing.</li>";
-    } elseif (!is_numeric($nis)) {
-        $err .= "<li>NIS harus berupa angka.</li>"; // Validasi agar NIS hanya angka
+    if ($username == '' || $password == '') {
+        $err .= "<li>Please input your Username and password before continuing.</li>";
     } else {
-        // Cek NIS di database
-        $sql1 = "SELECT * FROM login WHERE nis = '$nis'";
-        $q1   = mysqli_query($koneksi, $sql1);
-        $r1   = mysqli_fetch_array($q1);
+        // Cek Username di tabel admin
+        $sql_admin = "SELECT * FROM admin WHERE username = '$username'";
+        $q_admin = mysqli_query($koneksi, $sql_admin);
+        $r_admin = mysqli_fetch_assoc($q_admin);
 
-        // Cek apakah NIS ada dan password sesuai
-        if (!$r1) {
-            $err .= "<li>NIS tidak tersedia.</li>";
-        } elseif ($r1['password'] != md5($password)) {
-            $err .= "<li>Password tidak sesuai.</li>";
-        }       
-        
-        // Jika tidak ada kesalahan, simpan sesi dan cookie jika perlu
-        if (empty($err)) {
-            $_SESSION['session_nis'] = $nis; // Simpan NIS di sesi
-            $_SESSION['session_password'] = md5($password); // Simpan password hash di sesi
+        // Cek Username di tabel siswa
+        $sql_siswa = "SELECT * FROM siswa WHERE username = '$username'";
+        $q_siswa = mysqli_query($koneksi, $sql_siswa);
+        $r_siswa = mysqli_fetch_array($q_siswa);
 
-            // Jika checkbox "Ingat Aku" dicentang, simpan cookie
-            if ($ingataku == 1) {
-                setcookie("cookie_nis", $nis, time() + (60 * 60 * 24 * 30), "/");
-                setcookie("cookie_password", md5($password), time() + (60 * 60 * 24 * 30), "/");
-            }
-            header("location: siswa.php"); // Arahkan ke halaman home setelah login berhasil
-        }
+        // Verifikasi password untuk admin
+        if ($r_admin) {
+          if ($r_admin['Password'] != md5($password)) {
+              $err .= "<li>Password tidak sesuai.</li>";
+          } else {
+              $_SESSION['session_username'] = $username;
+              $_SESSION['role'] = 'A';
+              header("location: admin.php");
+              exit();
+          }
+      } elseif ($r_siswa = mysqli_fetch_assoc($q_siswa)) {
+          if ($r_siswa['Password'] != md5($password)) {
+              $err .= "<li>Password tidak sesuai.</li>";
+          } else {
+              $_SESSION['session_username'] = $username;
+              $_SESSION['role'] = 'S';
+              header("location: siswa.php");
+              exit();
+          }
+      } else {
+          $err .= "<li>Username tidak tersedia.</li>";
+      }
     }
 }
 ?>
@@ -106,8 +112,9 @@ if (isset($_POST['login'])) {
       <form id="loginform" action="" method="post" role="form" autocomplete="off">
 
         <div class="input-box">
-          <input id="login-nis" type="text" name="nis" value="<?php echo htmlspecialchars($nis) ?>" required>
-          <label>NIS</label>
+          <input id="login-username" type="text" name="username" value="<?php echo htmlspecialchars($username) ?>"
+            required>
+          <label>Username</label>
         </div>
 
         <div class="input-box">
