@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if (!isset($_SESSION['session_nis'])) {
+if (!isset($_SESSION['session_username'])) {
   // Jika belum login, arahkan ke halaman login
   header("Location: login.php");
   exit();

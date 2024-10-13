@@ -38,49 +38,53 @@ if (isset($_SESSION['session_nis'])) {
 
 // Jika form login disubmit
 if (isset($_POST['login'])) {
-    $username  = isset($_POST['username']) ? $_POST['username'] : ""; // Ambil Username dari form
-    $password  = isset($_POST['password']) ? $_POST['password'] : ""; // Ambil password dari form
+  // Ambil data dari form
+  $username = isset($_POST['username']) ? $_POST['username'] : ""; 
+  $password = isset($_POST['password']) ? $_POST['password'] : "";
+  $ingataku = isset($_POST['ingataku']) ? $_POST['ingataku'] : "";
 
-    // Pastikan checkbox 'ingataku' ada sebelum mengaksesnya
-    $ingataku  = isset($_POST['ingataku']) ? $_POST['ingataku'] : ""; 
-
-    // Validasi input
-    if ($username == '' || $password == '') {
-        $err .= "<li>Please input your Username and password before continuing.</li>";
-    } else {
-        // Cek Username di tabel admin
-        $sql_admin = "SELECT * FROM admin WHERE username = '$username'";
-        $q_admin = mysqli_query($koneksi, $sql_admin);
-        $r_admin = mysqli_fetch_assoc($q_admin);
-
-        // Cek Username di tabel siswa
-        $sql_siswa = "SELECT * FROM siswa WHERE username = '$username'";
-        $q_siswa = mysqli_query($koneksi, $sql_siswa);
-        $r_siswa = mysqli_fetch_array($q_siswa);
-
-        // Verifikasi password untuk admin
-        if ($r_admin) {
-          if ($r_admin['Password'] != md5($password)) {
-              $err .= "<li>Password tidak sesuai.</li>";
-          } else {
+  // Validasi input
+  if (empty($username) || empty($password)) {
+      $err = "<li>Please input your Username and password before continuing.</li>";
+  } else {
+      // Buat query untuk admin dan siswa
+      $sql_admin = "SELECT * FROM admin WHERE username = '$username'";
+      $sql_siswa = "SELECT * FROM siswa WHERE username = '$username'";
+      
+      // Eksekusi query
+      $q_admin = mysqli_query($koneksi, $sql_admin);
+      $q_siswa = mysqli_query($koneksi, $sql_siswa);
+      
+      // Cek di tabel admin
+      if ($r_admin = mysqli_fetch_assoc($q_admin)) {
+          // Verifikasi password untuk admin
+          if (password_verify($password, $r_admin['Password'])) {
+              // Jika password benar, set session dan arahkan ke halaman admin
               $_SESSION['session_username'] = $username;
               $_SESSION['role'] = 'A';
-              header("location: admin.php");
+              header("Location: admin.php");
               exit();
-          }
-      } elseif ($r_siswa = mysqli_fetch_assoc($q_siswa)) {
-          if ($r_siswa['Password'] != md5($password)) {
-              $err .= "<li>Password tidak sesuai.</li>";
           } else {
+              $err = "<li>Password tidak sesuai.</li>";
+          }
+      }
+      // Cek di tabel siswa
+      elseif ($r_siswa = mysqli_fetch_assoc($q_siswa)) {
+          // Verifikasi password untuk siswa
+          if (password_verify($password, $r_siswa['Password'])) {
+              // Jika password benar, set session dan arahkan ke halaman siswa
               $_SESSION['session_username'] = $username;
               $_SESSION['role'] = 'S';
-              header("location: siswa.php");
+              header("Location: siswa.php");
               exit();
+          } else {
+              $err = "<li>Password tidak sesuai.</li>";
           }
       } else {
-          $err .= "<li>Username tidak tersedia.</li>";
+          // Jika username tidak ditemukan di kedua tabel
+          $err = "<li>Username tidak tersedia.</li>";
       }
-    }
+  }
 }
 ?>
 
