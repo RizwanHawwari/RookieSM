@@ -28,7 +28,7 @@ CREATE TABLE `admin` (
   `Password` varchar(255) NOT NULL,
   `Role` enum('A','S') NOT NULL,
   PRIMARY KEY (`ID`,`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES (1,'admin123','482c811da5d5b4bc6d497ffa98491e38','A');
+INSERT INTO `admin` VALUES (1,'admin123','482c811da5d5b4bc6d497ffa98491e38','A'),(2,'admin','$2y$10$2y/8t3aFaw2QoFFrz5QLx.hiFPMvDZsAvkFub14QGJgZogij0zl2W','A');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -56,7 +56,7 @@ CREATE TABLE `siswa` (
   `Password` varchar(255) NOT NULL,
   `Role` enum('A','S') NOT NULL,
   PRIMARY KEY (`ID`,`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +65,7 @@ CREATE TABLE `siswa` (
 
 LOCK TABLES `siswa` WRITE;
 /*!40000 ALTER TABLE `siswa` DISABLE KEYS */;
-INSERT INTO `siswa` VALUES (1,'Rizwan Hawwari','raxxs47','123456789','202cb962ac59075b964b07152d234b70','S');
+INSERT INTO `siswa` VALUES (1,'Rizwan Hawwari','raxxs47','123456789','202cb962ac59075b964b07152d234b70','S'),(3,'Rizwan Hawwari','rizwanganteng','55667788','$2y$10$4dsdv9mBK1GzaoqgVSxRL./dgI81G9TMDhbIsFUFFhnNBiipEQAJ2','S');
 /*!40000 ALTER TABLE `siswa` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -78,4 +78,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-11  2:50:36
+-- Dump completed on 2024-10-13 20:33:56
