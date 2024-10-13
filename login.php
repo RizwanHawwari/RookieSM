@@ -55,27 +55,20 @@ if (isset($_POST['login'])) {
   if (empty($username) || empty($password)) {
       $err = "<li>Please input your Username and password before continuing.</li>";
   } else {
-      // Buat query berdasarkan role
       $sql = ($role == 'admin') ? "SELECT * FROM admin WHERE username = '$username'" : "SELECT * FROM siswa WHERE username = '$username'";
-      
-      // Eksekusi query
       $q = mysqli_query($koneksi, $sql);
       
-      // Cek user di tabel sesuai role
       if ($r = mysqli_fetch_assoc($q)) {
-          // Verifikasi password
           if (password_verify($password, $r['Password'])) {
               // Jika password benar, set session dan arahkan ke halaman sesuai role
               $_SESSION['session_username'] = $username;
               $_SESSION['role'] = ($role == 'admin') ? 'A' : 'S';
 
-              // Set cookie jika ingat aku dipilih
               if ($ingataku == '1') {
-                  setcookie('cookie_username', $username, time() + (86400 * 30), "/"); // 30 hari
+                  setcookie('cookie_username', $username, time() + (86400 * 30), "/");
                   setcookie('cookie_password', $r['Password'], time() + (86400 * 30), "/");
               }
 
-              // Arahkan ke halaman sesuai role
               if ($_SESSION['role'] == 'A') {
                   header("Location: admin.php");
               } else {
