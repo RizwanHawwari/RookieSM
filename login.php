@@ -14,25 +14,32 @@ $username   = ""; // Menyimpan username dari form login
 $ingataku   = ""; // Menyimpan status checkbox "Ingat Aku"
 
 // Mengecek jika cookie login ada dan valid
-if (isset($_COOKIE['cookie_nis']) && isset($_COOKIE['cookie_password'])) {
-    $cookie_nis = $_COOKIE['cookie_nis'];
+if (isset($_COOKIE['cookie_username']) && isset($_COOKIE['cookie_password'])) {
+    $cookie_username = $_COOKIE['cookie_username'];
     $cookie_password = $_COOKIE['cookie_password'];
 
-    // Cek NIS di database
-    $sql1 = "SELECT * FROM login WHERE nis = '$cookie_nis'";
+    // Cek username di database (Admin atau Siswa)
+    $sql1 = "SELECT * FROM admin WHERE username = '$cookie_username' 
+             UNION 
+             SELECT * FROM siswa WHERE username = '$cookie_username'";
     $q1   = mysqli_query($koneksi, $sql1);
     $r1   = mysqli_fetch_array($q1);
 
     // Verifikasi password dari cookie
     if ($r1 && $r1['password'] == $cookie_password) {
-        $_SESSION['session_nis'] = $cookie_nis;
+        $_SESSION['session_username'] = $cookie_username;
         $_SESSION['session_password'] = $cookie_password;
+        $_SESSION['role'] = ($r1['role'] == 'admin') ? 'A' : 'S'; // Set role berdasarkan tabel
     }
 }
 
-// Jika sudah login, arahkan ke halaman siswa
-if (isset($_SESSION['session_nis'])) {
-    header("location: siswa.php");
+// Jika sudah login, arahkan ke halaman sesuai role
+if (isset($_SESSION['session_username'])) {
+    if ($_SESSION['role'] == 'S') {
+        header("location: siswa.php");
+    } elseif ($_SESSION['role'] == 'A') {
+        header("location: admin.php");
+    }
     exit();
 }
 
@@ -41,47 +48,44 @@ if (isset($_POST['login'])) {
   // Ambil data dari form
   $username = isset($_POST['username']) ? $_POST['username'] : ""; 
   $password = isset($_POST['password']) ? $_POST['password'] : "";
+  $role     = isset($_POST['role']) ? $_POST['role'] : "";
   $ingataku = isset($_POST['ingataku']) ? $_POST['ingataku'] : "";
 
   // Validasi input
   if (empty($username) || empty($password)) {
       $err = "<li>Please input your Username and password before continuing.</li>";
   } else {
-      // Buat query untuk admin dan siswa
-      $sql_admin = "SELECT * FROM admin WHERE username = '$username'";
-      $sql_siswa = "SELECT * FROM siswa WHERE username = '$username'";
+      // Buat query berdasarkan role
+      $sql = ($role == 'admin') ? "SELECT * FROM admin WHERE username = '$username'" : "SELECT * FROM siswa WHERE username = '$username'";
       
       // Eksekusi query
-      $q_admin = mysqli_query($koneksi, $sql_admin);
-      $q_siswa = mysqli_query($koneksi, $sql_siswa);
+      $q = mysqli_query($koneksi, $sql);
       
-      // Cek di tabel admin
-      if ($r_admin = mysqli_fetch_assoc($q_admin)) {
-          // Verifikasi password untuk admin
-          if (password_verify($password, $r_admin['Password'])) {
-              // Jika password benar, set session dan arahkan ke halaman admin
+      // Cek user di tabel sesuai role
+      if ($r = mysqli_fetch_assoc($q)) {
+          // Verifikasi password
+          if (password_verify($password, $r['Password'])) {
+              // Jika password benar, set session dan arahkan ke halaman sesuai role
               $_SESSION['session_username'] = $username;
-              $_SESSION['role'] = 'A';
-              header("Location: admin.php");
-              exit();
-          } else {
-              $err = "<li>Password tidak sesuai.</li>";
-          }
-      }
-      // Cek di tabel siswa
-      elseif ($r_siswa = mysqli_fetch_assoc($q_siswa)) {
-          // Verifikasi password untuk siswa
-          if (password_verify($password, $r_siswa['Password'])) {
-              // Jika password benar, set session dan arahkan ke halaman siswa
-              $_SESSION['session_username'] = $username;
-              $_SESSION['role'] = 'S';
-              header("Location: siswa.php");
+              $_SESSION['role'] = ($role == 'admin') ? 'A' : 'S';
+
+              // Set cookie jika ingat aku dipilih
+              if ($ingataku == '1') {
+                  setcookie('cookie_username', $username, time() + (86400 * 30), "/"); // 30 hari
+                  setcookie('cookie_password', $r['Password'], time() + (86400 * 30), "/");
+              }
+
+              // Arahkan ke halaman sesuai role
+              if ($_SESSION['role'] == 'A') {
+                  header("Location: admin.php");
+              } else {
+                  header("Location: siswa.php");
+              }
               exit();
           } else {
               $err = "<li>Password tidak sesuai.</li>";
           }
       } else {
-          // Jika username tidak ditemukan di kedua tabel
           $err = "<li>Username tidak tersedia.</li>";
       }
   }
@@ -124,6 +128,16 @@ if (isset($_POST['login'])) {
         <div class="input-box">
           <input id="login-password" type="password" name="password" required>
           <label>Password</label>
+        </div>
+
+        <!-- Role -->
+        <div class="input-box">
+          <select label="role" name="role">
+            <option value="siswa" <?php if(isset($_POST['role']) && $_POST['role'] == 'siswa') echo 'selected'; ?>>Siswa
+            </option>
+            <option value="admin" <?php if(isset($_POST['role']) && $_POST['role'] == 'admin') echo 'selected'; ?>>Admin
+            </option>
+          </select>
         </div>
 
         <div class="checkbox-container">
