@@ -62,10 +62,46 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   width: 80%;
   margin: auto;
   margin-top: 50px;
-  background-color: #fff;
+  background-color: #333;
   padding: 20px 40px;
   border-radius: 8px;
   box-shadow: 3px 5px 9px 2px rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+
+.form-group label {
+  color: #fff;
+}
+
+.form-control {
+  background-color: #444;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.form-control::placeholder {
+  color: #bbb;
+}
+
+.form-text {
+  color: #fff;
+}
+
+.form-control:focus {
+  color: #fff;
+  background-color: #444;
+  border-color: #007bff;
+  outline: none;
+}
+
+.btn-primary {
+  background-color: #00bd82;
+  border-color: #00bd82;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
 }
 
 @media screen and (max-width: 728px) {
@@ -209,29 +245,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           <div class="form-group mb-3">
             <label for="nama">Nama</label>
             <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama" required>
-            <small class="form-text text-muted">Nama lengkap siswa.</small>
+            <small class="form-text">Nama lengkap siswa.</small>
           </div>
           <div class="form-group mb-3">
             <label for="username">Username</label>
             <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan username"
               required>
-            <small class="form-text text-muted">Masukan username yang unik.</small>
+            <small class="form-text">Masukan username yang unik.</small>
           </div>
           <div class="form-group mb-3">
             <label for="kelas">Kelas</label>
             <input type="text" class="form-control" id="kelas" name="kelas" placeholder="Masukkan kelas" required>
-            <small class="form-text text-muted">Contoh: 10, 11, 12.</small>
+            <small class="form-text">Contoh: 10, 11, 12.</small>
           </div>
           <div class="form-group mb-3">
             <label for="jurusan">Jurusan</label>
             <input type="text" class="form-control" id="jurusan" name="jurusan" placeholder="Masukkan jurusan" required>
-            <small class="form-text text-muted">Masukkan jurusan siswa.</small>
+            <small class="form-tex">Masukkan jurusan siswa.</small>
           </div>
           <div class="form-group mb-3">
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password"
               minlength="6" required>
-            <small class="form-text text-muted">Password harus terdiri dari minimal 6 karakter.</small>
+            <small class="form-text">Password harus terdiri dari minimal 6 karakter.</small>
           </div>
           <button type="submit" class="btn btn-primary">Register</button>
         </form>

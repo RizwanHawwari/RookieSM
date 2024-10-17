@@ -55,8 +55,11 @@ CREATE TABLE `siswa` (
   `NIS` varchar(20) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `Role` enum('A','S') NOT NULL,
+  `status` enum('aktif','tidak aktif') DEFAULT 'aktif',
+  `kelas` varchar(50) NOT NULL,
+  `jurusan` varchar(50) NOT NULL,
   PRIMARY KEY (`ID`,`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +68,7 @@ CREATE TABLE `siswa` (
 
 LOCK TABLES `siswa` WRITE;
 /*!40000 ALTER TABLE `siswa` DISABLE KEYS */;
-INSERT INTO `siswa` VALUES (1,'Rizwan Hawwari','raxxs47','123456789','202cb962ac59075b964b07152d234b70','S'),(3,'Rizwan Hawwari','rizwanganteng','55667788','$2y$10$4dsdv9mBK1GzaoqgVSxRL./dgI81G9TMDhbIsFUFFhnNBiipEQAJ2','S');
+INSERT INTO `siswa` VALUES (1,'Rizwan Hawwari','raxxs47','123456789','202cb962ac59075b964b07152d234b70','S','aktif','',''),(3,'Rizwan Hawwari','rizwanganteng','55667788','$2y$10$4dsdv9mBK1GzaoqgVSxRL./dgI81G9TMDhbIsFUFFhnNBiipEQAJ2','S','tidak aktif','',''),(4,'Budiono Siregar','budi343','','$2y$10$0m3fcpbca216p0aicaAJieDkdsDUnzCrngoiiLjXsbeBUQTlD66We','S','aktif','12','RPL'),(5,'Travis Scott','trav567','','$2y$10$Hl0DMTybvpgSFEyTLNbcIe4/60dDtkIoMTLymx5rs91q7i1XnbmiO','S','aktif','10','PPLG');
 /*!40000 ALTER TABLE `siswa` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -78,4 +81,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-13 20:33:56
+-- Dump completed on 2024-10-17 20:28:22
