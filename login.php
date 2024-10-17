@@ -66,7 +66,6 @@ if (isset($_POST['login'])) {
       if ($r_admin = mysqli_fetch_assoc($q_admin)) {
           // Verifikasi password untuk admin
           if (password_verify($password, $r_admin['Password'])) {
-              // Jika password benar, set session dan arahkan ke halaman admin
               $_SESSION['session_username'] = $username;
               $_SESSION['role'] = 'A';
               header("Location: admin.php");
@@ -79,9 +78,14 @@ if (isset($_POST['login'])) {
       elseif ($r_siswa = mysqli_fetch_assoc($q_siswa)) {
           // Verifikasi password untuk siswa
           if (password_verify($password, $r_siswa['Password'])) {
-              // Jika password benar, set session dan arahkan ke halaman siswa
               $_SESSION['session_username'] = $username;
               $_SESSION['role'] = 'S';
+
+// Update last_login untuk siswa
+$last_login_time = date('Y-m-d H:i:s');
+$update_query = "UPDATE siswa SET last_login = '$last_login_time' WHERE username = '$username'";
+mysqli_query($koneksi, $update_query);
+
               header("Location: siswa.php");
               exit();
           } else {

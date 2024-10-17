@@ -6,13 +6,8 @@ if (!isset($_SESSION['session_username']) || $_SESSION['role'] !== 'A') {
   exit();
 }
 
-// Proses pendaftaran
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
-
+  $nis = $_POST['nis'];
   $nama = $_POST['nama'];
   $username = $_POST['username'];
   $kelas = $_POST['kelas'];
@@ -20,24 +15,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $role = 'S';
   $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-  // Cek apakah username sudah ada
-  $checkUsername = "SELECT * FROM siswa WHERE username='$username'";
-  $result = $conn->query($checkUsername);
+  $message = '';
 
-  if ($result->num_rows > 0) {
-    echo "<script>alert('Username sudah terdaftar! Silakan pilih username lain.');</script>";
+  // Cek jika username atau NIS sudah terdaftar
+  $checkUsername = "SELECT * FROM siswa WHERE username='$username' OR nis='$nis'";
+  $result = mysqli_query($conn, $checkUsername);
+
+  // Jika username atau NIS sudah terdaftar
+  if (mysqli_num_rows($result) > 0) {
+      $message = "Username atau NIS sudah terdaftar! Silakan pilih username atau NIS lain.";
   } else {
-    $sql = "INSERT INTO siswa (nama, username, kelas, jurusan, role, password) VALUES ('$nama', '$username', '$kelas', '$jurusan', '$role', '$password')";
+      $stmt = mysqli_prepare($conn, "INSERT INTO siswa (nis, nama, username, kelas, jurusan, role, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
+      mysqli_stmt_bind_param($stmt, "sssssss", $nis, $nama, $username, $kelas, $jurusan, $role, $password); // Mengikat parameter
 
-    if ($conn->query($sql) === TRUE) {
-      echo "<script>alert('Pendaftaran berhasil!');</script>";
-    } else {
-      echo "<script>alert('Error: " . $sql . "<br>" . $conn->error . "');</script>";
-    }
+      if (mysqli_stmt_execute($stmt)) {
+          $message = "Pendaftaran berhasil!";
+      } else {
+          $message = "Error: " . mysqli_error($conn);
+      }
+
+      mysqli_stmt_close($stmt);
   }
-
-  $conn->close();
 }
+
+// Menutup koneksi
+mysqli_close($conn);
+
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 .form-container {
   width: 80%;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 20px;
   background-color: #333;
   padding: 20px 40px;
   border-radius: 8px;
@@ -85,6 +88,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 .form-text {
   color: #fff;
+  opacity: .7;
+  font-size: 0.8rem;
 }
 
 .form-control:focus {
@@ -242,6 +247,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       <div class="form-container">
         <form action="" method="POST" autocomplete="off">
+          <?php if (isset($message)): ?>
+          <div class="alert alert-info"><?php echo $message; ?></div>
+          <?php endif; ?>
+          <div class="form-group mb-3">
+            <label for="nis">NIS</label>
+            <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan NIS" required>
+            <small class="form-text">Nomor Induk Siswa.</small>
+          </div>
           <div class="form-group mb-3">
             <label for="nama">Nama</label>
             <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama" required>
@@ -255,13 +268,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           </div>
           <div class="form-group mb-3">
             <label for="kelas">Kelas</label>
-            <input type="text" class="form-control" id="kelas" name="kelas" placeholder="Masukkan kelas" required>
-            <small class="form-text">Contoh: 10, 11, 12.</small>
+            <select class="form-control" id="kelas" name="kelas" required>
+              <option value="" disabled selected>Pilih kelas &#9660;</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+            <small class="form-text">Masukkan kelas siswa.</small>
           </div>
           <div class="form-group mb-3">
             <label for="jurusan">Jurusan</label>
-            <input type="text" class="form-control" id="jurusan" name="jurusan" placeholder="Masukkan jurusan" required>
-            <small class="form-tex">Masukkan jurusan siswa.</small>
+            <select class="form-control" id="jurusan" name="jurusan" required>
+              <option value="" disabled selected>Pilih jurusan &#9660;</option>
+              <option value="PPLG">PPLG</option>
+              <option value="TJKT">TJKT</option>
+              <option value="OTKP">OTKP</option>
+              <option value="PM">PM</option>
+              <option value="DKV">DKV</option>
+            </select>
+            <small class="form-text">Masukkan jurusan siswa.</small>
           </div>
           <div class="form-group mb-3">
             <label for="password">Password</label>

@@ -4,6 +4,27 @@ if (!isset($_SESSION['session_username']) || $_SESSION['role'] !== 'A') {
   header("Location: login.php");
   exit();
 }
+
+// untuk menentukan status aktif/tidak aktif
+function updateStudentStatus($conn) {
+  $thresholdDate = date('Y-m-d', strtotime('-3 months')); // Tanggal 3 bulan yang lalu
+  $sql = "UPDATE siswa SET status = 'tidak aktif' WHERE last_login < '$thresholdDate' AND status = 'aktif'";
+  
+  if (mysqli_query($conn, $sql)) {
+      $affectedRows = mysqli_affected_rows($conn);
+      if ($affectedRows > 0) {
+          echo $affectedRows . " siswa telah diperbarui menjadi tidak aktif.";
+      }
+  } else {
+      echo "Error: " . mysqli_error($conn);
+  }
+}
+
+
+include 'functions.php'; // Pastikan Anda menghubungkan ke database
+updateStudentStatus($conn);
+
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
