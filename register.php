@@ -252,7 +252,8 @@ mysqli_close($conn);
           <?php endif; ?>
           <div class="form-group mb-3">
             <label for="nis">NIS</label>
-            <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan NIS" required>
+            <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan NIS" maxlength="20"
+              required>
             <small class="form-text">Nomor Induk Siswa.</small>
           </div>
           <div class="form-group mb-3">
