@@ -1,139 +1,85 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
+-- MariaDB dump 10.19  Distrib 10.4.32-MariaDB, for Win64 (AMD64)
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 13, 2024 at 12:47 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
+-- Host: localhost    Database: login
+-- ------------------------------------------------------
+-- Server version	10.4.32-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Database: `login`
+-- Table structure for table `admin`
 --
 
--- --------------------------------------------------------
-
---
--- Table structure for table `atmin`
---
-
-CREATE TABLE `atmin` (
-  `ID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `admin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `admin` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Username` varchar(50) NOT NULL,
   `Password` varchar(255) NOT NULL,
-  `Role` enum('admin','siswa') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `Role` enum('A','S') NOT NULL,
+  PRIMARY KEY (`ID`,`Username`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `atmin`
+-- Dumping data for table `admin`
 --
 
-INSERT INTO `atmin` (`ID`, `Username`, `Password`, `Role`) VALUES
-(1, 'admin1223', 'ada', ''),
-(1, 'admin123', '482c811da5d5b4bc6d497ffa98491e38', ''),
-(3, 'zzzz', 'd41d8cd98f00b204e9800998ecf8427e', ''),
-(6, 'atmin2', 'fd2cc6c54239c40495a0d3a93b6380eb', ''),
-(7, 'admin0', '202cb962ac59075b964b07152d234b70', ''),
-(8, 'asd', 'd41d8cd98f00b204e9800998ecf8427e', 'admin');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `login`
---
-
-CREATE TABLE `login` (
-  `id` int(11) NOT NULL,
-  `nis` varchar(20) DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `login`
---
-
-INSERT INTO `login` (`id`, `nis`, `password`, `created_at`) VALUES
-(0, '123456789', '202cb962ac59075b964b07152d234b70', '2024-09-28 10:08:21');
-
--- --------------------------------------------------------
+LOCK TABLES `admin` WRITE;
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+INSERT INTO `admin` VALUES (1,'admin123','482c811da5d5b4bc6d497ffa98491e38','A'),(2,'admin','$2y$10$2y/8t3aFaw2QoFFrz5QLx.hiFPMvDZsAvkFub14QGJgZogij0zl2W','A');
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `siswa`
 --
 
+DROP TABLE IF EXISTS `siswa`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `siswa` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Nama` varchar(100) NOT NULL,
   `Username` varchar(50) NOT NULL,
   `NIS` varchar(20) NOT NULL,
   `Password` varchar(255) NOT NULL,
-  `role` enum('siswa','admin') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `Role` enum('A','S') NOT NULL,
+  `status` enum('aktif','tidak aktif') DEFAULT 'aktif',
+  `kelas` varchar(50) NOT NULL,
+  `jurusan` varchar(50) NOT NULL,
+  `last_login` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`,`Username`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `siswa`
 --
 
-INSERT INTO `siswa` (`ID`, `Nama`, `Username`, `NIS`, `Password`, `role`) VALUES
-(1, 'Rizwan Hawwari', 'raxxs47', '123456789', '202cb962ac59075b964b07152d234b70', 'siswa');
+LOCK TABLES `siswa` WRITE;
+/*!40000 ALTER TABLE `siswa` DISABLE KEYS */;
+INSERT INTO `siswa` VALUES (1,'Rizwan Hawwari','raxxs47','123456789','202cb962ac59075b964b07152d234b70','S','aktif','','',NULL),(3,'Rizwan Hawwari','rizwanganteng','55667788','$2y$10$4dsdv9mBK1GzaoqgVSxRL./dgI81G9TMDhbIsFUFFhnNBiipEQAJ2','S','tidak aktif','','',NULL),(4,'Budiono Siregar','budi343','','$2y$10$0m3fcpbca216p0aicaAJieDkdsDUnzCrngoiiLjXsbeBUQTlD66We','S','aktif','12','RPL',NULL),(5,'Travis Scott','trav567','','$2y$10$Hl0DMTybvpgSFEyTLNbcIe4/60dDtkIoMTLymx5rs91q7i1XnbmiO','S','aktif','10','PPLG','2024-10-17 16:35:01'),(11,'Justin Beiber','beiber55','87612309','$2y$10$kRi0g8ZKjsuJnZ4P5mkmqu2hezoV56Q/aBOivEsU6yCkJ6T6FJ/H6','S','aktif','11','PM',NULL);
+/*!40000 ALTER TABLE `siswa` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `atmin`
---
-ALTER TABLE `atmin`
-  ADD PRIMARY KEY (`ID`,`Username`);
-
---
--- Indexes for table `login`
---
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `nis` (`nis`) USING BTREE;
-
---
--- Indexes for table `siswa`
---
-ALTER TABLE `siswa`
-  ADD PRIMARY KEY (`ID`,`Username`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `atmin`
---
-ALTER TABLE `atmin`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `login`
---
-ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT for table `siswa`
---
-ALTER TABLE `siswa`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-COMMIT;
-
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-10-17 22:20:13

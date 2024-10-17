@@ -1,15 +1,8 @@
 <?php 
 session_start();
-if (!isset($_SESSION['session_nis'])) {
-  // Jika belum login, arahkan ke halaman login
+if (!isset($_SESSION['session_username'])) {
   header("Location: login.php");
   exit();
-
-  if (isset($_SESSION['session_role']) && $_SESSION['session_role'] == 'siswa') {
-    echo "Selamat datang, Siswa!";
-} else {
-  header("location: admin.php");
-}
 }
 ?>
 
