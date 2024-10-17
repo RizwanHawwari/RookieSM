@@ -5,13 +5,16 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT nama, username, password, role FROM siswa";
+$sql = "SELECT nama, username, jurusan, kelas, role, status FROM siswa";
 $result = $conn->query($sql);
 
 $siswa = [];
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
+        if (empty($row['status'])) {
+            $row['status'] = 'tidak aktif';
+        }
         $siswa[] = $row;
     }
 }

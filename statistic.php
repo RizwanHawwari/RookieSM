@@ -1,42 +1,8 @@
 <?php 
 session_start();
-include "functions.php";
 if (!isset($_SESSION['session_username']) || $_SESSION['role'] !== 'A') {
   header("Location: login.php");
   exit();
-}
-
-// Proses pendaftaran
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
-
-  $nama = $_POST['nama'];
-  $username = $_POST['username'];
-  $kelas = $_POST['kelas'];
-  $jurusan = $_POST['jurusan'];
-  $role = 'S';
-  $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-  // Cek apakah username sudah ada
-  $checkUsername = "SELECT * FROM siswa WHERE username='$username'";
-  $result = $conn->query($checkUsername);
-
-  if ($result->num_rows > 0) {
-    echo "<script>alert('Username sudah terdaftar! Silakan pilih username lain.');</script>";
-  } else {
-    $sql = "INSERT INTO siswa (nama, username, kelas, jurusan, role, password) VALUES ('$nama', '$username', '$kelas', '$jurusan', '$role', '$password')";
-
-    if ($conn->query($sql) === TRUE) {
-      echo "<script>alert('Pendaftaran berhasil!');</script>";
-    } else {
-      echo "<script>alert('Error: " . $sql . "<br>" . $conn->error . "');</script>";
-    }
-  }
-
-  $conn->close();
 }
 ?>
 
@@ -47,33 +13,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Register Siswa | Admin</title>
+  <title>Dashboard | Admin</title>
   <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
   </script>
+  <!-- CSS -->
   <link rel="stylesheet" href="css-file/siswa.css" />
 </head>
-
-<style>
-.form-container {
-  width: 80%;
-  margin: auto;
-  margin-top: 50px;
-  background-color: #fff;
-  padding: 20px 40px;
-  border-radius: 8px;
-  box-shadow: 3px 5px 9px 2px rgba(0, 0, 0, 0.8);
-}
-
-@media screen and (max-width: 728px) {
-  .form-container {
-    width: 100%;
-  }
-}
-</style>
 
 <body>
   <div class="wrapper">
@@ -198,48 +148,129 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </li>
       </ul>
     </aside>
-
     <div class="main p-3">
       <div class="text-center">
-        <h1>Register Siswa</h1>
+        <h1>Dashboard Admin</h1>
       </div>
 
-      <div class="form-container">
-        <form action="" method="POST" autocomplete="off">
-          <div class="form-group mb-3">
-            <label for="nama">Nama</label>
-            <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama" required>
-            <small class="form-text text-muted">Nama lengkap siswa.</small>
+      <!-- Menampilkan statistik siswa -->
+      <div class="row mb-4">
+        <div class="col-md-4">
+          <div class="card text-white bg-primary mb-3">
+            <div class="card-header">Total Siswa</div>
+            <div class="card-body">
+              <h5 class="card-title" id="total-siswa">0</h5>
+              <p class="card-text">Jumlah total siswa yang terdaftar.</p>
+            </div>
           </div>
-          <div class="form-group mb-3">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan username"
-              required>
-            <small class="form-text text-muted">Masukan username yang unik.</small>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-white bg-success mb-3">
+            <div class="card-header">Siswa Aktif</div>
+            <div class="card-body">
+              <h5 class="card-title" id="siswa-aktif">0</h5>
+              <p class="card-text">Jumlah siswa yang aktif saat ini.</p>
+            </div>
           </div>
-          <div class="form-group mb-3">
-            <label for="kelas">Kelas</label>
-            <input type="text" class="form-control" id="kelas" name="kelas" placeholder="Masukkan kelas" required>
-            <small class="form-text text-muted">Contoh: 10, 11, 12.</small>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-white bg-warning mb-3">
+            <div class="card-header">Siswa Tidak Aktif</div>
+            <div class="card-body">
+              <h5 class="card-title" id="siswa-tidak-aktif">0</h5>
+              <p class="card-text">Jumlah siswa yang tidak aktif.</p>
+            </div>
           </div>
-          <div class="form-group mb-3">
-            <label for="jurusan">Jurusan</label>
-            <input type="text" class="form-control" id="jurusan" name="jurusan" placeholder="Masukkan jurusan" required>
-            <small class="form-text text-muted">Masukkan jurusan siswa.</small>
-          </div>
-          <div class="form-group mb-3">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password"
-              minlength="6" required>
-            <small class="form-text text-muted">Password harus terdiri dari minimal 6 karakter.</small>
-          </div>
-          <button type="submit" class="btn btn-primary">Register</button>
-        </form>
+        </div>
       </div>
 
+      <!-- Menampilkan grafik pemantauan siswa -->
+      <div class="mb-4">
+        <h2 class="text-center">Grafik Pemantauan Siswa</h2>
+        <canvas id="myChart" style="height: 400px;"></canvas>
+      </div>
+
+      <!-- Daftar Siswa -->
+      <div id="siswa-list" style="display: none;">
+        <h2 class="text-center mb-4">Daftar Siswa</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Username</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody id="siswa-table-body">
+            <!-- Data siswa akan diisi oleh script.js -->
+          </tbody>
+        </table>
+      </div>
     </div>
+
   </div>
   <script src="script.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const daftarSiswaLink = document.getElementById("daftar-siswa");
+    const siswaListDiv = document.getElementById("siswa-list");
+
+    // Fungsi untuk mengambil dan menampilkan data siswa
+    function loadSiswaData() {
+      fetch("get_siswa.php")
+        .then((response) => response.json())
+        .then((data) => {
+          let totalSiswa = data.length;
+          let siswaAktif = data.filter(siswa => siswa.status === 'aktif').length;
+          let siswaTidakAktif = data.filter(siswa => siswa.status === 'tidak aktif').length;
+
+          document.getElementById("total-siswa").innerText = totalSiswa;
+          document.getElementById("siswa-aktif").innerText = siswaAktif;
+          document.getElementById("siswa-tidak-aktif").innerText = siswaTidakAktif;
+
+          // Menampilkan daftar siswa
+          let html = '';
+          data.forEach((siswa) => {
+            html += `<tr>
+                                  <td>${siswa.nama}</td>
+                                  <td>${siswa.username}</td>
+                                  <td>${siswa.role}</td>
+                               </tr>`;
+          });
+          document.getElementById("siswa-table-body").innerHTML = html;
+
+          // Menampilkan grafik pemantauan siswa
+          const ctx = document.getElementById('myChart').getContext('2d');
+          const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: ['Total Siswa', 'Siswa Aktif', 'Siswa Tidak Aktif'],
+              datasets: [{
+                label: 'Jumlah Siswa',
+                data: [totalSiswa, siswaAktif, siswaTidakAktif],
+                backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 206, 86, 0.2)',
+                  'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 206, 86, 1)', 'rgba(255, 99, 132, 1)'],
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+        })
+        .catch((error) => console.error("Error:", error));
+    }
+
+    daftarSiswaLink.addEventListener("click", loadSiswaData);
+    loadSiswaData(); // Memanggil fungsi saat halaman dimuat
+  });
+  </script>
 </body>
 
 </html>
