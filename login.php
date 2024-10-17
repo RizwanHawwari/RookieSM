@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 
 // Mengatur koneksi ke database
@@ -10,72 +10,103 @@ $koneksi    = mysqli_connect($host_db, $user_db, $pass_db, $nama_db);
 
 // Menyiapkan variabel
 $err        = ""; // Menyimpan pesan kesalahan
-$username   = ""; // Menyimpan username dari form login
+$nis        = ""; // Menyimpan NIS atau username dari form login
+$role       = ""; // Menyimpan role (siswa/admin) dari form login
 $ingataku   = ""; // Menyimpan status checkbox "Ingat Aku"
 
 // Mengecek jika cookie login ada dan valid
-if (isset($_COOKIE['cookie_username']) && isset($_COOKIE['cookie_password'])) {
-    $cookie_username = $_COOKIE['cookie_username'];
+if (isset($_COOKIE['cookie_nis']) && isset($_COOKIE['cookie_password'])) {
+    $cookie_nis = $_COOKIE['cookie_nis'];
     $cookie_password = $_COOKIE['cookie_password'];
 
-    // Cek username di database
-    $sql1 = "SELECT * FROM login WHERE username = '$cookie_username'";
+    // Cek NIS di database siswa
+    $sql1 = "SELECT * FROM siswa WHERE nis = '$cookie_nis'";
     $q1   = mysqli_query($koneksi, $sql1);
     $r1   = mysqli_fetch_array($q1);
 
-    // Verifikasi password dari cookie
     if ($r1 && $r1['password'] == $cookie_password) {
-        $_SESSION['session_username'] = $cookie_username;
+        $_SESSION['session_nis'] = $cookie_nis;
         $_SESSION['session_password'] = $cookie_password;
     }
 }
 
-// Jika sudah login, arahkan ke halaman anggota
-if (isset($_SESSION['session_username'])) {
-    header("location:home.php");
+// Jika sudah login, arahkan ke halaman siswa atau admin
+if (isset($_SESSION['session_nis']) && $_SESSION['session_role'] == 'siswa') {
+    header("location: siswa.php");
+    exit();
+} elseif (isset($_SESSION['session_nis']) && $_SESSION['session_role'] == 'admin') {
+    header("location: admin.php");
     exit();
 }
 
 // Jika form login disubmit
 if (isset($_POST['login'])) {
-    $username   = isset($_POST['username']) ? $_POST['username'] : ""; // Ambil username dari form
-    $password   = isset($_POST['password']) ? $_POST['password'] : ""; // Ambil password dari form
-
-    // Pastikan checkbox 'ingataku' ada sebelum mengaksesnya
-    $ingataku   = isset($_POST['ingataku']) ? $_POST['ingataku'] : ""; 
+    $nis       = isset($_POST['nis']) ? $_POST['nis'] : ""; // Ambil NIS atau username dari form
+    $password  = isset($_POST['password']) ? $_POST['password'] : ""; // Ambil password dari form
+    $role      = isset($_POST['role']) ? $_POST['role'] : ""; // Ambil role dari form siswa/admin
+    $ingataku  = isset($_POST['ingataku']) ? $_POST['ingataku'] : ""; // Checkbox "ingat aku"
 
     // Validasi input
-    if ($username == '' || $password == '') {
-        $err .= "<li>Please input your username and password before continuing.</li>";
+    if ($nis == '' || $password == '') {
+        $err .= "<li>Please input your NIS/Username and password before continuing.</li>";
     } else {
-        // Cek username di database
-        $sql1 = "SELECT * FROM login WHERE username = '$username'";
-        $q1   = mysqli_query($koneksi, $sql1);
-        $r1   = mysqli_fetch_array($q1);
+        // Cek berdasarkan role
+        if ($role == 'siswa') {
+            // Cek NIS di tabel siswa
+            $sql_siswa = "SELECT * FROM siswa WHERE nis = '$nis'";
+            $q_siswa = mysqli_query($koneksi, $sql_siswa);
+            $r_siswa = mysqli_fetch_array($q_siswa);
 
-        // Cek apakah username ada dan password sesuai
-        if (!$r1) {
-            $err .= "<li>Username tidak tersedia.</li>";
-        } elseif ($r1['password'] != md5($password)) {
-            $err .= "<li>Password tidak sesuai.</li>";
-        }       
-        
-        // Jika tidak ada kesalahan, simpan sesi dan cookie jika perlu
-        if (empty($err)) {
-            $_SESSION['session_username'] = $username; // Simpan username di sesi
-            $_SESSION['session_password'] = md5($password); // Simpan password hash di sesi
+            // Cek apakah NIS dan password siswa sesuai
+            if (!$r_siswa || $r_siswa['password'] != md5($password)) {
+                $err .= "<li>NIS atau password tidak sesuai.</li>";
+            } else {
+                // Jika valid, simpan sesi siswa
+                $_SESSION['session_nis'] = $nis;
+                $_SESSION['session_password'] = md5($password);
+                $_SESSION['session_role'] = 'siswa';
 
-            // Jika checkbox "Ingat Aku" dicentang, simpan cookie
-            if ($ingataku == 1) {
-                setcookie("cookie_username", $username, time() + (60 * 60 * 24 * 30), "/");
-                setcookie("cookie_password", md5($password), time() + (60 * 60 * 24 * 30), "/");
+                // Jika "ingat aku" dicentang, simpan cookie
+                if ($ingataku == 1) {
+                    setcookie("cookie_nis", $nis, time() + (60 * 60 * 24 * 30), "/");
+                    setcookie("cookie_password", md5($password), time() + (60 * 60 * 24 * 30), "/");
+                }
+
+                // Redirect ke halaman siswa
+                header("location: siswa.php");
+                exit();
             }
-            header("location:home.php"); // Arahkan ke halaman home setelah login berhasil
+        } elseif ($role == 'admin') {
+            // Cek username admin di tabel admin
+            $sql_admin = "SELECT * FROM atmin WHERE username = '$nis'";
+            $q_admin = mysqli_query($koneksi, $sql_admin);
+            $r_admin = mysqli_fetch_array($q_admin);
+
+            // Cek apakah username admin dan password sesuai
+            if (!$r_admin || $r_admin['Password'] != md5($password)) {
+                $err .= "<li>Username atau password tidak sesuai.</li>";
+            } else {
+                // Jika valid, simpan sesi admin
+                $_SESSION['session_nis'] = $nis;
+                $_SESSION['session_password'] = md5($password);
+                $_SESSION['session_role'] = 'admin';
+
+                // Jika "ingat aku" dicentang, simpan cookie
+                if ($ingataku == 1) {
+                    setcookie("cookie_nis", $nis, time() + (60 * 60 * 24 * 30), "/");
+                    setcookie("cookie_password", md5($password), time() + (60 * 60 * 24 * 30), "/");
+                }
+
+                // Redirect ke halaman admin
+                header("location: admin.php");
+                exit();
+            }
+        } else {
+            $err .= "<li>Role tidak valid.</li>";
         }
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -98,21 +129,27 @@ if (isset($_POST['login'])) {
       <?php if ($err) { ?>
       <!-- Tampilkan pesan kesalahan jika ada -->
       <div id="error-message">
-        <ul><?php echo $err ?></ul>
+        <ul style="list-style-type: none; margin-top: 30px; font-style: italic; color: crimson;"><?php echo $err ?></ul>
       </div>
       <?php } ?>
       <h2>Login</h2>
       <form id="loginform" action="" method="post" role="form" autocomplete="off">
 
         <div class="input-box">
-          <input id="login-username" type="text" name="username" value="<?php echo htmlspecialchars($username) ?>"
-            required>
+          <input id="login-nis" type="text" name="nis" value="<?php echo htmlspecialchars($nis) ?>" autocomplete="off">
           <label>Username</label>
         </div>
 
         <div class="input-box">
           <input id="login-password" type="password" name="password" required>
           <label>Password</label>
+        </div>
+
+        <div class="input-box">
+          <select label="role" name="role">
+            <option value="siswa" <?php if(isset($_POST['role']) && $_POST['role'] == 'siswa') echo 'selected'; ?>>Siswa</option>
+            <option value="admin" <?php if(isset($_POST['role']) && $_POST['role'] == 'admin') echo 'selected'; ?>>Admin</option>
+          </select>
         </div>
 
         <div class="checkbox-container">
@@ -124,38 +161,8 @@ if (isset($_POST['login'])) {
         <!-- Tombol login -->
         <input type="submit" name="login" class="btn" value="Login" />
 
-        <div class="signup-link">
-          <a href="register.php">Sign Up</a>
-        </div>
       </form>
     </div>
-
-    <span style="--i:0;"></span>
-    <span style="--i:2;"></span>
-    <span style="--i:4;"></span>
-    <span style="--i:6;"></span>
-    <span style="--i:8;"></span>
-    <span style="--i:10;"></span>
-    <span style="--i:12;"></span>
-    <span style="--i:14;"></span>
-    <span style="--i:16;"></span>
-    <span style="--i:18;"></span>
-    <span style="--i:20;"></span>
-    <span style="--i:22;"></span>
-    <span style="--i:24;"></span>
-    <span style="--i:26;"></span>
-    <span style="--i:28;"></span>
-    <span style="--i:30;"></span>
-    <span style="--i:32;"></span>
-    <span style="--i:34;"></span>
-    <span style="--i:36;"></span>
-    <span style="--i:38;"></span>
-    <span style="--i:40;"></span>
-    <span style="--i:42;"></span>
-    <span style="--i:44;"></span>
-    <span style="--i:46;"></span>
-    <span style="--i:48;"></span>
-    <span style="--i:49;"></span>
   </div>
 </body>
 

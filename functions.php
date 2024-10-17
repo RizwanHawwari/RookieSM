@@ -4,7 +4,7 @@ $host_db    = "localhost";
 $user_db    = "root";
 $pass_db    = "";
 $nama_db    = "login";
-$conn    = mysqli_connect($host_db, $user_db, $pass_db, $nama_db);
+$koneksi    = mysqli_connect($host_db, $user_db, $pass_db, $nama_db);
 
 function query($query) {
   global $conn;
@@ -15,6 +15,88 @@ function query($query) {
   }
   return $rows;
 }
+
+// function edit($tabel, $id) {
+//   global $conn;
+  
+//   $tabelValid = ["siswa", "admin"];
+//   if (!in_array($tabel, $tabelValid)) {
+//       return false;
+//   }
+
+//   if ($tabel == "siswa" || $tabel == "admin") {
+//     $nis = htmlspecialchars($_POST["nis"]);
+//     $atmin = htmlspecialchars($_POST["atmin"])
+
+//     if ($tabel == "siswa") {
+//         $nis = htmlspecialchars($_POST["nis"]);
+//         $query = "UPDATE siswa SET
+//             nis = '$nis'
+//             WHERE id = $id";
+//     } elseif ($tabel == "guru") {
+
+//         $q4 = "SELECT id FROM login WHERE atmin = '$atmin'";
+//         $r4 = mysqli_query($conn, $q4);
+//         if (!$r4) {
+//             echo "<script>alert('Query gagal: " . mysqli_error($conn) . "');</script>";
+//             return false;
+//         }
+//         $query = "UPDATE atmin SET
+//             $atmin = '$atmin'
+//             WHERE id = $id";
+//     }
+//   }
+  
+//   return mysqli_affected_rows($conn);
+// }
+
+// function delete($tabel, $id) {
+//   global $conn;
+  
+//   $tabelValid = ['siswa', 'guru', 'mapel'];
+//   if (!in_array($tabel, $tabelValid)) {
+//       return false;
+//   }
+  
+//   $query = "DELETE FROM $tabel WHERE id = '$id'";
+//   mysqli_query($conn, $query);
+  
+//   return mysqli_affected_rows($conn);
+// }
+
+// function create($table, $fields) {
+//   global $conn;
+
+//   //validasi buat tabel yg bkn mapel
+//   if ($table != "mapel") {
+//     $fieldData = [];
+//     foreach ($fields as $field => $value) {
+//         $fieldData[$field] = htmlspecialchars($value);
+//     }
+
+//     $email = $fieldData['email'];
+//     $q2 = "SELECT email FROM $table WHERE email = '$email'";
+//     $r2 = mysqli_query($conn, $q2);
+//     if (mysqli_fetch_assoc($r2)) {
+//         echo "<script>alert('Email Sudah Terdaftar');</script>";
+//         return false;
+//     }
+
+//     $no_telp = $fieldData['no_telp'];
+//     if (!validatePhoneNumber($no_telp)) {
+//         echo "<script>alert('Nomor Telepon Tidak Valid');</script>";
+//         return false;
+//     }
+
+//     $q3 = "SELECT no_telp FROM $table WHERE no_telp = '$no_telp'";
+//     $r3 = mysqli_query($conn, $q3);
+//     if (mysqli_fetch_assoc($r3)) {
+//         echo "<script>alert('Nomor Telepon Sudah Terdaftar');</script>";
+//         return false;
+//     }
+//   }
+// }
+
 
 function validatePhoneNumber($no_telp) {
 

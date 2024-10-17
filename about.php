@@ -12,7 +12,7 @@
   <header class="header">
     <div class="logo-container">
       <img src="hero-img/cookie.svg" alt="Rookies Evolution" class="rookies">
-      <a href="https://smkscitranegara.sch.id" class="logo">Rookies School Management</a>
+      <a href="https://smkscitranegara.sch.id" class="logo">Free Course SMK Citra Negara</a>
     </div>
 
     <nav class="navbar">
