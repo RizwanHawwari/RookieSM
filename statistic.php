@@ -289,7 +289,7 @@ mysqli_close($conn);
     }
 
     daftarSiswaLink.addEventListener("click", loadSiswaData);
-    loadSiswaData(); // Memanggil fungsi saat halaman dimuat
+    loadSiswaData();
   });
   </script>
 </body>

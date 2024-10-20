@@ -1,15 +1,25 @@
 <?php 
 session_start();
+include "functions.php";
 if (!isset($_SESSION['session_username']) || $_SESSION['role'] !== 'A') {
   header("Location: login.php");
   exit();
 }
 
-// Data profil (contoh data sementara, biasanya akan diambil dari database)
-$admin_name = "John Doe"; // Ganti dengan data admin sebenarnya
-$admin_email = "admin@example.com"; // Ganti dengan email admin sebenarnya
-$admin_phone = "+62 812 3456 7890"; // Ganti dengan nomor telepon admin sebenarnya
-$admin_join_date = "January 1, 2021"; // Ganti dengan tanggal admin bergabung
+$sql = "SELECT name, email, phone, join_date FROM admin LIMIT 1";
+$result = mysqli_query($conn, $sql);
+
+// Mengecek hasil query
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+  
+    $admin_name = $row["name"];
+    $admin_email = $row["email"];
+    $admin_phone = $row["phone"];
+    $admin_join_date = date("d-M-Y", strtotime($row["join_date"]));
+} else {
+    echo "No results found.";
+}
 ?>
 
 <!DOCTYPE html>
@@ -33,13 +43,14 @@ $admin_join_date = "January 1, 2021"; // Ganti dengan tanggal admin bergabung
 
 <style>
 .profile-container {
-  background-color: white;
+  background-color: #333;
+  color: #f0f0f0;
   border-radius: 8px;
   padding: 20px;
   width: 80%;
   max-width: 1000px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin: auto;
+  box-shadow: 3px 5px 9px 2px rgba(0, 0, 0, 0.8);
+  margin: 20px auto;
 }
 
 .profile-card {
@@ -77,18 +88,18 @@ $admin_join_date = "January 1, 2021"; // Ganti dengan tanggal admin bergabung
 
 .profile-info {
   flex: 1;
-  /* text-align: center; */
   margin-left: 40px;
 }
 
 .profile-info h2 {
   font-size: 1.8rem;
   margin-bottom: 5px;
+  color: #fff;
 }
 
 .profile-info p {
   font-size: 1rem;
-  color: gray;
+  color: #ccc;
 }
 
 .about-section {
@@ -98,11 +109,12 @@ $admin_join_date = "January 1, 2021"; // Ganti dengan tanggal admin bergabung
 .about-section h3 {
   font-size: 1.4rem;
   margin-bottom: 10px;
+  color: #fff;
 }
 
 .about-section p {
   font-size: 1rem;
-  color: #333;
+  color: #ddd;
 }
 
 .tab-section {
@@ -111,9 +123,8 @@ $admin_join_date = "January 1, 2021"; // Ganti dengan tanggal admin bergabung
 
 .tabs {
   display: flex;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #555;
   flex-wrap: wrap;
-  /* Agar bisa membungkus pada layar kecil */
 }
 
 .tab {
@@ -121,13 +132,14 @@ $admin_join_date = "January 1, 2021"; // Ganti dengan tanggal admin bergabung
   padding: 10px;
   text-align: center;
   cursor: pointer;
-  background-color: #f0f0f0;
+  background-color: #444;
   border: none;
   font-size: 0.9rem;
+  color: #ddd;
 }
 
 .tab.active {
-  background-color: white;
+  background-color: #333;
   border-bottom: 2px solid #007bff;
 }
 
@@ -159,7 +171,8 @@ $admin_join_date = "January 1, 2021"; // Ganti dengan tanggal admin bergabung
 }
 
 .cancel-btn {
-  background-color: #f5f5f5;
+  background-color: #555;
+  color: #ddd;
 }
 
 .save-btn {
@@ -171,12 +184,10 @@ $admin_join_date = "January 1, 2021"; // Ganti dengan tanggal admin bergabung
 @media (max-width: 768px) {
   .profile-container {
     width: 90%;
-    /* Lebih lebar pada layar kecil */
   }
 
   .profile-card {
     flex-direction: column;
-    /* Mengubah orientasi card ke kolom */
     text-align: center;
   }
 
@@ -187,7 +198,6 @@ $admin_join_date = "January 1, 2021"; // Ganti dengan tanggal admin bergabung
 
   .upload-btn {
     bottom: -20px;
-    /* Agar lebih proporsional pada layar kecil */
   }
 
   .profile-image img {
@@ -197,12 +207,10 @@ $admin_join_date = "January 1, 2021"; // Ganti dengan tanggal admin bergabung
 
   .tabs {
     flex-direction: column;
-    /* Mengubah tab menjadi satu kolom */
   }
 
   .tab {
     font-size: 0.8rem;
-    /* Ukuran font lebih kecil untuk layar kecil */
   }
 }
 
@@ -405,15 +413,12 @@ $admin_join_date = "January 1, 2021"; // Ganti dengan tanggal admin bergabung
   <script src="script.js"></script>
   <script>
   function openTab(event, tabId) {
-    // Hide all tab content
     const tabPanes = document.querySelectorAll('.tab-pane');
     tabPanes.forEach(tab => tab.classList.remove('active'));
 
-    // Remove active class from all tabs
     const tabs = document.querySelectorAll('.tab');
     tabs.forEach(tab => tab.classList.remove('active'));
 
-    // Show the clicked tab content and make tab active
     document.getElementById(tabId).classList.add('active');
     event.currentTarget.classList.add('active');
   }
