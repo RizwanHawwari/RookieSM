@@ -16,6 +16,7 @@ function query($query) {
   return $rows;
 }
 
+
 function validatePhoneNumber($no_telp) {
 
   $kode_operator = [
@@ -45,5 +46,11 @@ function validatePhoneNumber($no_telp) {
   } else {
       return false; 
   }
+}
+
+
+function cari($keyword) {
+    $query = "SELECT * FROM mata_pelajaran WHERE nama_pelajaran LIKE '%$keyword%'";
+    return query($query);
 }
 ?>
