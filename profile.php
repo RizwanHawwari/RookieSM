@@ -4,6 +4,12 @@ if (!isset($_SESSION['session_username']) || $_SESSION['role'] !== 'A') {
   header("Location: login.php");
   exit();
 }
+
+// Data profil (contoh data sementara, biasanya akan diambil dari database)
+$admin_name = "John Doe"; // Ganti dengan data admin sebenarnya
+$admin_email = "admin@example.com"; // Ganti dengan email admin sebenarnya
+$admin_phone = "+62 812 3456 7890"; // Ganti dengan nomor telepon admin sebenarnya
+$admin_join_date = "January 1, 2021"; // Ganti dengan tanggal admin bergabung
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +30,205 @@ if (!isset($_SESSION['session_username']) || $_SESSION['role'] !== 'A') {
   <!-- CSS -->
   <link rel="stylesheet" href="css-file/siswa.css" />
 </head>
+
+<style>
+.profile-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 80%;
+  max-width: 1000px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: auto;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.profile-image {
+  position: relative;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.profile-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.upload-btn {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.profile-info {
+  flex: 1;
+  /* text-align: center; */
+  margin-left: 40px;
+}
+
+.profile-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+.profile-info p {
+  font-size: 1rem;
+  color: gray;
+}
+
+.about-section {
+  margin-bottom: 20px;
+}
+
+.about-section h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.about-section p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.tab-section {
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  flex-wrap: wrap;
+  /* Agar bisa membungkus pada layar kecil */
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.tab.active {
+  background-color: white;
+  border-bottom: 2px solid #007bff;
+}
+
+.tab-content {
+  margin-top: 10px;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: end;
+}
+
+.cancel-btn,
+.save-btn {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.cancel-btn {
+  background-color: #f5f5f5;
+}
+
+.save-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .profile-container {
+    width: 90%;
+    /* Lebih lebar pada layar kecil */
+  }
+
+  .profile-card {
+    flex-direction: column;
+    /* Mengubah orientasi card ke kolom */
+    text-align: center;
+  }
+
+  .profile-info {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .upload-btn {
+    bottom: -20px;
+    /* Agar lebih proporsional pada layar kecil */
+  }
+
+  .profile-image img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .tabs {
+    flex-direction: column;
+    /* Mengubah tab menjadi satu kolom */
+  }
+
+  .tab {
+    font-size: 0.8rem;
+    /* Ukuran font lebih kecil untuk layar kecil */
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-image img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-info h2 {
+    font-size: 1.5rem;
+  }
+
+  .profile-info p {
+    font-size: 0.9rem;
+  }
+
+  .about-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .about-section p {
+    font-size: 0.8rem;
+  }
+}
+</style>
 
 <body>
   <div class="wrapper">
@@ -135,7 +340,7 @@ if (!isset($_SESSION['session_username']) || $_SESSION['role'] !== 'A') {
           </ul>
         </li>
         <li class="sidebar-item">
-          <a href="#" class="sidebar-link">
+          <a href="setting.php" class="sidebar-link">
             <i class="lni lni-cog"></i>
             <span>Setting</span>
           </a>
@@ -148,15 +353,71 @@ if (!isset($_SESSION['session_username']) || $_SESSION['role'] !== 'A') {
         </li>
       </ul>
     </aside>
+
     <div class="main p-3">
       <div class="text-center">
-        <h1>Dashboard Admin</h1>
+        <h1>Profile Admin</h1>
+      </div>
+      <div class="profile-container">
+        <div class="profile-card">
+          <div class="profile-image">
+            <img src="img/logo-cn.png" alt="Profile Image" class="rounded-circle">
+            <button class="upload-btn">Upload</button>
+          </div>
+          <div class="profile-info">
+            <h2><?php echo $admin_name; ?></h2>
+            <p>Administrator</p>
+          </div>
+        </div>
+
+        <div class="about-section">
+          <h3>About Me</h3>
+          <p>Administrator for Free Course CN platform.</p>
+        </div>
+
+        <div class="tab-section">
+          <div class="tabs">
+            <button class="tab active" onclick="openTab(event, 'contact-info')">Contact Info</button>
+            <button class="tab" onclick="openTab(event, 'additional-info')">Additional Info</button>
+          </div>
+          <div class="tab-content">
+            <div id="contact-info" class="tab-pane active">
+              <p><strong>Email:</strong> <?php echo $admin_email; ?></p>
+              <p><strong>Nomor Telepon:</strong> <?php echo $admin_phone; ?></p>
+            </div>
+            <div id="additional-info" class="tab-pane">
+              <p><strong>Tanggal Bergabung:</strong> <?php echo $admin_join_date; ?></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="cancel-btn">Cancel</button>
+          <button class="save-btn">Save</button>
+        </div>
       </div>
     </div>
   </div>
 
+
   </div>
+
   <script src="script.js"></script>
+  <script>
+  function openTab(event, tabId) {
+    // Hide all tab content
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    tabPanes.forEach(tab => tab.classList.remove('active'));
+
+    // Remove active class from all tabs
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+
+    // Show the clicked tab content and make tab active
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+  </script>
 </body>
 
 </html>

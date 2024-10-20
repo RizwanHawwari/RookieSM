@@ -37,7 +37,7 @@ if (!isset($_SESSION['session_username']) || $_SESSION['role'] !== 'A') {
       </div>
       <ul class="sidebar-nav">
         <li class="sidebar-item">
-          <a href="#" class="sidebar-link">
+          <a href="profile.php" class="sidebar-link">
             <i class="lni lni-user"></i>
             <span>Profile</span>
           </a>

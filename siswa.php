@@ -1,6 +1,6 @@
 <?php 
 require "functions.php";
-
+session_start();
 
 if (isset($_POST["cari"])) {
     $keyword = $_POST["keyword"];
@@ -9,13 +9,13 @@ if (isset($_POST["cari"])) {
     $course = query("SELECT * FROM mata_pelajaran");
 }
 
-if (!isset($_SESSION['session_nis'])) {
+if (!isset($_SESSION['session_username'])) {
     // Redirect to login if not logged in
     header("Location: login.php");
     exit();
 }
 
-if (isset($_SESSION['session_role']) && $_SESSION['session_role'] == 'siswa') {
+if (isset($_SESSION['role']) && $_SESSION['role'] == 'S') {
     echo "Selamat datang, Siswa!";
 } else {
     header("location: admin.php");
