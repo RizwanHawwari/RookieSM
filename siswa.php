@@ -9,6 +9,7 @@ if (isset($_POST["cari"])) {
     $course = query("SELECT * FROM mata_pelajaran");
 }
 
+
 // Uncomment the following code to enforce session checks
 // if (!isset($_SESSION['session_nis'])) {
 //     // Redirect to login if not logged in
@@ -43,6 +44,8 @@ if (isset($_POST["cari"])) {
         .product-box {
             margin-bottom: 15px; /* Add space between products */
             height: 50%;
+            padding-top: 10px;
+            margin: 10%;
         }
 
         /* Style for the search bar */
@@ -92,11 +95,11 @@ if (isset($_POST["cari"])) {
                     </a>
                     <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#multi-two"
+                            <a href="#pplg" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#multi-two"
                                 aria-expanded="false" aria-controls="multi-two">PPLG</a>
                             <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
                                 <li class="sidebar-item">
-                                    <a href="" class="sidebar-link">HTML & CSS</a>
+                                    <a href="#html" class="sidebar-link">HTML & CSS</a>
                                 </li>
                                 <li class="sidebar-item">
                                     <a href="#" class="sidebar-link">JavaScript</a>
@@ -115,7 +118,7 @@ if (isset($_POST["cari"])) {
                                 aria-expanded="false" aria-controls="multi-three">TJKT</a>
                             <ul id="multi-three" class="sidebar-dropdown list-unstyled collapse">
                                 <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">Arduino</a>
+                                    <a href="#arduino" class="sidebar-link">Arduino</a>
                                 </li>
                                 <li class="sidebar-item">
                                     <a href="#" class="sidebar-link">Jaringan Komputer</a>
@@ -175,40 +178,71 @@ if (isset($_POST["cari"])) {
             </div>
 
             <!-- Dummy Cart Section -->
+                <div class="pplg"><h1>PPLG</h1></div>  
             <div class="container mt-5">
     <div class="row justify-content-center">
-
+      
         <?php
-        if (!empty($course)) {
-            foreach($course as $mataPelajaran) {
-                ?>
-
-                <div class="col-md-4"> <!-- Adjusted column size -->
+        if (!empty($course)){       
+            foreach ($course as $mataPelajaran) {
+        ?>
+                 <?php if (!empty($mataPelajaran['nama_pelajaran']) && !empty($mataPelajaran['gambar'])) { ?>
+                
+                <div class="col-md-4" id="html"> <!-- Adjusted column size -->
                     <div class="card">
-                        <div class="card-header">
-                            <h3 class="text-center"><?= ($mataPelajaran['nama_pelajaran']); ?></h3>
+                        <div class="card-header">    
+                            <h3 class="text-center"><?= $mataPelajaran['nama_pelajaran']; ?></h3>
                         </div>
                         <div class="card-body text-center">
                             <div class="product-box section">
-                                <img src="<?= ($mataPelajaran['gambar']); ?>" alt="<?= ($mataPelajaran['nama_pelajaran']); ?>" 
+                                <img src="<?= $mataPelajaran['gambar']; ?>" 
+                                     alt="<?= $mataPelajaran['nama_pelajaran']; ?>" 
                                      class="product-img" 
                                      style="width: 100%; height: auto; max-height: 200px; object-fit: contain;">
-                                <h3 class="product-title"><?= ($mataPelajaran['nama_pelajaran']); ?></h3> 
+                                <h3 class="product-title"><?= $mataPelajaran['nama_pelajaran']; ?></h3> 
                                 <p class="product-price">FREE</p>
                                 <div class="path">
-                                    <a href="<?= ($mataPelajaran['link_pelajaran']); ?>" class="btn btn-primary">Learn</a>
+                                    <a href="<?= $mataPelajaran['link_pelajaran']; ?>" class="btn btn-primary">Learn</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            
+                <?php } ?>
 
-                <?php
+                    
+                    <?php if (!empty($mataPelajaran['nama_pelajaran_tjkt']) && !empty($mataPelajaran['gambar_tjkt'])) { ?>
+                    <div class="tjkt"><h1>TJKT</h1></div>
+                    <div class="col-md-4" id="arduino">    
+                    <div class="card">
+                        <div class="card-header">    
+                            <h3 class="text-center"><?= $mataPelajaran['nama_pelajaran_tjkt']; ?></h3>
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="product-box section">
+                                <img src="<?= $mataPelajaran['gambar_tjkt']; ?>" 
+                                     alt="<?= $mataPelajaran['nama_pelajaran_tjkt']; ?>" 
+                                     class="product-img" 
+                                     style="width: 100%; height: auto; max-height: 200px; object-fit: contain;">
+                                <h3 class="product-title"><?= $mataPelajaran['nama_pelajaran_tjkt']; ?></h3> 
+                                <p class="product-price">FREE</p>
+                                <div class="path">
+                                    <a href="<?= $mataPelajaran['link_pelajaran']; ?>" class="btn btn-primary">Learn</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>      
+                </div>
+                    <?php } ?>
+        <?php
             }
-        } else {
+        }else {
             echo "<p>Data tidak ditemukan.</p>";
         }
         ?>
+        
+         
         <!-- END FOR Dummy Cart Section -->
              </div>
           </div>
