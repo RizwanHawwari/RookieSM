@@ -44,7 +44,6 @@
                 <p><strong>Jurusan:</strong> PPLG 2</p>
             </div>
             <div class="profile-footer">
-                <a href="#" class="button">Hubungi</a>
                 <button class="button" onclick="document.getElementById('editProfileModal').style.display='block'">Edit Profil</button>
             </div>
         </div>
