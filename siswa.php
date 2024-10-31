@@ -6,7 +6,26 @@ if (isset($_POST["cari"])) {
     $keyword = $_POST["keyword"];
     $course = cari($keyword);
 } else {
-    $course = query("SELECT * FROM mata_pelajaran");
+    $course = query("SELECT 
+                    mp.id,
+                    mp.nama_pelajaran,
+                    pplg.nama_pelajaran_pplg, 
+                    pplg.gambar AS gambar_pplg, 
+                    pplg.link_pelajaran AS link_pelajaran_pplg,
+                    tjkt.nama_pelajaran_tjkt, 
+                    tjkt.gambar AS gambar_tjkt, 
+                    tjkt.link_pelajaran AS link_pelajaran_tjkt,
+                    otkp.nama_pelajaran_otkp, 
+                    otkp.gambar AS gambar_otkp, 
+                    otkp.link_pelajaran AS link_pelajaran_otkp
+                 FROM 
+                    mata_pelajaran AS mp
+                 LEFT JOIN 
+                    mp_pplg AS pplg ON mp.id = pplg.mata_pelajaran_id
+                 LEFT JOIN 
+                    mp_tjkt AS tjkt ON mp.id = tjkt.mata_pelajaran_id
+                 LEFT JOIN 
+                    mp_otkp AS otkp ON mp.id = otkp.mata_pelajaran_id");
 }
 
 
@@ -35,7 +54,7 @@ if (isset($_POST["cari"])) {
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css-file/siswa.css" />
+    <link rel="stylesheet" href="css-file/ss.css" />
     <style>
         .card {
             margin: 0 auto; /* Center the card */
@@ -178,70 +197,97 @@ if (isset($_POST["cari"])) {
             </div>
 
             <!-- Dummy Cart Section -->
-                <div class="pplg"><h1>PPLG</h1></div>  
+                <!-- <div class="pplg"><h1>PPLG</h1></div>   -->
             <div class="container mt-5">
     <div class="row justify-content-center">
-      
-        <?php
-        if (!empty($course)){       
-            foreach ($course as $mataPelajaran) {
-        ?>
-                 <?php if (!empty($mataPelajaran['nama_pelajaran']) && !empty($mataPelajaran['gambar'])) { ?>
-                
-                <div class="col-md-4" id="html"> <!-- Adjusted column size -->
-                    <div class="card">
-                        <div class="card-header">    
-                            <h3 class="text-center"><?= $mataPelajaran['nama_pelajaran']; ?></h3>
-                        </div>
-                        <div class="card-body text-center">
-                            <div class="product-box section">
-                                <img src="<?= $mataPelajaran['gambar']; ?>" 
-                                     alt="<?= $mataPelajaran['nama_pelajaran']; ?>" 
-                                     class="product-img" 
-                                     style="width: 100%; height: auto; max-height: 200px; object-fit: contain;">
-                                <h3 class="product-title"><?= $mataPelajaran['nama_pelajaran']; ?></h3> 
-                                <p class="product-price">FREE</p>
-                                <div class="path">
-                                    <a href="<?= $mataPelajaran['link_pelajaran']; ?>" class="btn btn-primary">Learn</a>
-                                </div>
-                            </div>
+    <div class="row">
+    <!-- Tampilkan Judul dan Card untuk PPLG -->
+    <div class="col-12 text-center my-4">
+        <h1>PPLG</h1>
+    </div>
+    <?php
+    foreach ($course as $mataPelajaran) {
+        if (!empty($mataPelajaran['nama_pelajaran_pplg'])) { ?>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center"><?= $mataPelajaran['nama_pelajaran_pplg']; ?></h3>
+                    </div>
+                    <div class="card-body text-center">
+                        <img src="<?= $mataPelajaran['gambar_pplg']; ?>" alt="<?= $mataPelajaran['nama_pelajaran_pplg']; ?>" class="product-img">
+                        <h3 class="product-title"><?= $mataPelajaran['nama_pelajaran_pplg']; ?></h3> 
+                        <p class="product-price">FREE</p>
+                        <div class="path">
+                            <a href="<?= $mataPelajaran['link_pelajaran_pplg']; ?>" class="btn btn-primary">Learn</a>
                         </div>
                     </div>
                 </div>
-            
-                <?php } ?>
-
-                    
-                    <?php if (!empty($mataPelajaran['nama_pelajaran_tjkt']) && !empty($mataPelajaran['gambar_tjkt'])) { ?>
-                    <div class="tjkt"><h1>TJKT</h1></div>
-                    <div class="col-md-4" id="arduino">    
-                    <div class="card">
-                        <div class="card-header">    
-                            <h3 class="text-center"><?= $mataPelajaran['nama_pelajaran_tjkt']; ?></h3>
-                        </div>
-                        <div class="card-body text-center">
-                            <div class="product-box section">
-                                <img src="<?= $mataPelajaran['gambar_tjkt']; ?>" 
-                                     alt="<?= $mataPelajaran['nama_pelajaran_tjkt']; ?>" 
-                                     class="product-img" 
-                                     style="width: 100%; height: auto; max-height: 200px; object-fit: contain;">
-                                <h3 class="product-title"><?= $mataPelajaran['nama_pelajaran_tjkt']; ?></h3> 
-                                <p class="product-price">FREE</p>
-                                <div class="path">
-                                    <a href="<?= $mataPelajaran['link_pelajaran']; ?>" class="btn btn-primary">Learn</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>      
-                </div>
-                    <?php } ?>
-        <?php
-            }
-        }else {
-            echo "<p>Data tidak ditemukan.</p>";
+            </div>
+    <?php
         }
-        ?>
-        
+    }
+    ?>
+
+    <!-- Tampilkan Judul dan Card untuk TJKT -->
+    <div class="col-12 text-center my-4">
+        <h1>TJKT</h1>
+    </div>
+    <?php
+    foreach ($course as $mataPelajaran) {
+        if (!empty($mataPelajaran['nama_pelajaran_tjkt'])) { ?>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center"><?= $mataPelajaran['nama_pelajaran_tjkt']; ?></h3>
+                    </div>
+                    <div class="card-body text-center">
+                        <img src="<?= $mataPelajaran['gambar_tjkt']; ?>" alt="<?= $mataPelajaran['nama_pelajaran_tjkt']; ?>" class="product-img">
+                        <h3 class="product-title"><?= $mataPelajaran['nama_pelajaran_tjkt']; ?></h3> 
+                        <p class="product-price">FREE</p>
+                        <div class="path">
+                            <a href="<?= $mataPelajaran['link_pelajaran_tjkt']; ?>" class="btn btn-primary">Learn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <?php
+        }
+    }
+    ?>
+
+    <!-- Tampilkan Judul dan Card untuk OTKP -->
+    <div class="col-12 text-center my-4">
+        <h1>OTKP</h1>
+    </div>
+    <?php
+    foreach ($course as $mataPelajaran) {
+        if (!empty($mataPelajaran['nama_pelajaran_otkp'])) { ?>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center"><?= $mataPelajaran['nama_pelajaran_otkp']; ?></h3>
+                    </div>
+                    <div class="card-body text-center">
+                    <div class="product-box section">
+                    <img src="<?= $mataPelajaran['gambar_otkp']; ?>"
+                     alt="<?= $mataPelajaran['nama_pelajaran_otkp']; ?>"
+                     class="product-img" style="width: 100%; height: auto; max-height: 200px; object-fit: contain;">
+                        <h3 class="product-title"><?= $mataPelajaran['nama_pelajaran_otkp']; ?></h3> 
+                        <p class="product-price">FREE</p>
+                        <div class="path">
+                            <a href="<?= $mataPelajaran['link_pelajaran_otkp']; ?>" class="btn btn-primary">Learn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <?php
+        }
+    }
+    ?>
+</div>
+
+
+
          
         <!-- END FOR Dummy Cart Section -->
              </div>
