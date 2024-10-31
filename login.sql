@@ -32,7 +32,7 @@ CREATE TABLE `admin` (
   `phone` varchar(15) DEFAULT NULL,
   `join_date` date DEFAULT NULL,
   PRIMARY KEY (`ID`,`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES (2,'admin','$2y$10$2y/8t3aFaw2QoFFrz5QLx.hiFPMvDZsAvkFub14QGJgZogij0zl2W','A','John Doe','johndoe@gmail.com','08951234567','2024-10-20');
+INSERT INTO `admin` VALUES (2,'admin','$2y$10$2y/8t3aFaw2QoFFrz5QLx.hiFPMvDZsAvkFub14QGJgZogij0zl2W','A','John Doe','johndoe@gmail.com','08951234567','2024-10-20'),(4,'admin_baru','dea75af85f93d7819eab44a0065ce6cd5a5f0c4109bac0b9ff95d8da3cbac1b0','A',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,7 +89,7 @@ CREATE TABLE `siswa` (
   `jurusan` varchar(50) NOT NULL,
   `last_login` datetime DEFAULT NULL,
   PRIMARY KEY (`ID`,`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +98,7 @@ CREATE TABLE `siswa` (
 
 LOCK TABLES `siswa` WRITE;
 /*!40000 ALTER TABLE `siswa` DISABLE KEYS */;
-INSERT INTO `siswa` VALUES (5,'Travis Scott','trav567','','$2y$10$Hl0DMTybvpgSFEyTLNbcIe4/60dDtkIoMTLymx5rs91q7i1XnbmiO','S','aktif','10','PPLG','2024-10-20 15:22:52');
+INSERT INTO `siswa` VALUES (5,'Travis Scott','trav567','','$2y$10$Hl0DMTybvpgSFEyTLNbcIe4/60dDtkIoMTLymx5rs91q7i1XnbmiO','S','aktif','10','PPLG','2024-10-31 13:22:48'),(13,'mas ardi','siswa1','NIS12345','a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3','S','aktif','10','RPL',NULL),(14,'Rizwan Hawwari','raxxs','56789123','$2y$10$hOUPRO/.8fYesJB1JCt8gOKIlDUqSSM4Bvt/Xa6sop5PqJ8ETcvrq','S','aktif','11','PPLG',NULL),(15,'Gunawan Hakim','gnwn67','567891233','$2y$10$n3yUsAuaPzSJ5oTXRH.wp.vFQoX7UB4Oql2POmGbdiZjAOFnuHlu6','S','aktif','10','PPLG',NULL),(16,'Arif Erlangga','rifff','45612789','$2y$10$J5QXZAfk3J4WKEur3oWYHeuZPl5E41Pev.UUnXfLoEtARUaKqURn.','S','aktif','11','TJKT',NULL),(17,'Kiara Elvia','kiaraaa','567812990','$2y$10$.fVdvmXh8Vd/T914nTsZkelsOpks0eIwEaW.Mz8PnXm1BxXA0ZUjC','S','aktif','12','OTKP',NULL),(18,'Fatimah Hasan','flowertim','7894456','$2y$10$pK8pEE84ppPu4DDKrmPLO.dy7YU1wm38F33emyFIU87ZFrUFmMx/O','S','aktif','10','PM',NULL);
 /*!40000 ALTER TABLE `siswa` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -111,4 +111,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-20 21:07:48
+-- Dump completed on 2024-10-31 20:31:33
