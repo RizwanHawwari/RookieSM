@@ -50,7 +50,7 @@ function validatePhoneNumber($no_telp) {
 
 
 function cari($keyword) {
-    $query = "SELECT * FROM mata_pelajaran WHERE nama_pelajaran LIKE '%$keyword%'";
+    $query = "SELECT * FROM mata_pelajaran WHERE nama_pelajaran OR nama_pelajaran_tjkt LIKE '%$keyword%'";
     return query($query);
-}
+}   
 ?>
