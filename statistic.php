@@ -59,7 +59,7 @@ mysqli_close($conn);
       </div>
       <ul class="sidebar-nav">
         <li class="sidebar-item">
-          <a href="#" class="sidebar-link">
+          <a href="profile.php" class="sidebar-link">
             <i class="lni lni-user"></i>
             <span>Profile</span>
           </a>
@@ -289,7 +289,7 @@ mysqli_close($conn);
     }
 
     daftarSiswaLink.addEventListener("click", loadSiswaData);
-    loadSiswaData(); // Memanggil fungsi saat halaman dimuat
+    loadSiswaData();
   });
   </script>
 </body>
