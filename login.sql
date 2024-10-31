@@ -1,139 +1,114 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
+-- MariaDB dump 10.19  Distrib 10.4.32-MariaDB, for Win64 (AMD64)
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 13, 2024 at 12:47 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
+-- Host: localhost    Database: login
+-- ------------------------------------------------------
+-- Server version	10.4.32-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Database: `login`
+-- Table structure for table `admin`
 --
 
--- --------------------------------------------------------
-
---
--- Table structure for table `atmin`
---
-
-CREATE TABLE `atmin` (
-  `ID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `admin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `admin` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Username` varchar(50) NOT NULL,
   `Password` varchar(255) NOT NULL,
-  `Role` enum('admin','siswa') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `Role` enum('A','S') NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `phone` varchar(15) DEFAULT NULL,
+  `join_date` date DEFAULT NULL,
+  PRIMARY KEY (`ID`,`Username`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `atmin`
+-- Dumping data for table `admin`
 --
 
-INSERT INTO `atmin` (`ID`, `Username`, `Password`, `Role`) VALUES
-(1, 'admin1223', 'ada', ''),
-(1, 'admin123', '482c811da5d5b4bc6d497ffa98491e38', ''),
-(3, 'zzzz', 'd41d8cd98f00b204e9800998ecf8427e', ''),
-(6, 'atmin2', 'fd2cc6c54239c40495a0d3a93b6380eb', ''),
-(7, 'admin0', '202cb962ac59075b964b07152d234b70', ''),
-(8, 'asd', 'd41d8cd98f00b204e9800998ecf8427e', 'admin');
-
--- --------------------------------------------------------
+LOCK TABLES `admin` WRITE;
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+INSERT INTO `admin` VALUES (2,'admin','$2y$10$2y/8t3aFaw2QoFFrz5QLx.hiFPMvDZsAvkFub14QGJgZogij0zl2W','A','John Doe','johndoe@gmail.com','08951234567','2024-10-20'),(4,'admin_baru','dea75af85f93d7819eab44a0065ce6cd5a5f0c4109bac0b9ff95d8da3cbac1b0','A',NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `login`
+-- Table structure for table `mata_pelajaran`
 --
 
-CREATE TABLE `login` (
+DROP TABLE IF EXISTS `mata_pelajaran`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `mata_pelajaran` (
   `id` int(11) NOT NULL,
-  `nis` varchar(20) DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `nama_pelajaran` varchar(255) NOT NULL,
+  `link_pelajaran` varchar(255) NOT NULL,
+  `gambar` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `login`
+-- Dumping data for table `mata_pelajaran`
 --
 
-INSERT INTO `login` (`id`, `nis`, `password`, `created_at`) VALUES
-(0, '123456789', '202cb962ac59075b964b07152d234b70', '2024-09-28 10:08:21');
-
--- --------------------------------------------------------
+LOCK TABLES `mata_pelajaran` WRITE;
+/*!40000 ALTER TABLE `mata_pelajaran` DISABLE KEYS */;
+INSERT INTO `mata_pelajaran` VALUES (1,'HTML & CSS','learningHtml.php','img-logo/htmlcss-removebg-preview.png'),(2,'JavaScript','','img-logo/js.png');
+/*!40000 ALTER TABLE `mata_pelajaran` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `siswa`
 --
 
+DROP TABLE IF EXISTS `siswa`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `siswa` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Nama` varchar(100) NOT NULL,
   `Username` varchar(50) NOT NULL,
   `NIS` varchar(20) NOT NULL,
   `Password` varchar(255) NOT NULL,
-  `role` enum('siswa','admin') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `Role` enum('A','S') NOT NULL,
+  `status` enum('aktif','tidak aktif') DEFAULT 'aktif',
+  `kelas` varchar(50) NOT NULL,
+  `jurusan` varchar(50) NOT NULL,
+  `last_login` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`,`Username`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `siswa`
 --
 
-INSERT INTO `siswa` (`ID`, `Nama`, `Username`, `NIS`, `Password`, `role`) VALUES
-(1, 'Rizwan Hawwari', 'raxxs47', '123456789', '202cb962ac59075b964b07152d234b70', 'siswa');
+LOCK TABLES `siswa` WRITE;
+/*!40000 ALTER TABLE `siswa` DISABLE KEYS */;
+INSERT INTO `siswa` VALUES (5,'Travis Scott','trav567','','$2y$10$Hl0DMTybvpgSFEyTLNbcIe4/60dDtkIoMTLymx5rs91q7i1XnbmiO','S','aktif','10','PPLG','2024-10-31 13:22:48'),(13,'mas ardi','siswa1','NIS12345','a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3','S','aktif','10','RPL',NULL),(14,'Rizwan Hawwari','raxxs','56789123','$2y$10$hOUPRO/.8fYesJB1JCt8gOKIlDUqSSM4Bvt/Xa6sop5PqJ8ETcvrq','S','aktif','11','PPLG',NULL),(15,'Gunawan Hakim','gnwn67','567891233','$2y$10$n3yUsAuaPzSJ5oTXRH.wp.vFQoX7UB4Oql2POmGbdiZjAOFnuHlu6','S','aktif','10','PPLG',NULL),(16,'Arif Erlangga','rifff','45612789','$2y$10$J5QXZAfk3J4WKEur3oWYHeuZPl5E41Pev.UUnXfLoEtARUaKqURn.','S','aktif','11','TJKT',NULL),(17,'Kiara Elvia','kiaraaa','567812990','$2y$10$.fVdvmXh8Vd/T914nTsZkelsOpks0eIwEaW.Mz8PnXm1BxXA0ZUjC','S','aktif','12','OTKP',NULL),(18,'Fatimah Hasan','flowertim','7894456','$2y$10$pK8pEE84ppPu4DDKrmPLO.dy7YU1wm38F33emyFIU87ZFrUFmMx/O','S','aktif','10','PM',NULL);
+/*!40000 ALTER TABLE `siswa` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `atmin`
---
-ALTER TABLE `atmin`
-  ADD PRIMARY KEY (`ID`,`Username`);
-
---
--- Indexes for table `login`
---
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `nis` (`nis`) USING BTREE;
-
---
--- Indexes for table `siswa`
---
-ALTER TABLE `siswa`
-  ADD PRIMARY KEY (`ID`,`Username`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `atmin`
---
-ALTER TABLE `atmin`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `login`
---
-ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT for table `siswa`
---
-ALTER TABLE `siswa`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-COMMIT;
-
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-10-31 20:31:33

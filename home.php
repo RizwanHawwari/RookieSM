@@ -1,18 +1,3 @@
-<?php 
-session_start();
-// if (!isset($_SESSION['session_nis'])) {
-//   // Jika belum login, arahkan ke halaman login
-//   header("Location: login.php");
-//   exit();
-
-//   if (isset($_SESSION['session_role']) && $_SESSION['session_role'] == 'siswa') {
-//     echo "Selamat datang, Siswa!";
-// } else {
-//   header("location: admin.php");
-// }
-// }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +7,7 @@ session_start();
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="css-file/test.css">
+  <link rel="stylesheet" href="css-file/home.css">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -114,12 +99,12 @@ session_start();
     <!-- PPLG Section -->
     <div id="product">
 
-      <div class="product-box section" id="html-css-course">
+      <div class="product-box section">
         <img src="img-logo/htmlcss-removebg-preview.png" alt="HTML & CSS" class="product-img">
         <h3 class="product-title">HTML & CSS</h3>
         <p class="product-price">FREE</p>
         <div class="path">
-          <a href="learningHtml.php">Learn</a>
+          <a href="freeHtmlCourse.php">Learn</a>
         </div>
       </div>
       <div class="product-box section">
@@ -147,18 +132,139 @@ session_start();
         </div>
       </div>
     </div>
+
+    <!-- TJKT Section -->
+    <h3 class="product-head section">TJKT</h3>
+    <div id="product">
+
+      <div class="product-box section">
+        <img src="img-logo/arduino-removebg-preview.png" alt="Arduino" class="product-img">
+        <h3 class="product-title">Arduino</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
+        </div>
+      </div>
+      <div class="product-box section">
+        <img src="img-logo/jaringankom-removebg-preview.png" alt="Jaringan Komputer" class="product-img">
+        <h3 class="product-title">Jaringan Komputer</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
+        </div>
+      </div>
+      <div class="product-box section">
+        <img src="img-logo/server-removebg-preview.png" alt="Server Administrator" class="product-img">
+        <h3 class="product-title">Server Administrator</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
+        </div>
+      </div>
+      <div class="product-box section">
+        <img src="img-logo/komputer-removebg-preview.png" alt="Komputer" class="product-img">
+        <h3 class="product-title">Made & repair Komputer</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- OTKP Section -->
+    <h3 class="product-head section">OTKP</h3>
+    <div id="product">
+
+      <div class="product-box section">
+        <img src="img-logo/akutansi-removebg-preview.png" alt="Akuntansi" class="product-img">
+        <h3 class="product-title">Akuntansi</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
+        </div>
+      </div>
+      <div class="product-box section">
+        <img src="img-logo/administrasi-removebg-preview.png" alt="Administrasi" class="product-img">
+        <h3 class="product-title">Administrasi</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
+        </div>
+      </div>
+      <div class="product-box section">
+        <img src="img-logo/ekonomi-removebg-preview.png" alt="Bisnis" class="product-img">
+        <h3 class="product-title">Ekonomi dan Bisnis</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
+        </div>
+      </div>
+      <div class="product-box section">
+        <img src="img-logo/kearsipan-removebg-preview.png" alt="Kearsipan" class="product-img">
+        <h3 class="product-title">Kearsipan</h3>
+        <p class="product-price">FREE</p>
+        <div class="path">
+          <a href="#">Learn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-testimonials">
+    <h2 class="section">What Our Students Say</h2>
+    <div class="testimonials-container section">
+      <div class="testimonial">
+        <p>"Belajar di Free Course SMK Citra Negara sangat membantu saya memahami dasar-dasar pengembangan web.
+          Materinya lengkap dan mudah dipahami!"</p>
+        <h3>- Ahmad, Siswa Kelas 12</h3>
+      </div>
+      <div class="testimonial">
+        <p>"Platform ini benar-benar memudahkan saya belajar pemrograman. Saya bahkan bisa mengaksesnya kapan
+          saja!"</p>
+        <h3>- Putri, Siswi Kelas 11</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-section" id="team">
+    <h1 class="team-title section">Our Team</h1>
+    <div class="team section">
+      <div class="team-member">
+        <img src="team-img/rizwan.jpg" alt="Anggota Tim 1">
+        <h2>Rizwan</h2>
+        <p>Leader & Backend Developer</p>
+      </div>
+      <div class="team-member">
+        <img src="team-img/arkan.jpg" alt="Anggota Tim 2">
+        <h2>Arkaan</h2>
+        <p>Backend Developer</p>
+      </div>
+      <div class="team-member">
+        <img src="team-img/azzam.jpg" alt="Anggota Tim 3">
+        <h2>Azzam</h2>
+        <p>Frontend Developer</p>
+      </div>
+      <div class="team-member">
+        <img src="team-img/abrisam.jpg" alt="Anggota Tim 4">
+        <h2>Abrisam</h2>
+        <p>Frontend Developer</p>
+      </div>
+    </div>
   </section>
 
   <footer>
+
     <div class="footerContainer">
       <div class="socialIcons">
         <a href="https:/github.com/RizwanHawwari/RookieSM"><i class="fa-brands fa-github"></i>
           <span class="social-title">GitHub</span></a>
       </div>
     </div>
+
     <div class="footerBottom">
       <p>Rookies Evolution &copy2024</p>
     </div>
+
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

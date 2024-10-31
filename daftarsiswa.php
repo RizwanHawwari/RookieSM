@@ -1,46 +1,9 @@
 <?php 
 session_start();
-include "functions.php";
 if (!isset($_SESSION['session_username']) || $_SESSION['role'] !== 'A') {
   header("Location: login.php");
   exit();
 }
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $nis = $_POST['nis'];
-  $nama = $_POST['nama'];
-  $username = $_POST['username'];
-  $kelas = $_POST['kelas'];
-  $jurusan = $_POST['jurusan'];
-  $role = 'S';
-  $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-  $message = '';
-
-  // Cek jika username atau NIS sudah terdaftar
-  $checkUsername = "SELECT * FROM siswa WHERE username='$username' OR nis='$nis'";
-  $result = mysqli_query($conn, $checkUsername);
-
-  // Jika username atau NIS sudah terdaftar
-  if (mysqli_num_rows($result) > 0) {
-      $message = "Username atau NIS sudah terdaftar! Silakan pilih username atau NIS lain.";
-  } else {
-      $stmt = mysqli_prepare($conn, "INSERT INTO siswa (nis, nama, username, kelas, jurusan, role, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
-      mysqli_stmt_bind_param($stmt, "sssssss", $nis, $nama, $username, $kelas, $jurusan, $role, $password); // Mengikat parameter
-
-      if (mysqli_stmt_execute($stmt)) {
-          $message = "Pendaftaran berhasil!";
-      } else {
-          $message = "Error: " . mysqli_error($conn);
-      }
-
-      mysqli_stmt_close($stmt);
-  }
-}
-
-// Menutup koneksi
-mysqli_close($conn);
-
 ?>
 
 <!DOCTYPE html>
@@ -50,71 +13,34 @@ mysqli_close($conn);
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Register Siswa | Admin</title>
+  <title>Daftar Siswa | Admin</title>
   <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-  </script>
   <link rel="stylesheet" href="css-file/siswa.css" />
-</head>
-
-<style>
-.form-container {
-  width: 80%;
-  margin: auto;
-  margin-top: 20px;
-  background-color: #333;
-  padding: 20px 40px;
-  border-radius: 8px;
-  box-shadow: 3px 5px 9px 2px rgba(0, 0, 0, 0.8);
-  color: #fff;
-}
-
-.form-group label {
-  color: #fff;
-}
-
-.form-control {
-  background-color: #444;
-  color: #fff;
-  border: 1px solid #555;
-}
-
-.form-control::placeholder {
-  color: #bbb;
-}
-
-.form-text {
-  color: #fff;
-  opacity: .7;
-  font-size: 0.8rem;
-}
-
-.form-control:focus {
-  color: #fff;
-  background-color: #444;
-  border-color: #007bff;
-  outline: none;
-}
-
-.btn-primary {
-  background-color: #00bd82;
-  border-color: #00bd82;
-}
-
-.btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
-}
-
-@media screen and (max-width: 728px) {
-  .form-container {
-    width: 100%;
+  <style>
+  .card-jurusan {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
   }
-}
-</style>
+
+  .card-jurusan:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-jurusan .card-icon {
+    font-size: 3rem;
+    color: #fff;
+  }
+
+  .card-jurusan h5 {
+    color: #fff;
+    font-weight: bold;
+  }
+  </style>
+</head>
 
 <body>
   <div class="wrapper">
@@ -242,65 +168,44 @@ mysqli_close($conn);
 
     <div class="main p-3">
       <div class="text-center">
-        <h1>Register Siswa</h1>
+        <h1>Daftar Siswa</h1>
       </div>
 
-      <div class="form-container">
-        <form action="" method="POST" autocomplete="off">
-          <?php if (isset($message)): ?>
-          <div class="alert alert-info"><?php echo $message; ?></div>
-          <?php endif; ?>
-          <div class="form-group mb-3">
-            <label for="nis">NIS</label>
-            <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan NIS" maxlength="20"
-              required>
-            <small class="form-text">Nomor Induk Siswa.</small>
-          </div>
-          <div class="form-group mb-3">
-            <label for="nama">Nama</label>
-            <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama" required>
-            <small class="form-text">Nama lengkap siswa.</small>
-          </div>
-          <div class="form-group mb-3">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan username"
-              required>
-            <small class="form-text">Masukan username yang unik.</small>
-          </div>
-          <div class="form-group mb-3">
-            <label for="kelas">Kelas</label>
-            <select class="form-control" id="kelas" name="kelas" required>
-              <option value="" disabled selected>Pilih kelas &#9660;</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-            </select>
-            <small class="form-text">Masukkan kelas siswa.</small>
-          </div>
-          <div class="form-group mb-3">
-            <label for="jurusan">Jurusan</label>
-            <select class="form-control" id="jurusan" name="jurusan" required>
-              <option value="" disabled selected>Pilih jurusan &#9660;</option>
-              <option value="PPLG">PPLG</option>
-              <option value="TJKT">TJKT</option>
-              <option value="OTKP">OTKP</option>
-              <option value="PM">PM</option>
-              <option value="DKV">DKV</option>
-            </select>
-            <small class="form-text">Masukkan jurusan siswa.</small>
-          </div>
-          <div class="form-group mb-3">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password"
-              minlength="6" required>
-            <small class="form-text">Password harus terdiri dari minimal 6 karakter.</small>
-          </div>
-          <button type="submit" class="btn btn-primary">Register</button>
-        </form>
+      <div class="row mt-4">
+        <?php 
+    $jurusan = [
+      'PPLG' => 'lni-code',
+      'TJKT' => 'lni-network',
+      'OTKP' => 'lni-graduation',
+      'PM' => 'lni-cog',
+      'DKV' => 'lni-image' // Menambahkan jurusan DKV
+    ];
+
+    // Looping untuk membuat card berdasarkan jurusan
+    foreach($jurusan as $jrs => $icon) {
+      echo '<div class="col-md-6 col-lg-6 col-xl-6 mb-4">'; // Menggunakan col-xl-6 agar 2 card per baris di layar ekstra besar
+      echo '<div class="card card-jurusan text-white bg-primary text-center">
+              <div class="card-body">
+                <div class="card-icon mb-3">
+                  <i class="lni ' . $icon . '"></i>
+                </div>
+                <h5 class="card-title">' . $jrs . '</h5>
+                <p class="card-text">Lihat data siswa ' . $jrs . ' yang sudah memiliki akun.</p>
+                <a href="siswa_jurusan.php?jurusan=' . $jrs . '" class="btn btn-light mt-3">Lihat Siswa</a>
+              </div>
+            </div>
+          </div>';
+    }
+  ?>
       </div>
+
 
     </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+  </script>
   <script src="script.js"></script>
 </body>
 

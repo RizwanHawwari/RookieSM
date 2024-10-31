@@ -6,41 +6,20 @@ if (!isset($_SESSION['session_username']) || $_SESSION['role'] !== 'A') {
   exit();
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $nis = $_POST['nis'];
-  $nama = $_POST['nama'];
-  $username = $_POST['username'];
-  $kelas = $_POST['kelas'];
-  $jurusan = $_POST['jurusan'];
-  $role = 'S';
-  $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$sql = "SELECT name, email, phone, join_date FROM admin LIMIT 1";
+$result = mysqli_query($conn, $sql);
 
-  $message = '';
-
-  // Cek jika username atau NIS sudah terdaftar
-  $checkUsername = "SELECT * FROM siswa WHERE username='$username' OR nis='$nis'";
-  $result = mysqli_query($conn, $checkUsername);
-
-  // Jika username atau NIS sudah terdaftar
-  if (mysqli_num_rows($result) > 0) {
-      $message = "Username atau NIS sudah terdaftar! Silakan pilih username atau NIS lain.";
-  } else {
-      $stmt = mysqli_prepare($conn, "INSERT INTO siswa (nis, nama, username, kelas, jurusan, role, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
-      mysqli_stmt_bind_param($stmt, "sssssss", $nis, $nama, $username, $kelas, $jurusan, $role, $password); // Mengikat parameter
-
-      if (mysqli_stmt_execute($stmt)) {
-          $message = "Pendaftaran berhasil!";
-      } else {
-          $message = "Error: " . mysqli_error($conn);
-      }
-
-      mysqli_stmt_close($stmt);
-  }
+// Mengecek hasil query
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+  
+    $admin_name = $row["name"];
+    $admin_email = $row["email"];
+    $admin_phone = $row["phone"];
+    $admin_join_date = date("d-M-Y", strtotime($row["join_date"]));
+} else {
+    echo "No results found.";
 }
-
-// Menutup koneksi
-mysqli_close($conn);
-
 ?>
 
 <!DOCTYPE html>
@@ -50,68 +29,211 @@ mysqli_close($conn);
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Register Siswa | Admin</title>
+  <title>Dashboard | Admin</title>
   <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
   </script>
+  <!-- CSS -->
   <link rel="stylesheet" href="css-file/siswa.css" />
 </head>
 
 <style>
-.form-container {
-  width: 80%;
-  margin: auto;
-  margin-top: 20px;
+.profile-container {
   background-color: #333;
-  padding: 20px 40px;
+  color: #f0f0f0;
   border-radius: 8px;
+  padding: 20px;
+  width: 80%;
+  max-width: 1000px;
   box-shadow: 3px 5px 9px 2px rgba(0, 0, 0, 0.8);
+  margin: 20px auto;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.profile-image {
+  position: relative;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.profile-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.upload-btn {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.profile-info {
+  flex: 1;
+  margin-left: 40px;
+}
+
+.profile-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
   color: #fff;
 }
 
-.form-group label {
+.profile-info p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.about-section {
+  margin-bottom: 20px;
+}
+
+.about-section h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
   color: #fff;
 }
 
-.form-control {
+.about-section p {
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.tab-section {
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #555;
+  flex-wrap: wrap;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
   background-color: #444;
-  color: #fff;
-  border: 1px solid #555;
+  border: none;
+  font-size: 0.9rem;
+  color: #ddd;
 }
 
-.form-control::placeholder {
-  color: #bbb;
+.tab.active {
+  background-color: #333;
+  border-bottom: 2px solid #007bff;
 }
 
-.form-text {
-  color: #fff;
-  opacity: .7;
-  font-size: 0.8rem;
+.tab-content {
+  margin-top: 10px;
 }
 
-.form-control:focus {
-  color: #fff;
-  background-color: #444;
-  border-color: #007bff;
-  outline: none;
+.tab-pane {
+  display: none;
 }
 
-.btn-primary {
-  background-color: #00bd82;
-  border-color: #00bd82;
+.tab-pane.active {
+  display: block;
 }
 
-.btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
+.action-buttons {
+  display: flex;
+  justify-content: end;
 }
 
-@media screen and (max-width: 728px) {
-  .form-container {
-    width: 100%;
+.cancel-btn,
+.save-btn {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.cancel-btn {
+  background-color: #555;
+  color: #ddd;
+}
+
+.save-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .profile-container {
+    width: 90%;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-info {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .upload-btn {
+    bottom: -20px;
+  }
+
+  .profile-image img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .tabs {
+    flex-direction: column;
+  }
+
+  .tab {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-image img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-info h2 {
+    font-size: 1.5rem;
+  }
+
+  .profile-info p {
+    font-size: 0.9rem;
+  }
+
+  .about-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .about-section p {
+    font-size: 0.8rem;
   }
 }
 </style>
@@ -226,7 +348,7 @@ mysqli_close($conn);
           </ul>
         </li>
         <li class="sidebar-item">
-          <a href="#" class="sidebar-link">
+          <a href="setting.php" class="sidebar-link">
             <i class="lni lni-cog"></i>
             <span>Setting</span>
           </a>
@@ -242,66 +364,65 @@ mysqli_close($conn);
 
     <div class="main p-3">
       <div class="text-center">
-        <h1>Register Siswa</h1>
+        <h1>Profile Admin</h1>
       </div>
+      <div class="profile-container">
+        <div class="profile-card">
+          <div class="profile-image">
+            <img src="img/logo-cn.png" alt="Profile Image" class="rounded-circle">
+            <button class="upload-btn">Upload</button>
+          </div>
+          <div class="profile-info">
+            <h2><?php echo $admin_name; ?></h2>
+            <p>Administrator</p>
+          </div>
+        </div>
 
-      <div class="form-container">
-        <form action="" method="POST" autocomplete="off">
-          <?php if (isset($message)): ?>
-          <div class="alert alert-info"><?php echo $message; ?></div>
-          <?php endif; ?>
-          <div class="form-group mb-3">
-            <label for="nis">NIS</label>
-            <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan NIS" maxlength="20"
-              required>
-            <small class="form-text">Nomor Induk Siswa.</small>
+        <div class="about-section">
+          <h3>About Me</h3>
+          <p>Administrator for Free Course CN platform.</p>
+        </div>
+
+        <div class="tab-section">
+          <div class="tabs">
+            <button class="tab active" onclick="openTab(event, 'contact-info')">Contact Info</button>
+            <button class="tab" onclick="openTab(event, 'additional-info')">Additional Info</button>
           </div>
-          <div class="form-group mb-3">
-            <label for="nama">Nama</label>
-            <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama" required>
-            <small class="form-text">Nama lengkap siswa.</small>
+          <div class="tab-content">
+            <div id="contact-info" class="tab-pane active">
+              <p><strong>Email:</strong> <?php echo $admin_email; ?></p>
+              <p><strong>Nomor Telepon:</strong> <?php echo $admin_phone; ?></p>
+            </div>
+            <div id="additional-info" class="tab-pane">
+              <p><strong>Tanggal Bergabung:</strong> <?php echo $admin_join_date; ?></p>
+            </div>
           </div>
-          <div class="form-group mb-3">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan username"
-              required>
-            <small class="form-text">Masukan username yang unik.</small>
-          </div>
-          <div class="form-group mb-3">
-            <label for="kelas">Kelas</label>
-            <select class="form-control" id="kelas" name="kelas" required>
-              <option value="" disabled selected>Pilih kelas &#9660;</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-            </select>
-            <small class="form-text">Masukkan kelas siswa.</small>
-          </div>
-          <div class="form-group mb-3">
-            <label for="jurusan">Jurusan</label>
-            <select class="form-control" id="jurusan" name="jurusan" required>
-              <option value="" disabled selected>Pilih jurusan &#9660;</option>
-              <option value="PPLG">PPLG</option>
-              <option value="TJKT">TJKT</option>
-              <option value="OTKP">OTKP</option>
-              <option value="PM">PM</option>
-              <option value="DKV">DKV</option>
-            </select>
-            <small class="form-text">Masukkan jurusan siswa.</small>
-          </div>
-          <div class="form-group mb-3">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password"
-              minlength="6" required>
-            <small class="form-text">Password harus terdiri dari minimal 6 karakter.</small>
-          </div>
-          <button type="submit" class="btn btn-primary">Register</button>
-        </form>
+        </div>
+
+        <div class="action-buttons">
+          <button class="cancel-btn">Cancel</button>
+          <button class="save-btn">Save</button>
+        </div>
       </div>
-
     </div>
   </div>
+
+
+  </div>
+
   <script src="script.js"></script>
+  <script>
+  function openTab(event, tabId) {
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    tabPanes.forEach(tab => tab.classList.remove('active'));
+
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+  </script>
 </body>
 
 </html>

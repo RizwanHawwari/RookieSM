@@ -1,9 +1,19 @@
-<?php 
+<?php
 session_start();
 if (!isset($_SESSION['session_username']) || $_SESSION['role'] !== 'A') {
-  header("Location: login.php");
-  exit();
+    header("Location: login.php");
+    exit();
 }
+
+// Koneksi ke database
+require 'functions.php';
+
+// Mendapatkan jurusan dari URL
+$jurusan = $_GET['jurusan'] ?? '';
+
+// Query untuk mendapatkan data siswa berdasarkan jurusan yang sudah memiliki akun
+$sql = "SELECT nama, username, kelas, jurusan, role FROM siswa WHERE jurusan = '$jurusan' AND username IS NOT NULL";
+$siswa = query($sql); // Menggunakan fungsi query yang sudah ada
 ?>
 
 <!DOCTYPE html>
@@ -13,16 +23,33 @@ if (!isset($_SESSION['session_username']) || $_SESSION['role'] !== 'A') {
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard | Admin</title>
+  <title>Daftar Siswa <?php echo htmlspecialchars($jurusan); ?> | Admin</title>
   <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-  </script>
-  <!-- CSS -->
   <link rel="stylesheet" href="css-file/siswa.css" />
+  <style>
+  .card-jurusan {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .card-jurusan:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-jurusan .card-icon {
+    font-size: 3rem;
+    color: #fff;
+  }
+
+  .card-jurusan h5 {
+    color: #fff;
+    font-weight: bold;
+  }
+  </style>
 </head>
 
 <body>
@@ -69,11 +96,8 @@ if (!isset($_SESSION['session_username']) || $_SESSION['role'] !== 'A') {
           </a>
           <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
             <li class="sidebar-item">
-              <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#multi-two"
-                aria-expanded="false" aria-controls="multi-two">
-                PPLG
-              </a>
-              <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
+              <a href="#" class="sidebar-link">PPLG</a>
+              <ul>
                 <li class="sidebar-item">
                   <a href="#" class="sidebar-link">HTML & CSS</a>
                 </li>
@@ -88,14 +112,9 @@ if (!isset($_SESSION['session_username']) || $_SESSION['role'] !== 'A') {
                 </li>
               </ul>
             </li>
-
-            <!-- TJKT -->
             <li class="sidebar-item">
-              <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#multi-three"
-                aria-expanded="false" aria-controls="multi-three">
-                TJKT
-              </a>
-              <ul id="multi-three" class="sidebar-dropdown list-unstyled collapse">
+              <a href="#" class="sidebar-link">TJKT</a>
+              <ul>
                 <li class="sidebar-item">
                   <a href="#" class="sidebar-link">Arduino</a>
                 </li>
@@ -110,14 +129,9 @@ if (!isset($_SESSION['session_username']) || $_SESSION['role'] !== 'A') {
                 </li>
               </ul>
             </li>
-
-            <!-- OTKP -->
             <li class="sidebar-item">
-              <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#multi-four"
-                aria-expanded="false" aria-controls="multi-four">
-                OTKP
-              </a>
-              <ul id="multi-four" class="sidebar-dropdown list-unstyled collapse">
+              <a href="#" class="sidebar-link">OTKP</a>
+              <ul>
                 <li class="sidebar-item">
                   <a href="#" class="sidebar-link">Akutansi</a>
                 </li>
@@ -148,14 +162,36 @@ if (!isset($_SESSION['session_username']) || $_SESSION['role'] !== 'A') {
         </li>
       </ul>
     </aside>
+
     <div class="main p-3">
       <div class="text-center">
-        <h1>Dashboard Admin</h1>
+        <h1>Daftar Siswa Jurusan <?php echo htmlspecialchars($jurusan); ?></h1>
       </div>
+
+      <div class="row mt-4">
+        <?php foreach ($siswa as $row): ?>
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card card-jurusan text-white bg-dark text-center">
+            <div class="card-body">
+              <h5 class="card-title"><?php echo htmlspecialchars($row['nama']); ?></h5>
+              <p class="card-text">
+                <strong>Username:</strong> <?php echo htmlspecialchars($row['username']); ?><br>
+                <strong>Kelas:</strong> <?php echo htmlspecialchars($row['kelas']); ?><br>
+                <strong>Jurusan:</strong> <?php echo htmlspecialchars($row['jurusan']); ?><br>
+                <strong>Role:</strong> <?php echo htmlspecialchars($row['role']); ?><br>
+              </p>
+            </div>
+          </div>
+        </div>
+        <?php endforeach; ?>
+      </div>
+
     </div>
   </div>
 
-  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OCXHDyzz3fW//lAwpG9RscB+nQeIl38zPS2VikTYhZxK1AyKSm8nANn94fjz29uX" crossorigin="anonymous">
+  </script>
   <script src="script.js"></script>
 </body>
 
