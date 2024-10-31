@@ -17,11 +17,29 @@ if (!isset($_SESSION['session_username']) || $_SESSION['role'] !== 'A') {
   <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-  </script>
   <link rel="stylesheet" href="css-file/siswa.css" />
+  <style>
+  .card-jurusan {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .card-jurusan:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-jurusan .card-icon {
+    font-size: 3rem;
+    color: #fff;
+  }
+
+  .card-jurusan h5 {
+    color: #fff;
+    font-weight: bold;
+  }
+  </style>
 </head>
 
 <body>
@@ -150,52 +168,45 @@ if (!isset($_SESSION['session_username']) || $_SESSION['role'] !== 'A') {
 
     <div class="main p-3">
       <div class="text-center">
-        <h1>Daftar Siswa</h1>
+        <h1>Daftar Jurusan</h1>
       </div>
 
-      <div class="table-responsive">
-        <table class="table table-dark table-striped table-sm table-hover">
-          <thead>
-            <tr>
-              <th scope="col">Nama</th>
-              <th scope="col">Username</th>
-              <th scope="col">Kelas</th>
-              <th scope="col">Jurusan</th>
-              <th scope="col">Role</th>
-            </tr>
-          </thead>
-          <tbody id="siswa-table-body">
+      <div class="row mt-4">
+        <?php 
+    // Array jurusan dengan ikon yang telah diperbarui
+    $jurusan = [
+      'PPLG' => 'lni-code',
+      'TJKT' => 'lni-network',
+      'MPLB' => 'lni-graduation', // Ikon MPLB diperbarui
+      'PM' => 'lni-cog'
+    ];
 
-          </tbody>
-        </table>
+    // Looping untuk membuat card berdasarkan jurusan
+    foreach($jurusan as $jrs => $icon) {
+      echo '<div class="col-md-6 col-lg-6 col-xl-6 mb-4">'; // Menggunakan col-xl-6 agar 2 card per baris di layar ekstra besar
+      echo '<div class="card card-jurusan text-white bg-primary text-center">
+              <div class="card-body">
+                <div class="card-icon mb-3">
+                  <i class="lni ' . $icon . '"></i>
+                </div>
+                <h5 class="card-title">' . $jrs . '</h5>
+                <p class="card-text">Lihat data siswa ' . $jrs . ' yang sudah memiliki akun.</p>
+                <a href="siswa_jurusan.php?jurusan=' . $jrs . '" class="btn btn-light mt-3">Lihat Siswa</a>
+              </div>
+            </div>
+          </div>';
+    }
+  ?>
       </div>
+
+
     </div>
+  </div>
 
-    <script src="script.js"></script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      function loadSiswaData() {
-        fetch("get_siswa.php")
-          .then(response => response.json())
-          .then(data => {
-            let html = '';
-            data.forEach((siswa) => {
-              html += `<tr>
-                      <td>${siswa.nama}</td>
-                      <td>${siswa.username}</td>
-                      <td>${siswa.kelas}</td>
-                      <td>${siswa.jurusan}</td>
-                      <td>${siswa.role}</td>
-                    </tr>`;
-            });
-            document.getElementById("siswa-table-body").innerHTML = html;
-          })
-          .catch(error => console.error("Error:", error));
-      }
-
-      loadSiswaData();
-    });
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+  </script>
+  <script src="script.js"></script>
 </body>
 
 </html>
