@@ -53,8 +53,9 @@ ol li {
   font-weight: bold;
   margin-top: 20px;
   margin-bottom: 20px;
-  color: #333;
+  color: #333; /* Adjust color if needed */
 }
+
 </style>
 
 <body>

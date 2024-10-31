@@ -104,7 +104,7 @@
         <h3 class="product-title">HTML & CSS</h3>
         <p class="product-price">FREE</p>
         <div class="path">
-          <a href="freeCourseHtml.php">Learn</a>
+          <a href="freeHtmlCourse.php">Learn</a>
         </div>
       </div>
       <div class="product-box section">

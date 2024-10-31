@@ -66,6 +66,17 @@ if (isset($_POST["cari"])) {
         .header-container .search-bar {
             margin-left: auto; /* Push search bar to the right */
         }
+
+        .header-container h1 {
+            font-size: 2.5rem; /* Adjust font size */
+            font-weight: bold;
+            margin-left: 20px;
+            background: linear-gradient(45deg, #3498db, #2ecc71); /* Gradient color */
+            -webkit-background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+        }
+
     </style>
 </head>
 
