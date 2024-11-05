@@ -1,7 +1,6 @@
 <?php 
 require "functions.php";
 
-
 if (isset($_POST["cari"])) {
     $keyword = $_POST["keyword"];
     $course = cari($keyword);
@@ -27,20 +26,6 @@ if (isset($_POST["cari"])) {
                  LEFT JOIN 
                     mp_otkp AS otkp ON mp.id = otkp.mata_pelajaran_id");
 }
-
-
-// Uncomment the following code to enforce session checks
-// if (!isset($_SESSION['session_nis'])) {
-//     // Redirect to login if not logged in
-//     header("Location: login.php");
-//     exit();
-// }
-// 
-// if (isset($_SESSION['session_role']) && $_SESSION['session_role'] == 'siswa') {
-//     echo "Selamat datang, Siswa!";
-// } else {
-//     header("location: admin.php");
-// }
 ?>
 
 <!DOCTYPE html>
@@ -196,109 +181,107 @@ if (isset($_POST["cari"])) {
                 </div>
             </div>
 
-            <!-- Dummy Cart Section -->
-                <!-- <div class="pplg"><h1>PPLG</h1></div>   -->
             <div class="container mt-5">
-    <div class="row justify-content-center">
-    <div class="row">
-    <!-- Tampilkan Judul dan Card untuk PPLG -->
-    <div class="col-12 text-center my-4">
-        <h1>PPLG</h1>
-    </div>
-    <?php
-    foreach ($course as $mataPelajaran) {
-        if (!empty($mataPelajaran['nama_pelajaran_pplg'])) { ?>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="text-center"><?= $mataPelajaran['nama_pelajaran_pplg']; ?></h3>
-                    </div>
-                    <div class="card-body text-center">
-                        <img src="<?= $mataPelajaran['gambar_pplg']; ?>" alt="<?= $mataPelajaran['nama_pelajaran_pplg']; ?>" class="product-img">
-                        <h3 class="product-title"><?= $mataPelajaran['nama_pelajaran_pplg']; ?></h3> 
-                        <p class="product-price">FREE</p>
-                        <div class="path">
-                            <a href="<?= $mataPelajaran['link_pelajaran_pplg']; ?>" class="btn btn-primary">Learn</a>
-                        </div>
+                <div class="row justify-content-center">
+                    <div class="row">
+                        <?php
+
+                        $foundPPLG = false;
+                        $foundTJKT = false;
+                        $foundOTKP = false;
+
+                        // Ngecek apakah ada data yang tersedia
+                        foreach ($course as $mataPelajaran) {
+                            if (!empty($mataPelajaran['nama_pelajaran_pplg'])) {
+                                $foundPPLG = true;
+                            }
+                            if (!empty($mataPelajaran['nama_pelajaran_tjkt'])) {
+                                $foundTJKT = true;
+                            }
+                            if (!empty($mataPelajaran['nama_pelajaran_otkp'])) {
+                                $foundOTKP = true;
+                            }
+                        }
+
+                        // Menampilkan kursus PPLG
+                        if ($foundPPLG) { ?>
+                            <div class="col-12 text-center my-4">
+                                <h1>PPLG</h1>
+                            </div>
+                            <?php
+                            foreach ($course as $mataPelajaran) {
+                                if (!empty($mataPelajaran['nama_pelajaran_pplg'])) { ?>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="card">
+                                            <img src="<?= $mataPelajaran["gambar_pplg"]; ?>" class="card-img-top"
+                                                alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><?= $mataPelajaran["nama_pelajaran_pplg"]; ?></h5>
+                                                <a href="<?= $mataPelajaran["link_pelajaran_pplg"]; ?>"
+                                                    class="btn btn-primary">Belajar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php }
+                            }
+                        }
+
+                        // Menampilkan kursus TJKT
+                        if ($foundTJKT) { ?>
+                            <div class="col-12 text-center my-4">
+                                <h1>TJKT</h1>
+                            </div>
+                            <?php
+                            foreach ($course as $mataPelajaran) {
+                                if (!empty($mataPelajaran['nama_pelajaran_tjkt'])) { ?>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="card">
+                                            <img src="<?= $mataPelajaran["gambar_tjkt"]; ?>" class="card-img-top"
+                                                alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><?= $mataPelajaran["nama_pelajaran_tjkt"]; ?></h5>
+                                                <a href="<?= $mataPelajaran["link_pelajaran_tjkt"]; ?>"
+                                                    class="btn btn-primary">Belajar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php }
+                            }
+                        }
+
+                        // Menampilkan kursus OTKP
+                        if ($foundOTKP) { ?>
+                            <div class="col-12 text-center my-4">
+                                <h1>OTKP</h1>
+                            </div>
+                            <?php
+                            foreach ($course as $mataPelajaran) {
+                                if (!empty($mataPelajaran['nama_pelajaran_otkp'])) { ?>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="card">
+                                            <img src="<?= $mataPelajaran["gambar_otkp"]; ?>" class="card-img-top"
+                                                alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><?= $mataPelajaran["nama_pelajaran_otkp"]; ?></h5>
+                                                <a href="<?= $mataPelajaran["link_pelajaran_otkp"]; ?>"
+                                                    class="btn btn-primary">Belajar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php }
+                            }
+                        }
+
+                        // If no courses found, display a message
+                        if (!$foundPPLG && !$foundTJKT && !$foundOTKP) {
+                            echo "<div class='col-12 text-center'><h5>Kursus '$keyword' tidak ditemukan</h5></div>";
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
-    <?php
-        }
-    }
-    ?>
-
-    <!-- Tampilkan Judul dan Card untuk TJKT -->
-    <div class="col-12 text-center my-4">
-        <h1>TJKT</h1>
-    </div>
-    <?php
-    foreach ($course as $mataPelajaran) {
-        if (!empty($mataPelajaran['nama_pelajaran_tjkt'])) { ?>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="text-center"><?= $mataPelajaran['nama_pelajaran_tjkt']; ?></h3>
-                    </div>
-                    <div class="card-body text-center">
-                        <img src="<?= $mataPelajaran['gambar_tjkt']; ?>" alt="<?= $mataPelajaran['nama_pelajaran_tjkt']; ?>" class="product-img">
-                        <h3 class="product-title"><?= $mataPelajaran['nama_pelajaran_tjkt']; ?></h3> 
-                        <p class="product-price">FREE</p>
-                        <div class="path">
-                            <a href="<?= $mataPelajaran['link_pelajaran_tjkt']; ?>" class="btn btn-primary">Learn</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    <?php
-        }
-    }
-    ?>
-
-    <!-- Tampilkan Judul dan Card untuk OTKP -->
-    <div class="col-12 text-center my-4">
-        <h1>OTKP</h1>
-    </div>
-    <?php
-    foreach ($course as $mataPelajaran) {
-        if (!empty($mataPelajaran['nama_pelajaran_otkp'])) { ?>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="text-center"><?= $mataPelajaran['nama_pelajaran_otkp']; ?></h3>
-                    </div>
-                    <div class="card-body text-center">
-                    <div class="product-box section">
-                    <img src="<?= $mataPelajaran['gambar_otkp']; ?>"
-                     alt="<?= $mataPelajaran['nama_pelajaran_otkp']; ?>"
-                     class="product-img" style="width: 100%; height: auto; max-height: 200px; object-fit: contain;">
-                        <h3 class="product-title"><?= $mataPelajaran['nama_pelajaran_otkp']; ?></h3> 
-                        <p class="product-price">FREE</p>
-                        <div class="path">
-                            <a href="<?= $mataPelajaran['link_pelajaran_otkp']; ?>" class="btn btn-primary">Learn</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    <?php
-        }
-    }
-    ?>
-</div>
-
-
-
-         
-        <!-- END FOR Dummy Cart Section -->
-             </div>
-          </div>
         </div>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-    </script>
-    <script src="script.js"></script>
 </body>
 
 </html>
