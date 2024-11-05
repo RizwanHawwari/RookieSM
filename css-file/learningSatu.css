@@ -283,7 +283,7 @@ body {
 .course-overview p,
 .course-benefits ul {
   font-size: 1.1em;
-  color: #555;
+  color: #555 ;
   margin-top: 20px;
   line-height: 1.6; /* Jarak antar baris yang lebih baik untuk keterbacaan */
   text-align: justify;
