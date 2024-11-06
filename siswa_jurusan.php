@@ -29,6 +29,11 @@ $siswa = query($sql); // Menggunakan fungsi query yang sudah ada
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
   <link rel="stylesheet" href="css-file/siswa.css" />
   <style>
+  .table tbody tr td {
+    background-color: #333 !important;
+    color: #fff !important;
+  }
+
   .card-jurusan {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 12px;
@@ -168,24 +173,30 @@ $siswa = query($sql); // Menggunakan fungsi query yang sudah ada
         <h1>Daftar Siswa Jurusan <?php echo htmlspecialchars($jurusan); ?></h1>
       </div>
 
-      <div class="row mt-4">
-        <?php foreach ($siswa as $row): ?>
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="card card-jurusan text-white bg-dark text-center">
-            <div class="card-body">
-              <h5 class="card-title"><?php echo htmlspecialchars($row['nama']); ?></h5>
-              <p class="card-text">
-                <strong>Username:</strong> <?php echo htmlspecialchars($row['username']); ?><br>
-                <strong>Kelas:</strong> <?php echo htmlspecialchars($row['kelas']); ?><br>
-                <strong>Jurusan:</strong> <?php echo htmlspecialchars($row['jurusan']); ?><br>
-                <strong>Role:</strong> <?php echo htmlspecialchars($row['role']); ?><br>
-              </p>
-            </div>
-          </div>
-        </div>
-        <?php endforeach; ?>
+      <div class="table-responsive mt-4">
+        <table class="table table-striped table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th>Nama</th>
+              <th>Username</th>
+              <th>Kelas</th>
+              <th>Jurusan</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($siswa as $row): ?>
+            <tr>
+              <td><?php echo htmlspecialchars($row['nama']); ?></td>
+              <td><?php echo htmlspecialchars($row['username']); ?></td>
+              <td><?php echo htmlspecialchars($row['kelas']); ?></td>
+              <td><?php echo htmlspecialchars($row['jurusan']); ?></td>
+              <td><?php echo htmlspecialchars($row['role']); ?></td>
+            </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
       </div>
-
     </div>
   </div>
 

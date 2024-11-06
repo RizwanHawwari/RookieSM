@@ -396,6 +396,17 @@ footer {
   transition: transform 0.3s;
   padding-top: 80px;
   margin-top: 80px;
+  animation: blink 3s infinite ease-in-out;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0px 0px 20px rgba(0, 255, 0, 0.7);
+  }
 }
 
 .product-box:hover {

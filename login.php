@@ -38,7 +38,7 @@ if (isset($_SESSION['session_username'])) {
     if ($_SESSION['role'] == 'S') {
         header("location: siswa.php");
     } elseif ($_SESSION['role'] == 'A') {
-        header("location: admin.php");
+        header("location: profile.php");
     }
     exit();
 }
@@ -68,7 +68,7 @@ if (isset($_POST['login'])) {
           if (password_verify($password, $r_admin['Password'])) {
               $_SESSION['session_username'] = $username;
               $_SESSION['role'] = 'A';
-              header("Location: admin.php");
+              header("Location: profile.php");
               exit();
           } else {
               $err = "<li>Password tidak sesuai.</li>";
