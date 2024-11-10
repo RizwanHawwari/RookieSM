@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2024 at 11:57 PM
+-- Generation Time: Nov 10, 2024 at 07:17 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -65,10 +65,34 @@ INSERT INTO `mata_pelajaran` (`id`, `nama_pelajaran`) VALUES
 (1, 'HTML & CSS'),
 (2, 'JavaScript'),
 (3, 'PHP'),
-(4, 'arduino'),
-(5, 'jaringan Komputer'),
-(6, 'server admin'),
-(7, 'Akutansi');
+(4, 'Arduino'),
+(5, 'Jaringan Komputer'),
+(6, 'Server Admin'),
+(7, 'Akutansi'),
+(8, 'Videografi'),
+(9, 'Fotografi'),
+(10, 'Online Bisnis');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mp_dkv`
+--
+
+CREATE TABLE `mp_dkv` (
+  `id` int(11) NOT NULL,
+  `nama_pelajaran_dkv` varchar(100) NOT NULL,
+  `gambar` varchar(255) DEFAULT NULL,
+  `link_pelajaran` varchar(255) DEFAULT NULL,
+  `mata_pelajaran_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `mp_dkv`
+--
+
+INSERT INTO `mp_dkv` (`id`, `nama_pelajaran_dkv`, `gambar`, `link_pelajaran`, `mata_pelajaran_id`) VALUES
+(4, 'Videografi', 'img-logo/videografi.png', '#', 8);
 
 -- --------------------------------------------------------
 
@@ -90,6 +114,27 @@ CREATE TABLE `mp_otkp` (
 
 INSERT INTO `mp_otkp` (`id`, `nama_pelajaran_otkp`, `gambar`, `link_pelajaran`, `mata_pelajaran_id`) VALUES
 (3, 'Akutansi', 'img-logo/akutansi-removebg-preview.png', '#', 7);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mp_pm`
+--
+
+CREATE TABLE `mp_pm` (
+  `id` int(11) NOT NULL,
+  `nama_pelajaran_pm` varchar(100) NOT NULL,
+  `gambar` varchar(255) DEFAULT NULL,
+  `link_pelajaran` varchar(255) DEFAULT NULL,
+  `mata_pelajaran_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `mp_pm`
+--
+
+INSERT INTO `mp_pm` (`id`, `nama_pelajaran_pm`, `gambar`, `link_pelajaran`, `mata_pelajaran_id`) VALUES
+(4, 'Online Bisnis', 'img-logo/online.png', '#', 10);
 
 -- --------------------------------------------------------
 
@@ -133,7 +178,7 @@ CREATE TABLE `mp_tjkt` (
 --
 
 INSERT INTO `mp_tjkt` (`id`, `nama_pelajaran_tjkt`, `gambar`, `link_pelajaran`, `mata_pelajaran_id`) VALUES
-(1, 'arduino', 'img-logo/arduino-removebg-preview.png', 'arduino.php', 4),
+(1, 'Arduino', 'img-logo/arduino-removebg-preview.png', 'arduino.php', 4),
 (2, 'Jaringan Komputer', 'img-logo/jaringankom-removebg-preview.png', 'https://dif.telkomuniversity.ac.id/en/jaringan-komputer-pengertian-fungsi-jenis-dan-manfaatnya/', 5),
 (3, 'Server Administrator', 'img-logo/server-removebg-preview.png', '#', 6);
 
@@ -186,9 +231,23 @@ ALTER TABLE `mata_pelajaran`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `mp_dkv`
+--
+ALTER TABLE `mp_dkv`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `mata_pelajaran_id` (`mata_pelajaran_id`);
+
+--
 -- Indexes for table `mp_otkp`
 --
 ALTER TABLE `mp_otkp`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `mata_pelajaran_id` (`mata_pelajaran_id`);
+
+--
+-- Indexes for table `mp_pm`
+--
+ALTER TABLE `mp_pm`
   ADD PRIMARY KEY (`id`),
   ADD KEY `mata_pelajaran_id` (`mata_pelajaran_id`);
 
@@ -226,13 +285,25 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `mata_pelajaran`
 --
 ALTER TABLE `mata_pelajaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `mp_dkv`
+--
+ALTER TABLE `mp_dkv`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `mp_otkp`
 --
 ALTER TABLE `mp_otkp`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `mp_pm`
+--
+ALTER TABLE `mp_pm`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `mp_pplg`
@@ -257,10 +328,22 @@ ALTER TABLE `siswa`
 --
 
 --
+-- Constraints for table `mp_dkv`
+--
+ALTER TABLE `mp_dkv`
+  ADD CONSTRAINT `mp_dkv_ibfk_1` FOREIGN KEY (`mata_pelajaran_id`) REFERENCES `mata_pelajaran` (`id`) ON DELETE CASCADE;
+
+--
 -- Constraints for table `mp_otkp`
 --
 ALTER TABLE `mp_otkp`
   ADD CONSTRAINT `mp_otkp_ibfk_1` FOREIGN KEY (`mata_pelajaran_id`) REFERENCES `mata_pelajaran` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `mp_pm`
+--
+ALTER TABLE `mp_pm`
+  ADD CONSTRAINT `mp_pm_ibfk_1` FOREIGN KEY (`mata_pelajaran_id`) REFERENCES `mata_pelajaran` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `mp_pplg`

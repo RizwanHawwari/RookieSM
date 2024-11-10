@@ -16,7 +16,13 @@ if (isset($_POST["cari"])) {
                     tjkt.link_pelajaran AS link_pelajaran_tjkt,
                     otkp.nama_pelajaran_otkp, 
                     otkp.gambar AS gambar_otkp, 
-                    otkp.link_pelajaran AS link_pelajaran_otkp
+                    otkp.link_pelajaran AS link_pelajaran_otkp,
+                    dkv.nama_pelajaran_dkv,
+                    dkv.gambar AS gambar_dkv,
+                    dkv.link_pelajaran AS link_pelajaran_dkv,
+                    pm.nama_pelajaran_pm,
+                    pm.link_pelajaran AS link_pelajaran_pm,
+                    pm.gambar AS gambar_pm
                  FROM 
                     mata_pelajaran AS mp
                  LEFT JOIN 
@@ -24,7 +30,11 @@ if (isset($_POST["cari"])) {
                  LEFT JOIN 
                     mp_tjkt AS tjkt ON mp.id = tjkt.mata_pelajaran_id
                  LEFT JOIN 
-                    mp_otkp AS otkp ON mp.id = otkp.mata_pelajaran_id");
+                    mp_otkp AS otkp ON mp.id = otkp.mata_pelajaran_id
+                  LEFT JOIN
+                    mp_dkv AS dkv ON mp.id = dkv.mata_pelajaran_id
+                 LEFt JOIN 
+                    mp_pm as pm on mp.id = pm.mata_pelajaran_id");
 }
 ?>
 
@@ -200,6 +210,8 @@ if (isset($_POST["cari"])) {
                         $foundPPLG = false;
                         $foundTJKT = false;
                         $foundOTKP = false;
+                        $foundDKV = false;
+                        $foundPM = false;
 
                         // Ngecek apakah ada data yang tersedia
                         foreach ($course as $mataPelajaran) {
@@ -212,7 +224,13 @@ if (isset($_POST["cari"])) {
                             if (!empty($mataPelajaran['nama_pelajaran_otkp'])) {
                                 $foundOTKP = true;
                             }
+                            if (!empty($mataPelajaran['nama_pelajaran_dkv'])) {
+                              $foundDKV = true;
+                            }
+                            if (!empty($mataPelajaran['nama_pelajaran_pm'])) {
+                              $foundPM = true;
                         }
+                      }
 
                         // Menampilkan kursus PPLG
                         if ($foundPPLG) { ?>
@@ -276,9 +294,49 @@ if (isset($_POST["cari"])) {
             <?php }
                             }
                         }
+            //SHOW PMMMM
+                        if ($foundPM) { ?>
+                          <div class="col-12 text-center my-4">
+                            <h1>Pemasaran</h1>
+                          </div>
+                          <?php
+                                          foreach ($course as $mataPelajaran) {
+                                              if (!empty($mataPelajaran['nama_pelajaran_pm'])) { ?>
+                          <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="card">
+                              <img src="<?= $mataPelajaran["gambar_pm"]; ?>" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                <h5 class="card-title"><?= $mataPelajaran["nama_pelajaran_pm"]; ?></h5>
+                                <a href="<?= $mataPelajaran["link_pelajaran_pm"]; ?>" class="btn btn-primary">Belajar</a>
+                              </div>
+                            </div>
+                          </div>
+                          <?php }
+                                          }
+                                      }
 
+                        //SHOW DKVVVVVV
+                                      if ($foundDKV) { ?>
+                                        <div class="col-12 text-center my-4">
+                                          <h1>DKV</h1>
+                                        </div>
+                                        <?php
+                                                        foreach ($course as $mataPelajaran) {
+                                                            if (!empty($mataPelajaran['nama_pelajaran_dkv'])) { ?>
+                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                          <div class="card">
+                                            <img src="<?= $mataPelajaran["gambar_dkv"]; ?>" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                              <h5 class="card-title"><?= $mataPelajaran["nama_pelajaran_dkv"]; ?></h5>
+                                              <a href="<?= $mataPelajaran["link_pelajaran_dkv"]; ?>" class="btn btn-primary">Belajar</a>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <?php }
+                                                        }
+                                                    }
                         // If no courses found, display a message
-                        if (!$foundPPLG && !$foundTJKT && !$foundOTKP) {
+                        if (!$foundPPLG && !$foundTJKT && !$foundOTKP && !$foundDKV ) {
                             echo "<div class='col-12 text-center'><h5>Kursus '$keyword' tidak ditemukan</h5></div>";
                         }
                         ?>
