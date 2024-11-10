@@ -53,7 +53,7 @@
     <div class="container text-center">
       <h3>Tentang Kelas</h3>
       <hr class="title-underline">
-      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar jaringan komputer, yang merupakan fondasi penting bagi teknologi komunikasi modern. Kelas ini dimulai dengan pengenalan terhadap konsep dasar jaringan, termasuk jenis-jenis jaringan (LAN, WAN, MAN) dan perangkat-perangkat yang digunakan (router, switch, hub). Kamu juga akan mempelajari model referensi OSI dan TCP/IP, cara mengkonfigurasi alamat IP, serta prinsip dasar pengaturan dan pemeliharaan jaringan. Dengan materi yang mencakup protokol jaringan, keamanan jaringan, dan troubleshooting, kelas ini akan membekalimu dengan pengetahuan dan keterampilan yang diperlukan untuk merancang, mengelola, dan mengatasi masalah pada jaringan komputer.</p>
+      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar jaringan komputer, yang merupakan fondasi penting bagi teknologi komunikasi modern. Kelas ini dimulai dengan pengenalan terhadap konsep dasar jaringan, termasuk jenis-jenis jaringan (LAN, WAN, MAN) dan perangkat-perangkat yang digunakan (router, switch, hub). Kamu juga akan mempelajari model referensi OSI dan TCP/IP, cara mengkonfigurasi alamat IP, serta prinsip dasar pengaturan dan pemeliharaan jaringan. Dengan materi yang mencakup protokol jaringan, keamanan jaringan, dan troubleshooting, kelas ini akan membekalimu dengan pengetahuan dan keterampilan yang diperlukan untuk merancang, mengelola, dan mengatasi masalah pada jaringan!</p>
     </div>
   </section>
 
@@ -63,18 +63,18 @@
       <div class="features-container">
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenal Konsep Dasar HTML</h3>
-          <p>Siswa akan berlatih untuk mengenali konsep dasar HTML</p>
+          <h3>Mengenal Protokol dan Model Jaringan</h3>
+          <p>Siswa akan mempelajari model referensi OSI dan TCP/IP yang digunakan dalam komunikasi jaringan.</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenal Konsep Dasar CSS</h3>
-          <p>Siswa akan berlatih untuk mengenali konsep dasar CSS</p>
+          <h3>Mengenal Konsep Dasar Jaringan Komputer</h3>
+          <p>Siswa akan memahami pengertian jaringan komputer.</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenal Prinsip Dasar HTML dan CSS</h3>
-          <p>Siswa mengenali prinsip dasar HTML dan CSS</p>
+          <h3>Mengenal Konfigurasi dan Pengalamatan Jaringan</h3>
+          <p>Siswa akan berlatih dalam mengonfigurasi IP Address dalam jaringan.</p>
         </div>
       </div>
     </div>
@@ -84,22 +84,22 @@
 
   <section class="about">
     <div class="section aboutus">
-      <h2 class="section">Tujuan Pelatihan</h2>
+      <h2 class="section">Silabus</h2>
       <div class="features-container">
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenal Konsep Dasar HTML</h3>
-          <p>Siswa akan berlatih untuk mengenali konsep dasar HTML</p>
+          <h3>Topik Kedua Video</h3>
+          <p>Komponen-Komponen dalam Jaringan Komputer: Hardware dan Software yang Dibutuhkan</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenal Konsep Dasar CSS</h3>
-          <p>Siswa akan berlatih untuk mengenali konsep dasar CSS</p>
+          <h3>Topik Pertama Video</h3>
+          <p>Pengenalan Jaringan Komputer: Apa itu Jaringan Komputer dan Jenis-Jenisnya</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenal Prinsip Dasar HTML dan CSS</h3>
-          <p>Siswa mengenali prinsip dasar HTML dan CSS</p>
+          <h3>Topik Ketiga Video</h3>
+          <p>Model Referensi OSI dan TCP/IP: Lapisan-Lapisannya dan Fungsinya</p>
         </div>
       </div>
     </div>
@@ -109,22 +109,22 @@
 
   <section class="about">
     <div class="section aboutus">
-      <h2 class="section">Tujuan Pelatihan</h2>
+      <h2 class="section">Metode Pembelajaran</h2>
       <div class="features-container">
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenal Konsep Dasar HTML</h3>
-          <p>Siswa akan berlatih untuk mengenali konsep dasar HTML</p>
+          <h3>Metode Pembelajaran</h3>
+          <p>Materi Yang Dilampirkan Berupa Video</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenal Konsep Dasar CSS</h3>
-          <p>Siswa akan berlatih untuk mengenali konsep dasar CSS</p>
+          <h3>Metode Pembelajaran</h3>
+          <p>Siswa Dapat Menentukan Waktu Belajarnya Sendiri</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenal Prinsip Dasar HTML dan CSS</h3>
-          <p>Siswa mengenali prinsip dasar HTML dan CSS</p>
+          <h3>Metode Pembelajaran</h3>
+          <p>Metode Pembelajaran Berbasis Video</p>
         </div>
       </div>
     </div>

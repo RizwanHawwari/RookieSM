@@ -53,7 +53,7 @@
     <div class="container text-center">
       <h3>Tentang Kelas</h3>
       <hr class="title-underline">
-      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar HTML & CSS, dua teknologi inti yang membentuk setiap halaman web. Kelas ini dimulai dengan pengenalan HTML, dari struktur dasar hingga cara menyusun elemen-elemen halaman, lalu dilanjutkan dengan pengetahuan tentang CSS untuk mendesain dan mengatur tampilan website secara kreatif. Kamu akan belajar cara menggabungkan keduanya untuk membuat website yang menarik dan responsif.</p>
+      <p>Kelas ini dirancang untuk memberikan kamu pemahaman yang kuat tentang dasar-dasar HTML dan CSS. Dengan keterampilan ini, kamu akan dapat membuat website yang tidak hanya fungsional tetapi juga menarik dan mudah digunakan. Dari mempelajari struktur HTML hingga mendesain layout dengan CSS, Setelah menyelesaikan kursus ini, kamu akan memiliki pemahaman yang cukup untuk mulai mengeksplorasi dunia pengembangan web lebih jauh, baik itu untuk membangun blog, atau bahkan website profesional!</p>
     </div>
   </section>
 
@@ -84,16 +84,26 @@
 
   <section class="about">
     <div class="section aboutus">
-      <h2 class="section">Tujuan Pelatihan</h2>
+      <h2 class="section">Silabus</h2>
       <div class="features-container">
+      <div class="feature-box section">
+          <i class="fa fa-book-open" aria-hidden="true"></i>
+          <h3>Mengenal Prinsip Dasar HTML dan CSS</h3>
+          <p>Siswa mengenali prinsip dasar HTML dan CSS</p>
+        </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenal Konsep Dasar HTML</h3>
+          <h3>Mengenal Prinsip Dasar HTML dan CSS</h3>
+          <p>Siswa mengenali prinsip dasar HTML dan CSS</p>
+        </div>
+        <div class="feature-box section">
+          <i class="fa fa-book-open" aria-hidden="true"></i>
+          <h3>Langkah pertama mengenal css</h3>
           <p>Siswa akan berlatih untuk mengenali konsep dasar HTML</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenal Konsep Dasar CSS</h3>
+          <h3>Langkah pertama mengenal css</h3>
           <p>Siswa akan berlatih untuk mengenali konsep dasar CSS</p>
         </div>
         <div class="feature-box section">

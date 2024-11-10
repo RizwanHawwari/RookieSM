@@ -53,7 +53,7 @@
     <div class="container text-center">
       <h3>Tentang Kelas</h3>
       <hr class="title-underline">
-      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar jaringan komputer, yang merupakan fondasi penting bagi teknologi komunikasi modern. Kelas ini dimulai dengan pengenalan terhadap konsep dasar jaringan, termasuk jenis-jenis jaringan (LAN, WAN, MAN) dan perangkat-perangkat yang digunakan (router, switch, hub). Kamu juga akan mempelajari model referensi OSI dan TCP/IP, cara mengkonfigurasi alamat IP, serta prinsip dasar pengaturan dan pemeliharaan jaringan. Dengan materi yang mencakup protokol jaringan, keamanan jaringan, dan troubleshooting, kelas ini akan membekalimu dengan pengetahuan dan keterampilan yang diperlukan untuk merancang, mengelola, dan mengatasi masalah pada jaringan komputer.</p>
+      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar jaringan komputer, yang merupakan fondasi penting bagi teknologi komunikasi modern. Kelas ini dimulai dengan pengenalan terhadap konsep dasar jaringan, termasuk jenis-jenis jaringan (LAN, WAN, MAN) dan perangkat-perangkat yang digunakan (router, switch, hub). Kamu juga akan mempelajari model referensi OSI dan TCP/IP, cara mengkonfigurasi alamat IP, serta prinsip dasar pengaturan dan pemeliharaan jaringan. Dengan materi yang mencakup protokol jaringan, keamanan jaringan, dan troubleshooting, kelas ini akan membekalimu dengan pengetahuan dan keterampilan yang diperlukan untuk merancang, mengelola, dan mengatasi masalah pada jaringan!</p>
     </div>
   </section>
 

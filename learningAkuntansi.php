@@ -53,7 +53,7 @@
     <div class="container text-center">
       <h3>Tentang Kelas</h3>
       <hr class="title-underline">
-      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar akuntansi, sebuah keterampilan penting dalam mengelola keuangan pribadi maupun bisnis. Kelas ini dimulai dengan pengenalan terhadap konsep-konsep dasar akuntansi, seperti pembukuan, jurnal, neraca, dan laporan laba rugi. Kamu akan belajar bagaimana mencatat transaksi keuangan, mengelola aset, kewajiban, dan ekuitas, serta menyusun laporan keuangan yang akurat. Selain itu, kelas ini juga mencakup pengantar akuntansi manajerial dan perpajakan untuk memberikan pemahaman lebih luas tentang peran akuntan dalam pengambilan keputusan bisnis. Kelas ini dirancang untuk membekalimu dengan keterampilan akuntansi yang praktis dan siap pakai, baik untuk kebutuhan profesional maupun pribadi.</p>
+      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar akuntansi, sebuah keterampilan penting dalam mengelola keuangan pribadi maupun bisnis. Kelas ini dimulai dengan pengenalan terhadap konsep-konsep dasar akuntansi, seperti pembukuan, jurnal, neraca, dan laporan laba rugi. Kamu akan belajar bagaimana mencatat transaksi keuangan, mengelola aset, kewajiban, dan ekuitas, serta menyusun laporan keuangan yang akurat. Selain itu, kelas ini juga mencakup pengantar akuntansi manajerial dan perpajakan untuk memberikan pemahaman lebih luas tentang peran akuntan dalam pengambilan keputusan bisnis. Kelas ini dirancang untuk membekalimu dengan keterampilan akuntansi yang praktis dan siap pakai, baik untuk kebutuhan profesional maupun pribadi. Dalam kelas ini, peserta akan mempelajari pengelolaan laporan keuangan, pencatatan transaksi, serta perhitungan pajak dan biaya. Kelas ini juga cocok untuk para pengusaha atau profesional di bidang keuangan yang ingin memperdalam pengetahuan mereka!</p>
     </div>
   </section>
 
@@ -63,18 +63,18 @@
       <div class="features-container">
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenal Konsep Dasar HTML</h3>
-          <p>Siswa akan berlatih untuk mengenali konsep dasar HTML</p>
+          <h3>Mempelajari Proses Pencatatan Keuangan</h3>
+          <p>Siswa akan berlatih untuk mencatat transaksi keuangan dengan benar.</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenal Konsep Dasar CSS</h3>
-          <p>Siswa akan berlatih untuk mengenali konsep dasar CSS</p>
+          <h3>Mengenal Konsep Dasar Akuntansi</h3>
+          <p>Siswa akan memahami konsep dasar akuntansi dan pelaporan transaksi keuangan.</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenal Prinsip Dasar HTML dan CSS</h3>
-          <p>Siswa mengenali prinsip dasar HTML dan CSS</p>
+          <h3>Mempelajari Penyusunan Laporan Keuangan</h3>
+          <p>Siswa akan memahami cara menyusun laporan keuangan dasar.</p>
         </div>
       </div>
     </div>
@@ -89,17 +89,17 @@
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
           <h3>Topik Kedua Video</h3>
-          <p>Mengenal Dan Membahas Tentang Dasar Dari HTML</p>
+          <p>Dasar-Dasar Akuntansi: Prinsip-Prinsip Akuntansi yang Harus Diketahui</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
           <h3>Topik Pertama Video</h3>
-          <p>Permulaan Video Sebelum Masuk Ke Topik</p>
+          <p>Pengenalan Akuntansi: Apa itu Akuntansi dan Peranannya dalam Dunia Bisnis</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
           <h3>Topik Ketiga Video</h3>
-          <p>Mengenal Dan Membahas Tentang Dasar Dari CSS</p>
+          <p>Prinsip Dasar Penyusunan Laporan Keuangan: Neraca, Laba Rugi, dan Arus Kas</p>
         </div>
       </div>
     </div>

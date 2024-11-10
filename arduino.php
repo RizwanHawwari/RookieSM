@@ -56,7 +56,7 @@
     <div class="container text-center">
       <h3>Tentang Kelas</h3>
       <hr class="title-underline">
-      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar pemrograman dan elektronika menggunakan Arduino, platform pengembangan open-source yang populer di dunia maker. Kelas dimulai dengan pengenalan terhadap board Arduino, cara menghubungkannya dengan komputer, dan menulis program pertama menggunakan bahasa pemrograman Arduino (berbasis C/C++). Kamu akan belajar mengendalikan komponen elektronik seperti LED, motor, sensor, dan berbagai perangkat lainnya, serta memahami konsep-konsep dasar seperti input/output, kontrol aliran, dan pemrograman mikrokontroler. Kelas ini dirancang untuk membantumu merancang dan membuat proyek-proyek elektronik yang kreatif dan interaktif.</p>
+      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar pemrograman dan elektronika menggunakan Arduino, platform pengembangan open-source yang populer di dunia maker. Kelas dimulai dengan pengenalan terhadap board Arduino, cara menghubungkannya dengan komputer, dan menulis program pertama menggunakan bahasa pemrograman Arduino (berbasis C/C++). Kamu akan belajar mengendalikan komponen elektronik seperti LED, motor, sensor, dan berbagai perangkat lainnya, serta memahami konsep-konsep dasar seperti input/output, kontrol aliran, dan pemrograman mikrokontroler. Membuat proyek-proyek elektronik yang kreatif dan interaktif. Kamu akan memiliki pemahaman yang lebih dalam tentang pemrograman mikrokontroler, pengendalian perangkat elektronik, serta kemampuan merancang proyek elektronik interaktif yang dapat digunakan dalam berbagai aplikasi. Selain itu, kamu memiliki dasar arduino!</p>
     </div>
   </section>
 

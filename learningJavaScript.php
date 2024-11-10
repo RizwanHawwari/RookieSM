@@ -53,7 +53,7 @@
     <div class="container text-center">
       <h3>Tentang Kelas</h3>
       <hr class="title-underline">
-      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar JavaScript, bahasa pemrograman yang digunakan untuk membuat website interaktif dan dinamis. Pelajaran dimulai dengan pengenalan tentang sintaks dasar JavaScript, seperti variabel, fungsi, dan tipe data, lalu berlanjut dengan penerapan konsep-konsep seperti DOM manipulation dan event handling untuk membuat halaman web yang responsif dan interaktif. Kelas ini dirancang untuk membantumu memahami logika pemrograman dan menyiapkanmu untuk tantangan pengembangan web yang lebih kompleks.</p>
+      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar JavaScript, bahasa pemrograman yang digunakan untuk membuat website interaktif dan dinamis. Pelajaran dimulai dengan pengenalan tentang sintaks dasar JavaScript, seperti variabel, fungsi, dan tipe data, lalu berlanjut dengan penerapan konsep-konsep seperti DOM manipulation dan event handling untuk membuat halaman web yang responsif dan interaktif. Kelas ini dirancang untuk membantumu memahami logika pemrograman dan menyiapkanmu untuk tantangan pengembangan web yang lebih kompleks dalam mengelola data sebuah aplikasi website!</p>
     </div>
   </section>
 

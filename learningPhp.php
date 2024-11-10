@@ -53,7 +53,7 @@
     <div class="container text-center">
       <h3>Tentang Kelas</h3>
       <hr class="title-underline">
-      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar PHP, bahasa pemrograman yang digunakan untuk membangun aplikasi web dinamis. Kelas dimulai dengan pengenalan sintaks PHP, struktur kontrol, dan pengolahan formulir, lalu berlanjut ke konsep-konsep lebih lanjut seperti sesi, database MySQL, dan pembuatan aplikasi web berbasis server. Kelas ini akan membekalimu dengan keterampilan untuk membuat website dan aplikasi web interaktif menggunakan PHP.</p>
+      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar PHP, bahasa pemrograman yang digunakan untuk membangun aplikasi web dinamis. Kelas dimulai dengan pengenalan sintaks PHP, struktur kontrol, dan pengolahan formulir, lalu berlanjut ke konsep-konsep lebih lanjut seperti sesi, database MySQL, dan pembuatan aplikasi web berbasis server. Kelas ini akan membekalimu dengan keterampilan untuk membuat website dan aplikasi web interaktif menggunakan PHP. Dengan menguasai keterampilan PHP dan pengolahan database, kamu mampu membangun aplikasi web berbasis server yang dapat menyimpan data pengguna!</p>
     </div>
   </section>
 
@@ -74,7 +74,7 @@
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
           <h3>Dapat Memahami Isi Dari Kursus PHP Dasar</h3>
-          <p>Siswa Memahami Dasar Dari Bahasa JavaScript</p>
+          <p>Siswa Memahami Dasar Dari Bahasa PHP</p>
         </div>
       </div>
     </div>

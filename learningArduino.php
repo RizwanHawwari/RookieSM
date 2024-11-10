@@ -47,7 +47,7 @@
       <h2 class="text-center">Belajar Arduino untuk Pemula</h2>
       <hr class="video-underline">
       <div class="video-container text-center">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/odEdIcerJMQ?si=w8sSMSCdTwujxOiy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/SX8z3-BEuWQ?si=s6RKuqkfuA9dPcCA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -56,7 +56,7 @@
     <div class="container text-center">
       <h3>Tentang Kelas</h3>
       <hr class="title-underline">
-      <p>Dalam kelas ini, kamu akan belajar tentang 12 proyek Arduino yang keren! Dan kamu juga dapat memilih proyek mana yang menurut kamu keren untuk kamu mempraktikkannya secara langsung!</p>
+      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar pemrograman dan elektronika menggunakan Arduino, platform pengembangan open-source yang populer di dunia maker. Kelas dimulai dengan pengenalan terhadap board Arduino, cara menghubungkannya dengan komputer, dan menulis program pertama menggunakan bahasa pemrograman Arduino (berbasis C/C++). Kamu akan belajar mengendalikan komponen elektronik seperti LED, motor, sensor, dan berbagai perangkat lainnya, serta memahami konsep-konsep dasar seperti input/output, kontrol aliran, dan pemrograman mikrokontroler. Membuat proyek-proyek elektronik yang kreatif dan interaktif. Kamu akan memiliki pemahaman yang lebih dalam tentang pemrograman mikrokontroler, pengendalian perangkat elektronik, serta kemampuan merancang proyek elektronik interaktif yang dapat digunakan dalam berbagai aplikasi. Selain itu, kamu memiliki dasar arduino!</p>
     </div>
   </section>
 
@@ -92,17 +92,17 @@
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
           <h3>Topik Kedua Video</h3>
-          <p>Pengenalan Tentang Embed PHP dan HTML Dalam Satu File Yang Sama</p>
+          <p>Pengenalan Platform Arduino IDE dan Cara Instalasi di Komputer</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
           <h3>Topik Pertama Video</h3>
-          <p>Pengenalan Video Sebelum Masuk Ke Dalam Topik</p>
+          <p>Pengenalan Video Arduino Sebelum Masuk Ke Dalam Topik</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
           <h3>Topik Ketiga Video</h3>
-          <p>Belajar Dasar Dari PHP seperti: Variabel, Tipe Data, Tipe Array, Dan Lain-Lain</p>
+          <p>Dasar-Dasar Pemrograman Arduino: Penggunaan Fungsi <code>setup()</code> dan <code>loop()</code></p>
         </div>
       </div>
     </div>
