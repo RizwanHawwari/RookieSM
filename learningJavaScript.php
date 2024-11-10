@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css-file/learningSatu.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <title>PHP | Course</title>
+  <title>Javascript | Course</title>
   <style>
     .break {
       height: 65px;
@@ -41,10 +41,10 @@
 
   <section class="video-section">
     <div class="container">
-      <h2 class="text-center">Belajar PHP untuk Pemula</h2>
+      <h2 class="text-center">Belajar JavaScript Untuk Pemula</h2>
       <hr class="video-underline">
       <div class="video-container text-center">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/FLs6rAVQWs0?si=QZLQPyNS8Y15NF3G" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/LO5eTH4Pe8E?si=CgQqOg4dqDVVEjwZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -53,7 +53,7 @@
     <div class="container text-center">
       <h3>Tentang Kelas</h3>
       <hr class="title-underline">
-      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar PHP, bahasa pemrograman yang digunakan untuk membangun aplikasi web dinamis. Kelas dimulai dengan pengenalan sintaks PHP, struktur kontrol, dan pengolahan formulir, lalu berlanjut ke konsep-konsep lebih lanjut seperti sesi, database MySQL, dan pembuatan aplikasi web berbasis server. Kelas ini akan membekalimu dengan keterampilan untuk membuat website dan aplikasi web interaktif menggunakan PHP.</p>
+      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar JavaScript, bahasa pemrograman yang digunakan untuk membuat website interaktif dan dinamis. Pelajaran dimulai dengan pengenalan tentang sintaks dasar JavaScript, seperti variabel, fungsi, dan tipe data, lalu berlanjut dengan penerapan konsep-konsep seperti DOM manipulation dan event handling untuk membuat halaman web yang responsif dan interaktif. Kelas ini dirancang untuk membantumu memahami logika pemrograman dan menyiapkanmu untuk tantangan pengembangan web yang lebih kompleks.</p>
     </div>
   </section>
 
@@ -63,17 +63,17 @@
       <div class="features-container">
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenali Bahasa Pemrograman PHP Dasar</h3>
-          <p>Siswa Dapat Memahami Bahasa Pemrograman PHP Dasar</p>
+          <h3>Mengenali Apa Itu JavaScript</h3>
+          <p>Siswa Akan Mengenali Bahasa Pemrograman JavaScript</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenali Embedded PHP Dan HTML</h3>
-          <p>Siswa Dapat Mengenali Embedded PHP Dan HTML</p>
+          <h3>Mengenal Sejarah Bahasa JavaScript</h3>
+          <p>Siswa Akan Mengenali Sejarah Dari Bahasa JavaScript</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Dapat Memahami Isi Dari Kursus PHP Dasar</h3>
+          <h3>Dapat Memahami Dasar Dari Bahasa JavaScript</h3>
           <p>Siswa Memahami Dasar Dari Bahasa JavaScript</p>
         </div>
       </div>
@@ -89,17 +89,17 @@
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
           <h3>Topik Kedua Video</h3>
-          <p>Pengenalan Tentang Embed PHP dan HTML Dalam Satu File Yang Sama</p>
+          <p>Pengenalan Secara Singkat Tentang Apa Itu Bahasa Pemrograman JavaScript</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
           <h3>Topik Pertama Video</h3>
-          <p>Pengenalan Video Sebelum Masuk Ke Dalam Topik</p>
+          <p>Pengenalan Tentang Sejarah Bahasa Pemrograman JavaScript</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
           <h3>Topik Ketiga Video</h3>
-          <p>Belajar Dasar Dari PHP seperti: Variabel, Tipe Data, Tipe Array, Dan Lain-Lain</p>
+          <p>Belajar Dasar Dari JavaScript seperti: Variabel, Fungsi, Tipe Data, Dan Lain-Lain</p>
         </div>
       </div>
     </div>

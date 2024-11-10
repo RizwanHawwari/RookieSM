@@ -4,10 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css-file/learningSatu.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <title>PHP | Course</title>
+  <title>Arduino | Course</title>
   <style>
     .break {
       height: 65px;
@@ -26,7 +28,8 @@
     </div>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -41,10 +44,10 @@
 
   <section class="video-section">
     <div class="container">
-      <h2 class="text-center">Belajar PHP untuk Pemula</h2>
+      <h2 class="text-center">Belajar Arduino untuk Pemula</h2>
       <hr class="video-underline">
       <div class="video-container text-center">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/FLs6rAVQWs0?si=QZLQPyNS8Y15NF3G" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/odEdIcerJMQ?si=w8sSMSCdTwujxOiy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -53,7 +56,7 @@
     <div class="container text-center">
       <h3>Tentang Kelas</h3>
       <hr class="title-underline">
-      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar PHP, bahasa pemrograman yang digunakan untuk membangun aplikasi web dinamis. Kelas dimulai dengan pengenalan sintaks PHP, struktur kontrol, dan pengolahan formulir, lalu berlanjut ke konsep-konsep lebih lanjut seperti sesi, database MySQL, dan pembuatan aplikasi web berbasis server. Kelas ini akan membekalimu dengan keterampilan untuk membuat website dan aplikasi web interaktif menggunakan PHP.</p>
+      <p>Dalam kelas ini, kamu akan belajar tentang 12 proyek Arduino yang keren! Dan kamu juga dapat memilih proyek mana yang menurut kamu keren untuk kamu mempraktikkannya secara langsung!</p>
     </div>
   </section>
 
@@ -63,18 +66,18 @@
       <div class="features-container">
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenali Bahasa Pemrograman PHP Dasar</h3>
-          <p>Siswa Dapat Memahami Bahasa Pemrograman PHP Dasar</p>
+          <h3>Siswa Dapat Mengetahui Alat-Alat Arduino</h3>
+          <p>Siswa Dapat Mengenali Alat-Alat Untuk Praktik Arduino</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenali Embedded PHP Dan HTML</h3>
-          <p>Siswa Dapat Mengenali Embedded PHP Dan HTML</p>
+          <h3>Siswa Memilih Proyek Arduino Yang Keren</h3>
+          <p>Siswa Melakukan Praktik Setelah Memilih Proyek Arduino</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Dapat Memahami Isi Dari Kursus PHP Dasar</h3>
-          <p>Siswa Memahami Dasar Dari Bahasa JavaScript</p>
+          <h3>Dapat Memahami Isi Video Dengan Baik</h3>
+          <p>Siswa Dapat Memahami Isi Video Dan Melakukan Praktik Secara Langsung</p>
         </div>
       </div>
     </div>
@@ -133,14 +136,18 @@
   <div class="break"></div>
 
   <footer>
+
     <div class="footerContainer">
       <div class="socialIcons">
-        <a href="https:/github.com/RizwanHawwari/RookieSM"><i class="fa-brands fa-github"></i> <span class="social-title">GitHub</span></a>
+        <a href="https:/github.com/RizwanHawwari/RookieSM"><i class="fa-brands fa-github"></i>
+          <span class="social-title">GitHub</span></a>
       </div>
     </div>
+
     <div class="footerBottom">
-      <p>Rookies Evolution &copy;2024</p>
+      <p>Rookies Evolution &copy2024</p>
     </div>
+
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

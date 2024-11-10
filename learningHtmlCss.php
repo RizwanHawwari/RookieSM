@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css-file/learningSatu.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <title>PHP | Course</title>
+  <title>HTML & CSS | Course</title>
   <style>
     .break {
       height: 65px;
@@ -41,10 +41,10 @@
 
   <section class="video-section">
     <div class="container">
-      <h2 class="text-center">Belajar PHP untuk Pemula</h2>
+      <h2 class="text-center">Belajar HTML & CSS untuk Pemula</h2>
       <hr class="video-underline">
       <div class="video-container text-center">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/FLs6rAVQWs0?si=QZLQPyNS8Y15NF3G" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/pm5OVxpul48?si=BwU4b4mIY8x85Ev9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -53,7 +53,7 @@
     <div class="container text-center">
       <h3>Tentang Kelas</h3>
       <hr class="title-underline">
-      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar PHP, bahasa pemrograman yang digunakan untuk membangun aplikasi web dinamis. Kelas dimulai dengan pengenalan sintaks PHP, struktur kontrol, dan pengolahan formulir, lalu berlanjut ke konsep-konsep lebih lanjut seperti sesi, database MySQL, dan pembuatan aplikasi web berbasis server. Kelas ini akan membekalimu dengan keterampilan untuk membuat website dan aplikasi web interaktif menggunakan PHP.</p>
+      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar HTML & CSS, dua teknologi inti yang membentuk setiap halaman web. Kelas ini dimulai dengan pengenalan HTML, dari struktur dasar hingga cara menyusun elemen-elemen halaman, lalu dilanjutkan dengan pengetahuan tentang CSS untuk mendesain dan mengatur tampilan website secara kreatif. Kamu akan belajar cara menggabungkan keduanya untuk membuat website yang menarik dan responsif.</p>
     </div>
   </section>
 
@@ -63,18 +63,18 @@
       <div class="features-container">
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenali Bahasa Pemrograman PHP Dasar</h3>
-          <p>Siswa Dapat Memahami Bahasa Pemrograman PHP Dasar</p>
+          <h3>Mengenal Konsep Dasar HTML</h3>
+          <p>Siswa akan berlatih untuk mengenali konsep dasar HTML</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Mengenali Embedded PHP Dan HTML</h3>
-          <p>Siswa Dapat Mengenali Embedded PHP Dan HTML</p>
+          <h3>Mengenal Konsep Dasar CSS</h3>
+          <p>Siswa akan berlatih untuk mengenali konsep dasar CSS</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
-          <h3>Dapat Memahami Isi Dari Kursus PHP Dasar</h3>
-          <p>Siswa Memahami Dasar Dari Bahasa JavaScript</p>
+          <h3>Mengenal Prinsip Dasar HTML dan CSS</h3>
+          <p>Siswa mengenali prinsip dasar HTML dan CSS</p>
         </div>
       </div>
     </div>
@@ -89,17 +89,17 @@
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
           <h3>Topik Kedua Video</h3>
-          <p>Pengenalan Tentang Embed PHP dan HTML Dalam Satu File Yang Sama</p>
+          <p>Mengenal Dan Membahas Tentang Dasar Dari HTML</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
           <h3>Topik Pertama Video</h3>
-          <p>Pengenalan Video Sebelum Masuk Ke Dalam Topik</p>
+          <p>Permulaan Video Sebelum Masuk Ke Topik</p>
         </div>
         <div class="feature-box section">
           <i class="fa fa-book-open" aria-hidden="true"></i>
           <h3>Topik Ketiga Video</h3>
-          <p>Belajar Dasar Dari PHP seperti: Variabel, Tipe Data, Tipe Array, Dan Lain-Lain</p>
+          <p>Mengenal Dan Membahas Tentang Dasar Dari CSS</p>
         </div>
       </div>
     </div>
