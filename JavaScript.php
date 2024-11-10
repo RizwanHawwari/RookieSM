@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css-file/learningSatu.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <title>HTML & CSS | Course</title>
+  <title>Javascript | Course</title>
   <style>
     .break {
       height: 65px;
@@ -41,10 +41,10 @@
 
   <section class="video-section"> <!-- ini video woi -->
     <div class="container">
-      <h2 class="text-center">Belajar HTML dan CSS Dasar</h2>
+      <h2 class="text-center">Belajar JavaScript Untuk Pemula</h2>
       <hr class="video-underline">
       <div class="video-container text-center">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/pm5OVxpul48?si=G25VlGceJ5uVgkP2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/LO5eTH4Pe8E?si=CgQqOg4dqDVVEjwZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -53,7 +53,7 @@
     <div class="container text-center">
       <h3>Tentang Kelas</h3>
       <hr class="title-underline">
-      <p>Dalam kelas online ini, kamu akan memasuki dunia dasar-dasar CSS, pengetahuan yang esensial bagi setiap individu yang ingin memahami dunia web programming. Pelajaran dimulai dari konsep dasar dan cara kerja CSS hingga penerapannya dalam membangun tampilan website.</p>
+      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar JavaScript, bahasa pemrograman yang digunakan untuk membuat website interaktif dan dinamis. Pelajaran dimulai dengan pengenalan tentang sintaks dasar JavaScript, seperti variabel, fungsi, dan tipe data, lalu berlanjut dengan penerapan konsep-konsep seperti DOM manipulation dan event handling untuk membuat halaman web yang responsif dan interaktif. Kelas ini dirancang untuk membantumu memahami logika pemrograman dan menyiapkanmu untuk tantangan pengembangan web yang lebih kompleks.</p>
     </div>
   </section>
 

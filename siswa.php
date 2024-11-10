@@ -117,7 +117,7 @@ if (isset($_POST["cari"])) {
                   <a href="#" class="sidebar-link">JavaScript</a>
                 </li>
                 <li class="sidebar-item">
-                  <a href="#" class="sidebar-link">PHP</a>
+                  <a href="learningPhp.php" class="sidebar-link">PHP</a>
                 </li>
                 <li class="sidebar-item">
                   <a href="#" class="sidebar-link">MySQL</a>

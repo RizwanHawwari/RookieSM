@@ -41,10 +41,10 @@
 
   <section class="video-section">
     <div class="container">
-      <h2 class="text-center">Belajar HTML dan CSS Dasar</h2>
+      <h2 class="text-center">Belajar HTML & CSS Untuk Pemula</h2>
       <hr class="video-underline">
       <div class="video-container text-center">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/pm5OVxpul48?si=G25VlGceJ5uVgkP2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/pm5OVxpul48?si=BwU4b4mIY8x85Ev9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -53,7 +53,7 @@
     <div class="container text-center">
       <h3>Tentang Kelas</h3>
       <hr class="title-underline">
-      <p>Dalam kelas online ini, kamu akan memasuki dunia dasar-dasar CSS, pengetahuan yang esensial bagi setiap individu yang ingin memahami dunia web programming. Pelajaran dimulai dari konsep dasar dan cara kerja CSS hingga penerapannya dalam membangun tampilan website.</p>
+      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar HTML & CSS, dua teknologi inti yang membentuk setiap halaman web. Kelas ini dimulai dengan pengenalan HTML, dari struktur dasar hingga cara menyusun elemen-elemen halaman, lalu dilanjutkan dengan pengetahuan tentang CSS untuk mendesain dan mengatur tampilan website secara kreatif. Kamu akan belajar cara menggabungkan keduanya untuk membuat website yang menarik dan responsif.</p>
     </div>
   </section>
 

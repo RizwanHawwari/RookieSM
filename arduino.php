@@ -44,7 +44,7 @@
 
   <section class="video-section">
     <div class="container">
-      <h2 class="text-center">Learning Arduino for Beginner</h2>
+      <h2 class="text-center">Belajar Arduino Untuk Pemula</h2>
       <hr class="video-underline">
       <div class="video-container text-center">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/odEdIcerJMQ?si=w8sSMSCdTwujxOiy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -56,7 +56,7 @@
     <div class="container text-center">
       <h3>Tentang Kelas</h3>
       <hr class="title-underline">
-      <p>Dalam kelas online ini, kamu akan memasuki dunia dasar-dasar CSS, pengetahuan yang esensial bagi setiap individu yang ingin memahami dunia web programming. Pelajaran dimulai dari konsep dasar dan cara kerja CSS hingga penerapannya dalam membangun tampilan website.</p>
+      <p>Dalam kelas online ini, kamu akan mempelajari dasar-dasar pemrograman dan elektronika menggunakan Arduino, platform pengembangan open-source yang populer di dunia maker. Kelas dimulai dengan pengenalan terhadap board Arduino, cara menghubungkannya dengan komputer, dan menulis program pertama menggunakan bahasa pemrograman Arduino (berbasis C/C++). Kamu akan belajar mengendalikan komponen elektronik seperti LED, motor, sensor, dan berbagai perangkat lainnya, serta memahami konsep-konsep dasar seperti input/output, kontrol aliran, dan pemrograman mikrokontroler. Kelas ini dirancang untuk membantumu merancang dan membuat proyek-proyek elektronik yang kreatif dan interaktif.</p>
     </div>
   </section>
 
