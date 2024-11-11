@@ -92,7 +92,7 @@ CREATE TABLE `mp_dkv` (
 --
 
 INSERT INTO `mp_dkv` (`id`, `nama_pelajaran_dkv`, `gambar`, `link_pelajaran`, `mata_pelajaran_id`) VALUES
-(4, 'Videografi', 'img-logo/videografi.png', '#', 8);
+(4, 'Videografi', 'img-logo/videografi.png', 'learningVideografi.php', 8);
 
 -- --------------------------------------------------------
 
@@ -134,7 +134,7 @@ CREATE TABLE `mp_pm` (
 --
 
 INSERT INTO `mp_pm` (`id`, `nama_pelajaran_pm`, `gambar`, `link_pelajaran`, `mata_pelajaran_id`) VALUES
-(4, 'Online Bisnis', 'img-logo/online.png', '#', 10);
+(4, 'Online Bisnis', 'img-logo/online.png', 'learningOnlineBisnis.php', 10);
 
 -- --------------------------------------------------------
 

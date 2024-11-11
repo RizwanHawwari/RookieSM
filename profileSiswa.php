@@ -276,7 +276,6 @@ body {
         <div class="profile-header">
           <div class="profile-image">
             <img src="img/logo-cn.png" alt="Profile Image" class="rounded-circle">
-            <button class="upload-btn">Upload</button>
           </div>
           <div class="profile-info">
             <h2><?php echo htmlspecialchars($siswa_nama); ?></h2>
@@ -303,11 +302,6 @@ body {
               <p><strong>Terakhir Masuk:</strong> <?php echo htmlspecialchars($siswa_last_login); ?></p>
             </div>
           </div>
-        </div>
-
-        <div class="action-buttons">
-          <button class="cancel-btn">Cancel</button>
-          <button class="save-btn">Save</button>
         </div>
 
         <!-- Tombol Kembali ke Halaman Awal -->
