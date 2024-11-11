@@ -113,7 +113,7 @@ CREATE TABLE `mp_otkp` (
 --
 
 INSERT INTO `mp_otkp` (`id`, `nama_pelajaran_otkp`, `gambar`, `link_pelajaran`, `mata_pelajaran_id`) VALUES
-(3, 'Akutansi', 'img-logo/akutansi-removebg-preview.png', '#', 7);
+(3, 'Akutansi', 'img-logo/akutansi-removebg-preview.png', 'learningAkuntansi.php', 7);
 
 -- --------------------------------------------------------
 
@@ -155,9 +155,9 @@ CREATE TABLE `mp_pplg` (
 --
 
 INSERT INTO `mp_pplg` (`id`, `nama_pelajaran_pplg`, `gambar`, `link_pelajaran`, `mata_pelajaran_id`) VALUES
-(1, 'HTML & CSS', 'img-logo/htmlcss-removebg-preview.png', 'learningHtml.php', 1),
-(2, 'JavaScript', 'img-logo/js.png', 'JavaScript.php', 2),
-(3, 'PHP', 'img-logo/pehape-removebg-preview.png', 'https://www.php.net/', 3);
+(1, 'HTML & CSS', 'img-logo/htmlcss-removebg-preview.png', 'learningHtmlCss.php', 1),
+(2, 'JavaScript', 'img-logo/js.png', 'learningJavaScript.php', 2),
+(3, 'PHP', 'img-logo/pehape-removebg-preview.png', 'learningPhp.php', 3);
 
 -- --------------------------------------------------------
 
@@ -178,9 +178,9 @@ CREATE TABLE `mp_tjkt` (
 --
 
 INSERT INTO `mp_tjkt` (`id`, `nama_pelajaran_tjkt`, `gambar`, `link_pelajaran`, `mata_pelajaran_id`) VALUES
-(1, 'Arduino', 'img-logo/arduino-removebg-preview.png', 'arduino.php', 4),
-(2, 'Jaringan Komputer', 'img-logo/jaringankom-removebg-preview.png', 'https://dif.telkomuniversity.ac.id/en/jaringan-komputer-pengertian-fungsi-jenis-dan-manfaatnya/', 5),
-(3, 'Server Administrator', 'img-logo/server-removebg-preview.png', '#', 6);
+(1, 'Arduino', 'img-logo/arduino-removebg-preview.png', 'learningArduino.php', 4),
+(2, 'Jaringan Komputer', 'img-logo/jaringankom-removebg-preview.png', 'learningJaringanKomputer.php', 5),
+(3, 'Server Administrator', 'img-logo/server-removebg-preview.png', 'learningServerAdministrator.php', 6);
 
 -- --------------------------------------------------------
 
