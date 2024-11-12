@@ -336,7 +336,7 @@ if (isset($_POST["cari"])) {
                                                         }
                                                     }
                         // If no courses found, display a message
-                        if (!$foundPPLG && !$foundTJKT && !$foundOTKP && !$foundDKV ) {
+                        if (!$foundPPLG && !$foundTJKT && !$foundOTKP && !$foundDKV && !$foundPM) {
                             echo "<div class='col-12 text-center'><h5>Kursus '$keyword' tidak ditemukan</h5></div>";
                         }
                         ?>
