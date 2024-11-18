@@ -50,46 +50,18 @@ function validatePhoneNumber($no_telp) {
 
 
 function cari($keyword) {
-    $query = "SELECT
-            mp.id,
-            mp.nama_pelajaran,
-            otkp.nama_pelajaran_otkp AS nama_pelajaran_otkp, 
-            otkp.gambar AS gambar_otkp, 
-            otkp.link_pelajaran AS link_pelajaran_otkp,
-            pplg.nama_pelajaran_pplg AS nama_pelajaran_pplg, 
-            pplg.gambar AS gambar_pplg, 
-            pplg.link_pelajaran AS link_pelajaran_pplg,
-             tjkt.nama_pelajaran_tjkt AS nama_pelajaran_tjkt, 
-            tjkt.gambar AS gambar_tjkt, 
-            tjkt.link_pelajaran AS link_pelajaran_tjkt,
-            dkv.nama_pelajaran_dkv AS nama_pelajaran_dkv,
-            dkv.gambar AS gambar_dkv,
-            dkv.link_pelajaran AS link_pelajaran_dkv,
-            pm.nama_pelajaran_pm AS nama_pelajaran_pm,
-            pm.gambar AS gambar_pm,
-            pm.link_pelajaran AS link_pelajaran_pm
-        FROM 
-            mata_pelajaran AS mp
-        LEFT JOIN 
-            mp_otkp AS otkp ON mp.id = otkp.mata_pelajaran_id
-        LEFT JOIN 
-           
-             mp_pplg AS pplg ON mp.id = pplg.mata_pelajaran_id
-        LEFT JOIN 
-            mp_tjkt AS tjkt ON mp.id = tjkt.mata_pelajaran_id
-        left join
-            mp_dkv AS dkv ON mp.id = dkv.mata_pelajaran_id
-        left join
-            mp_pm AS pm ON mp.id = pm.mata_pelajaran_id
-        WHERE 
-            mp.nama_pelajaran LIKE '%$keyword%' OR
-           otkp.nama_pelajaran_otkp LIKE '%$keyword%' OR
-            pplg.nama_pelajaran_pplg LIKE '%$keyword%' OR
-           tjkt.nama_pelajaran_tjkt LIKE '%$keyword%' OR
-           dkv.nama_pelajaran_dkv LIKE '%$keyword%' OR
-           pm.nama_pelajaran_pm LIKE '%$keyword%'";
-            
- 
+    $query = "SELECT 
+                  id,
+                  nama_pelajaran,
+                  kategori,
+                  gambar,
+                  link_pelajaran
+              FROM 
+                  mata_pelajaran
+              WHERE 
+                  nama_pelajaran LIKE '%$keyword%' 
+                  OR kategori LIKE '%$keyword%'";
     return query($query);
 }
+
 ?>
