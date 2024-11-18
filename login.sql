@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2024 at 07:17 PM
+-- Generation Time: Nov 18, 2024 at 06:17 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -54,133 +54,26 @@ INSERT INTO `admin` (`ID`, `Username`, `Password`, `Role`, `name`, `email`, `pho
 
 CREATE TABLE `mata_pelajaran` (
   `id` int(11) NOT NULL,
-  `nama_pelajaran` varchar(100) NOT NULL
+  `nama_pelajaran` varchar(100) NOT NULL,
+  `gambar` varchar(255) DEFAULT NULL,
+  `link_pelajaran` varchar(255) DEFAULT NULL,
+  `kategori` enum('PPLG','OTKP','PEMASARAN','DKV','TJKT') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `mata_pelajaran`
 --
 
-INSERT INTO `mata_pelajaran` (`id`, `nama_pelajaran`) VALUES
-(1, 'HTML & CSS'),
-(2, 'JavaScript'),
-(3, 'PHP'),
-(4, 'Arduino'),
-(5, 'Jaringan Komputer'),
-(6, 'Server Admin'),
-(7, 'Akutansi'),
-(8, 'Videografi'),
-(9, 'Fotografi'),
-(10, 'Online Bisnis');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mp_dkv`
---
-
-CREATE TABLE `mp_dkv` (
-  `id` int(11) NOT NULL,
-  `nama_pelajaran_dkv` varchar(100) NOT NULL,
-  `gambar` varchar(255) DEFAULT NULL,
-  `link_pelajaran` varchar(255) DEFAULT NULL,
-  `mata_pelajaran_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `mp_dkv`
---
-
-INSERT INTO `mp_dkv` (`id`, `nama_pelajaran_dkv`, `gambar`, `link_pelajaran`, `mata_pelajaran_id`) VALUES
-(4, 'Videografi', 'img-logo/videografi.png', 'learningVideografi.php', 8);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mp_otkp`
---
-
-CREATE TABLE `mp_otkp` (
-  `id` int(11) NOT NULL,
-  `nama_pelajaran_otkp` varchar(100) NOT NULL,
-  `gambar` varchar(255) DEFAULT NULL,
-  `link_pelajaran` varchar(255) DEFAULT NULL,
-  `mata_pelajaran_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `mp_otkp`
---
-
-INSERT INTO `mp_otkp` (`id`, `nama_pelajaran_otkp`, `gambar`, `link_pelajaran`, `mata_pelajaran_id`) VALUES
-(3, 'Akutansi', 'img-logo/akutansi-removebg-preview.png', 'learningAkuntansi.php', 7);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mp_pm`
---
-
-CREATE TABLE `mp_pm` (
-  `id` int(11) NOT NULL,
-  `nama_pelajaran_pm` varchar(100) NOT NULL,
-  `gambar` varchar(255) DEFAULT NULL,
-  `link_pelajaran` varchar(255) DEFAULT NULL,
-  `mata_pelajaran_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `mp_pm`
---
-
-INSERT INTO `mp_pm` (`id`, `nama_pelajaran_pm`, `gambar`, `link_pelajaran`, `mata_pelajaran_id`) VALUES
-(4, 'Online Bisnis', 'img-logo/online.png', 'learningOnlineBisnis.php', 10);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mp_pplg`
---
-
-CREATE TABLE `mp_pplg` (
-  `id` int(11) NOT NULL,
-  `nama_pelajaran_pplg` varchar(100) NOT NULL,
-  `gambar` varchar(255) DEFAULT NULL,
-  `link_pelajaran` varchar(255) DEFAULT NULL,
-  `mata_pelajaran_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `mp_pplg`
---
-
-INSERT INTO `mp_pplg` (`id`, `nama_pelajaran_pplg`, `gambar`, `link_pelajaran`, `mata_pelajaran_id`) VALUES
-(1, 'HTML & CSS', 'img-logo/htmlcss-removebg-preview.png', 'learningHtmlCss.php', 1),
-(2, 'JavaScript', 'img-logo/js.png', 'learningJavaScript.php', 2),
-(3, 'PHP', 'img-logo/pehape-removebg-preview.png', 'learningPhp.php', 3);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mp_tjkt`
---
-
-CREATE TABLE `mp_tjkt` (
-  `id` int(11) NOT NULL,
-  `nama_pelajaran_tjkt` varchar(100) NOT NULL,
-  `gambar` varchar(255) DEFAULT NULL,
-  `link_pelajaran` varchar(255) DEFAULT NULL,
-  `mata_pelajaran_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `mp_tjkt`
---
-
-INSERT INTO `mp_tjkt` (`id`, `nama_pelajaran_tjkt`, `gambar`, `link_pelajaran`, `mata_pelajaran_id`) VALUES
-(1, 'Arduino', 'img-logo/arduino-removebg-preview.png', 'learningArduino.php', 4),
-(2, 'Jaringan Komputer', 'img-logo/jaringankom-removebg-preview.png', 'learningJaringanKomputer.php', 5),
-(3, 'Server Administrator', 'img-logo/server-removebg-preview.png', 'learningServerAdministrator.php', 6);
+INSERT INTO `mata_pelajaran` (`id`, `nama_pelajaran`, `gambar`, `link_pelajaran`, `kategori`) VALUES
+(1, 'HTML & CSS', 'img-logo/htmlcss-removebg-preview.png', 'learningHtml.php', 'PPLG'),
+(2, 'JavaScript', 'img-logo/js.png', 'JavaScript.php', 'PPLG'),
+(3, 'PHP', 'img-logo/pehape-removebg-preview.png', 'learningPhp.php', 'PPLG'),
+(4, 'Akutansi', 'img-logo/akutansi-removebg-preview.png', 'learningAkuntansi.php', 'OTKP'),
+(5, 'Online Bisnis', 'img-logo/online.png', 'learningOnlineBisnis.php', 'PEMASARAN'),
+(6, 'Videografi', 'img-logo/videografi.png', 'learningVideografi.php', 'DKV'),
+(7, 'Arduino', 'img-logo/arduino-removebg-preview.png', 'arduino.php', 'TJKT'),
+(8, 'Jaringan Komputer', 'img-logo/jaringankom-removebg-preview.png', 'learningJaringanKomputer.php', 'TJKT'),
+(9, 'Server Administrator', 'img-logo/server-removebg-preview.png', 'learningServerAdministrator.php', 'TJKT');
 
 -- --------------------------------------------------------
 
@@ -212,7 +105,8 @@ INSERT INTO `siswa` (`ID`, `Nama`, `Username`, `NIS`, `Password`, `Role`, `statu
 (15, 'Gunawan Hakim', 'gnwn67', '567891233', '$2y$10$n3yUsAuaPzSJ5oTXRH.wp.vFQoX7UB4Oql2POmGbdiZjAOFnuHlu6', 'S', 'aktif', '10', 'PPLG', NULL),
 (16, 'Arif Erlangga', 'rifff', '45612789', '$2y$10$J5QXZAfk3J4WKEur3oWYHeuZPl5E41Pev.UUnXfLoEtARUaKqURn.', 'S', 'aktif', '11', 'TJKT', NULL),
 (17, 'Kiara Elvia', 'kiaraaa', '567812990', '$2y$10$.fVdvmXh8Vd/T914nTsZkelsOpks0eIwEaW.Mz8PnXm1BxXA0ZUjC', 'S', 'aktif', '12', 'OTKP', NULL),
-(18, 'Fatimah Hasan', 'flowertim', '7894456', '$2y$10$pK8pEE84ppPu4DDKrmPLO.dy7YU1wm38F33emyFIU87ZFrUFmMx/O', 'S', 'aktif', '10', 'PM', NULL);
+(18, 'Fatimah Hasan', 'flowertim', '7894456', '$2y$10$pK8pEE84ppPu4DDKrmPLO.dy7YU1wm38F33emyFIU87ZFrUFmMx/O', 'S', 'aktif', '10', 'PM', NULL),
+(19, 'zzz', 'zzz', '12321312321', '$2y$10$FTVID9BGCK7HvXbVJcKcMek2JPPRSK107y670FquEmc7gyS7ZgVVe', 'S', 'aktif', '11', 'DKV', '2024-11-18 17:44:47');
 
 --
 -- Indexes for dumped tables
@@ -229,41 +123,6 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `mata_pelajaran`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `mp_dkv`
---
-ALTER TABLE `mp_dkv`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `mata_pelajaran_id` (`mata_pelajaran_id`);
-
---
--- Indexes for table `mp_otkp`
---
-ALTER TABLE `mp_otkp`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `mata_pelajaran_id` (`mata_pelajaran_id`);
-
---
--- Indexes for table `mp_pm`
---
-ALTER TABLE `mp_pm`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `mata_pelajaran_id` (`mata_pelajaran_id`);
-
---
--- Indexes for table `mp_pplg`
---
-ALTER TABLE `mp_pplg`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `mata_pelajaran_id` (`mata_pelajaran_id`);
-
---
--- Indexes for table `mp_tjkt`
---
-ALTER TABLE `mp_tjkt`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `mata_pelajaran_id` (`mata_pelajaran_id`);
 
 --
 -- Indexes for table `siswa`
@@ -285,77 +144,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `mata_pelajaran`
 --
 ALTER TABLE `mata_pelajaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `mp_dkv`
---
-ALTER TABLE `mp_dkv`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `mp_otkp`
---
-ALTER TABLE `mp_otkp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `mp_pm`
---
-ALTER TABLE `mp_pm`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `mp_pplg`
---
-ALTER TABLE `mp_pplg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `mp_tjkt`
---
-ALTER TABLE `mp_tjkt`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `mp_dkv`
---
-ALTER TABLE `mp_dkv`
-  ADD CONSTRAINT `mp_dkv_ibfk_1` FOREIGN KEY (`mata_pelajaran_id`) REFERENCES `mata_pelajaran` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `mp_otkp`
---
-ALTER TABLE `mp_otkp`
-  ADD CONSTRAINT `mp_otkp_ibfk_1` FOREIGN KEY (`mata_pelajaran_id`) REFERENCES `mata_pelajaran` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `mp_pm`
---
-ALTER TABLE `mp_pm`
-  ADD CONSTRAINT `mp_pm_ibfk_1` FOREIGN KEY (`mata_pelajaran_id`) REFERENCES `mata_pelajaran` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `mp_pplg`
---
-ALTER TABLE `mp_pplg`
-  ADD CONSTRAINT `mp_pplg_ibfk_1` FOREIGN KEY (`mata_pelajaran_id`) REFERENCES `mata_pelajaran` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `mp_tjkt`
---
-ALTER TABLE `mp_tjkt`
-  ADD CONSTRAINT `mp_tjkt_ibfk_1` FOREIGN KEY (`mata_pelajaran_id`) REFERENCES `mata_pelajaran` (`id`) ON DELETE CASCADE;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
